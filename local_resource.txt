@@ -1,0 +1,5 @@
+*** Variables ***
+
+*** Keywords ***
+Go to homepage
+    Open Browser    ${DRUPAL_URL}    ${BROWSER}    
