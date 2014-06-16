@@ -27,9 +27,10 @@ Plaza Login with CAS
     login Auth    ${username}      ${password}    You are currently logged in as ${username}
     Set Log Level    DEBUG
     Go to    ${DRUPAL_URL}
-    Click Element    dom=document.getElementById("block-menu-menu-log-in-menu").getElementsByTagName("li")[1]
-    Wait Until Page Contains    Logged in via CAS
-    Go to    ${DRUPAL_URL}
     Wait Until Page Contains    ${username}
-    Close All Browsers
+#    Click Element    dom=document.getElementById("block-menu-menu-log-in-menu").getElementsByTagName("li")[1]
+#    Wait Until Page Contains    Logged in via CAS
+#    Go to    ${DRUPAL_URL}
+#    Wait Until Page Contains    ${username}
+#    Close All Browsers
 
