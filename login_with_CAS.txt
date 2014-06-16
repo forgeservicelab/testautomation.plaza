@@ -1,6 +1,6 @@
 *** Settings ***
-#Suite Setup    Go to homepage
-#Suite Teardown    Close All Browsers
+Suite Setup    Go to homepage
+Suite Teardown    Close All Browsers
 Test Template    Plaza Login with CAS
 Resource    ./common/assets/secrets.txt
 Resource    ./common/assets/resource.txt
@@ -12,9 +12,9 @@ ${PASSWORD}    ${VALID_PASSWORD}
 ${TO}    ${TO_XMPP}
 
 *** Test Cases ***    Username                Password
-#digile staff          ${VALID_USER}   ${VALID_PASSWORD}
-#service develope      ${VALID_SERVICE_DEVELOPER}   ${VALID_SERVICE_DEVELOPER_PASSWORD}
-#partner               ${VALID_PARTNER}   ${VALID_PARTNER_PASSWORD}
+digile staff           ${VALID_USER}   ${VALID_PASSWORD}
+service developer      ${VALID_SERVICE_DEVELOPER}   ${VALID_SERVICE_DEVELOPER_PASSWORD}
+partner                ${VALID_PARTNER}   ${VALID_PARTNER_PASSWORD}
 partner with cra       ${VALID_PARTNERCRA}    ${VALID_PARTNERCRA_PASSWORD}
 
 
@@ -22,15 +22,19 @@ partner with cra       ${VALID_PARTNERCRA}    ${VALID_PARTNERCRA_PASSWORD}
 *** Keywords ***
 Plaza Login with CAS
     [Arguments]    ${username}    ${password}
-    Go to homepage
+    Go to    ${AUTH_URL} 
+    Wait Until Page Contains    Login
     Set Log Level    NONE
     login Auth    ${username}      ${password}    You are currently logged in as ${username}
     Set Log Level    DEBUG
+    Go to    ${DRUPAL_URL}/en/cas?destination=node/11
+    Wait Until Page Contains    ${username}
+    Go to    ${AUTH_URL}
+    Wait Until Page Contains    Hello
+    Go to    ${AUTH_URL}/logout
+    Wait Until Page Contains    Bye.
     Go to    ${DRUPAL_URL}
     Wait Until Page Contains    ${username}
-#    Click Element    dom=document.getElementById("block-menu-menu-log-in-menu").getElementsByTagName("li")[1]
-#    Wait Until Page Contains    Logged in via CAS
-#    Go to    ${DRUPAL_URL}
-#    Wait Until Page Contains    ${username}
-    Close All Browsers
+    Go to    ${DRUPAL_URL}/en/user/logout
+    Wait Until Page Contains    Log in
 
