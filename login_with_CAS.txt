@@ -1,0 +1,35 @@
+*** Settings ***
+#Suite Setup    Go to homepage
+#Suite Teardown    Close All Browsers
+Test Template    Plaza Login with CAS
+Resource    ./common/assets/secrets.txt
+Resource    ./common/assets/resource.txt
+Resource    local_resource.txt
+
+*** Variables ***
+${USER}    ${VALID_USER}
+${PASSWORD}    ${VALID_PASSWORD}
+${TO}    ${TO_XMPP}
+
+*** Test Cases ***    Username        Password
+digile staff          ${VALID_USER}   ${VALID_PASSWORD}
+service develope      ${VALID_SERVICE_DEVELOPER}   ${VALID_SERVICE_DEVELOPER_PASSWORD}
+partner               ${VALID_PARTNER}   ${VALID_PARTNER_PASSWORD}
+partner with cr       ${VALID_PARTNERCRA}   ${VALID_PARTNERCRA_PASSWORD}
+
+
+
+*** Keywords ***
+Plaza Login with CAS
+    [Arguments]    ${username}    ${password}
+    Go to homepage
+    Set Log Level    NONE
+    login Auth    ${username}      ${password}    You are currently logged in as ${username}
+    Set Log Level    DEBUG
+    Go to    ${DRUPAL_URL}
+    Click Element    dom=document.getElementById("block-menu-menu-log-in-menu").getElementsByTagName("li")[1]
+    Wait Until Page Contains    Logged in via CAS
+    Go to    ${DRUPAL_URL}
+    Wait Until Page Contains    ${username}
+    Close All Browsers
+

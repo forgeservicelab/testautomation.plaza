@@ -5,7 +5,6 @@ Resource    ./common/assets/resource.txt
 Resource    local_resource.txt
 
 
-
 *** Variables ***
 
 *** Test Cases ***
