@@ -12,4 +12,4 @@ Go to dashboard
     Open Browser    ${DRUPAL_URL}    ${BROWSER}    
 Go to homepage
     Open Browser    ${AUTH_URL}    ${BROWSER}    
-    Wait Until Page Contains    ${results}
+#    Wait Until Page Contains    FORGE
