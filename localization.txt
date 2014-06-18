@@ -15,6 +15,9 @@ Suomi Dashboard
 Ota yhteyttä
     Click Link    link=Ota yhteyttä
     Wait Until Page Contains    Otathan yhteyttä
-
+    Wait Until Page Contains    Sähköpostiosoitteesi
+Projektit
+    Click Link    link=PROJEKTIT
+    Wait Until Page Contains    Kaikki Palvelupaja FORGEn palvelukehitysprojektit löytyvät täältä.
 
 *** Keywords ***
