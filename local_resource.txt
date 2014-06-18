@@ -8,6 +8,8 @@ login Auth
     Input Text    id=password    ${password}
     Set Log Level    DEBUG
     Click Button  name=button
-    Wait Until Page Contains    ${results}
+Go to dashboard 
+    Open Browser    ${DRUPAL_URL}    ${BROWSER}    
 Go to homepage
     Open Browser    ${AUTH_URL}    ${BROWSER}    
+    Wait Until Page Contains    ${results}

@@ -1,0 +1,20 @@
+*** Settings ***
+Suite Setup    Go to dashboard
+#Suite Teardown    Close All Browsers
+Resource    ./common/assets/resource.txt
+Resource    local_resource.txt
+
+
+*** Variables ***
+
+*** Test Cases ***
+Suomi Dashboard
+    Wait Until Page Contains    Join Forge
+    Click Link    link=SUOMI
+    Wait Until Page Contains    Palvelupaja
+Ota yhteyttä
+    Click Link    link=Ota yhteyttä
+    Wait Until Page Contains    Otathan yhteyttä
+
+
+*** Keywords ***
