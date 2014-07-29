@@ -13,3 +13,6 @@ Go to dashboard
 Go to homepage
     Open Browser    ${AUTH_URL}    ${BROWSER}    
 #    Wait Until Page Contains    FORGE
+Go to frontpage
+    Open Browser    ${DRUPAL_URL}   ${BROWSER}
+
