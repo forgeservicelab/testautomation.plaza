@@ -1,0 +1,52 @@
+*** Settings ***
+Documentation    Searching Company, parameter for search is SEARCH_TERM
+Suite Setup    Go to frontpage
+Suite Teardown    Close All Browsers
+Resource    ./common/assets/secrets.txt
+Resource    ./common/assets/resource.txt
+Resource    local_resource.txt
+
+
+*** Variables ***
+${SEARCH_TERM}  Weego
+
+
+*** Test Cases ***
+Search Weego as anonymous
+    Go to   ${DRUPAL_URL}/en/search
+    Wait Until Page Contains Element    id=edit-keyword
+    Input Text  id=edit-keyword     ${SEARCH_TERM}
+    Click Element   id=edit-submit-search
+    Wait Until Page Contains    Filter by category
+    Page Should Contain     Search found
+    Page Should Not Contain     Search found 0 items
+    Click Element   xpath=//div[1]/h4/a   
+    Wait Until Page Contains    Address
+Search Weego as partner
+    Go to   ${AUTH_URL}
+    login Auth    ${VALID_PARTNER}      ${VALID_PARTNER_PASSWORD}    You are currently logged in as ${VALID_PARTNER}
+    Go to   ${DRUPAL_URL}/en/search
+    Wait Until Page Contains Element    id=edit-keyword
+    Input Text  id=edit-keyword     ${SEARCH_TERM}
+    Click Element   id=edit-submit-search
+    Wait Until Page Contains    Filter by category
+    Page Should Contain     Search found
+    Page Should Not Contain     Search found 0 items
+    Click Element   xpath=//div[1]/h4/a   
+    Wait Until Page Contains    Address
+    #Click Element   link=Log out
+Search Weego as admin
+    Go to   ${AUTH_URL}
+    Click Link  Logout
+    Go to   ${AUTH_URL}
+    login Auth    ${VALID_USER}      ${VALID_PASSWORD}    You are currently logged in as ${VALID_USER}
+    Go to   ${DRUPAL_URL}/en/search
+    Wait Until Page Contains Element    id=edit-keyword
+    Input Text  id=edit-keyword     ${SEARCH_TERM}
+    Click Element   id=edit-submit-search
+    Wait Until Page Contains    Filter by category
+    Page Should Contain     Search found
+    Page Should Not Contain     Search found 0 items
+    Click Element   xpath=//div[1]/h4/a   
+    Wait Until Page Contains    Address
+    #Click Element   link=Log out
