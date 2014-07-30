@@ -1,6 +1,5 @@
---name Testing Environment
+--name Production Environment
 dashboard.txt
-join_forge.txt
 localization.txt
 login_with_CAS.txt
 search.txt
