@@ -21,7 +21,7 @@ Search Weego as anonymous
     Page Should Contain     Search found
     Page Should Not Contain     Search found 0 items
     Click Element   xpath=//div[1]/h4/a   
-    Wait Until Page Contains    Address
+    Wait Until Page Contains    Contact
 Search Weego as partner
     Go to   ${AUTH_URL}
     login Auth    ${VALID_PARTNER}      ${VALID_PARTNER_PASSWORD}    You are currently logged in as ${VALID_PARTNER}
@@ -33,7 +33,7 @@ Search Weego as partner
     Page Should Contain     Search found
     Page Should Not Contain     Search found 0 items
     Click Element   xpath=//div[1]/h4/a   
-    Wait Until Page Contains    Address
+    Wait Until Page Contains    Contact
     #Click Element   link=Log out
 Search Weego as admin
     Go to   ${AUTH_URL}
@@ -48,5 +48,5 @@ Search Weego as admin
     Page Should Contain     Search found
     Page Should Not Contain     Search found 0 items
     Click Element   xpath=//div[1]/h4/a   
-    Wait Until Page Contains    Address
+    Wait Until Page Contains    Contact
     #Click Element   link=Log out

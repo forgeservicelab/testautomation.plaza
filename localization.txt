@@ -14,7 +14,7 @@ Suomi Dashboard
     Wait Until Page Contains    Palvelupaja
 Ota yhteyttä
     Click Link    link=Ota yhteyttä
-    Wait Until Page Contains    Otathan yhteyttä
+    Wait Until Page Contains    voit ottaa yhteyttä
     Wait Until Page Contains    Sähköpostiosoitteesi
 Projektit
     Click Link    link=PROJEKTIT
