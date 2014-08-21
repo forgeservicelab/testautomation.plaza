@@ -1,6 +1,7 @@
 --name Testing Environment
 build2/
 build5/
+build6/
 join_forge.txt
 localization.txt
 login_with_CAS.txt
