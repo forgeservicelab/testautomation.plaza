@@ -1,0 +1,49 @@
+*** Settings ***
+Documentation    Test learn more link
+Suite Setup    Go to dashboard
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+
+*** Test Cases ***
+Learn More service developer
+    Click Link    Join Forge
+    Wait Until Page Contains    Join FORGE Service Lab!
+    Click Element   id=edit-submitted-role-1
+    Wait Until Page Contains    Learn more
+    Click Link    Learn more
+    Page Should Contain    I want to develop a world-class digital service
+    Page Should Contain    What is this?
+    Click Link    Back to role selection
+Learn More offer my expertice
+    Click Element   id=edit-submitted-role-2
+    Wait Until Page Contains    Learn more
+    Click Element    xpath=(//a[contains(text(),'Learn more')])[2]
+    Page Should Contain    FORGE Partner role information 
+    Page Should Contain    What is this?
+    Click Link    Back to role selection
+Learn More offer my APIs
+    Click Element   id=edit-submitted-role-3
+    Wait Until Page Contains    Learn more
+    Click Element    xpath=(//a[contains(text(),'Learn more')])[3]
+    Page Should Contain    FORGE Partner role information
+    Page Should Contain    What is this?
+    Click Link    Back to role selection
+Learn More offer my APIs and need cra
+    Sleep    5 s
+    Click Element   id=edit-submitted-role-4
+    Wait Until Page Contains    Learn more
+    Click Element    xpath=(//a[contains(text(),'Learn more')])[4]
+    Page Should Contain    FORGE Partner role information
+    Page Should Contain    What is this?
+    Click Link    Back to role selection
+Learn More offer i want several of there
+    Click Element   id=edit-submitted-role-5
+    Page Should Contain    If you need more than one role
+Learn More offer i am subcontractor
+    Click Element   id=edit-submitted-role-6
+    Page Should Contain    Service developer's contract with DIGILE covers subcontractors, so separate contract is not needed.
+*** Keywords ***
