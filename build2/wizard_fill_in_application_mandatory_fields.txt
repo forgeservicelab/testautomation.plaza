@@ -1,0 +1,89 @@
+*** Settings ***
+Documentation   Login as Parner with CRA and test wizard mandatory fields
+Suite Setup    Login as partner with cra
+#Suite Teardown    Log out and Close Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+${USER}    ${VALID_PARTNERCRA}
+${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
+
+*** Test Cases ***
+I want to develop a world-class digital service Mandatory Fields
+    Click Link  Join Forge
+    Wait Until Page Contains    Join FORGE Service Lab!
+    Sleep   10 s
+    Click Element   id=edit-submitted-role-1
+    Click Element   jquery=input.button-primary
+    Wait Until Page Contains    Join FORGE Service Lab!
+    Sleep   10 s
+    Click Element   jquery=input.button-primary
+    Wait Until Page Contains    Parties involved 
+    Click Element   name=op
+    Page Should Contain    Company name field is required.
+    Page Should Contain    Business ID field is required.
+    Page Should Contain    Name of the project field is required.
+    Page Should Contain    Concise description of the service developed field is required.
+    Page Should Contain    Name field is required.
+    Page Should Contain    Title field is required.
+    Page Should Contain    Mobile (SMS capable) field is required.
+    Page Should Contain    Email field is required.
+    Page Should Contain    Invoicing address field is required.
+    Page Should Contain    Organization name field is required.
+    Page Should Contain    The value of the development project concerning Developed Service field is required.
+    Page Should Contain    DIGILE service fee (amount in euros) field is required.
+    Page Should Contain    The Service Fee is due payable within field is required.
+    Page Should Contain    Contract termination field is required.
+    Page Should Contain    Attn field is required.
+    Page Should Contain    Address field is required.
+I want to offer my expertice Mandatory Fields
+    Click Link  Join Forge
+    Wait Until Page Contains    Join FORGE Service Lab!
+    Sleep   10 s
+    Click Element   id=edit-submitted-role-2
+    Click Element   jquery=input.button-primary
+    Wait Until Page Contains    Join FORGE Service Lab!
+    Sleep   10 s
+    Click Element   jquery=input.button-primary
+    Wait Until Page Contains    Cost, payment
+    Click Element   name=op
+    Page Should Contain    Organization name field is required.
+    Page Should Contain    Business ID field is required.
+    Page Should Contain    Partner offering description field is required.
+    Page Should Contain    Attn field is required.
+    Page Should Contain    Address field is required.
+I want to offer APIs Fields
+    Click Link  Join Forge
+    Wait Until Page Contains    Join FORGE Service Lab!
+    Sleep   10 s
+    Click Element   id=edit-submitted-role-3
+    Click Element   jquery=input.button-primary
+    Wait Until Page Contains    Join FORGE Service Lab!
+    Sleep   10 s
+    Click Element   jquery=input.button-primary
+    Wait Until Page Contains    Cost, payment
+    Click Element   name=op
+    Page Should Contain    Organization name field is required.
+    Page Should Contain    Business ID field is required.
+    Page Should Contain    Partner offering description field is required.
+    Page Should Contain    Attn field is required.
+    Page Should Contain    Address field is required.
+I want to offer APIs and neewd cra Fields
+    Click Link  Join Forge
+    Wait Until Page Contains    Join FORGE Service Lab!
+    Sleep   10 s
+    Click Element   id=edit-submitted-role-4
+    Click Element   jquery=input.button-primary
+    Wait Until Page Contains    Join FORGE Service Lab!
+    Sleep   10 s
+    Click Element   jquery=input.button-primary
+    Wait Until Page Contains    Cost, payment
+    Click Element   name=op
+    Page Should Contain    Organization name field is required.
+    Page Should Contain    Business ID field is required.
+    Page Should Contain    Partner offering description field is required.
+    Page Should Contain    Attn field is required.
+    Page Should Contain    Address field is required.
