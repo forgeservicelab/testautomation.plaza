@@ -1,0 +1,25 @@
+*** Settings ***
+Documentation    Verifyes that when partner logs in plaza he will be redirected to plaza page instead of forgeservilab main page
+Suite Setup    Go to frontpage
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/resource.txt
+Resource    ../common/assets/secrets.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+${username}    ${VALID_PARTNER}
+${password}    ${VALID_PARTNER_PASSWORD}
+
+*** Test Cases ***
+Plaza opened for Partner after Login
+    Click Link    Log in
+    Wait Until Page Contains    Username
+    Set Log Level    NONE
+    login Auth    ${username}      ${password}    You are currently logged in as ${username}
+    Set Log Level    DEBUG
+    Wait Until Page Contains    FORGE Plaza
+    Page Should Contain    ${username}
+
+*** Keywords ***
+
