@@ -20,6 +20,9 @@ Plaza opened for Partner after Login
     Set Log Level    DEBUG
     Wait Until Page Contains    FORGE Plaza
     Page Should Contain    ${username}
+Plaza own content
+    Click Link    Own content
+    Page Should Contain    Published
 
 *** Keywords ***
 
