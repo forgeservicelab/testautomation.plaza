@@ -1,0 +1,36 @@
+*** Settings ***
+Documentation   Test mandatory fields in organization adding
+Suite Setup    Login as partner with cra 
+Suite Teardown    Log out and Close Browsers
+Test Template    Add company
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+*** Variables ***
+${USER}    ${VALID_PARTNERCRA}
+${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
+
+*** Test Cases ***         Org Title   Free Text    Org Address    Validation
+Empty Organization title   ${EMPTY}    free text    address        Organization title field is required.
+Empty Free Text Org        AutoOrg     ${EMPTY}     address        Free text organization field is required.
+Empty Address title        AutoOrg     free text    ${EMPTY}       Organization address field is required.
+
+*** Keywords ***
+Add company
+    [Arguments]    ${orgtitle}    ${freetext}    ${address}    ${validation}
+    Mouse Over  link=Add content    
+    Click Element   link=Organization
+    Wait Until Page Contains    Organization title
+    Input Text  id=edit-field-page-title-und-0-value    ${orgtitle}
+    Click Element   id=cke_31_label
+    Input Text  jquery=textarea.cke_contents_ltr   ${freetext}
+    Click Element   id=cke_31_label
+    Input Text  id=edit-field-company-address-und-0-value    ${address}   
+    Click Element   id=edit-submit
+    Page Should Contain    ${validation} 
+Log Out and Close Browsers
+    Wait Until Page Contains    Log out
+    Click Element   link=Log out
+    Wait Until Page Contains    Log in
+    Close All Browsers

@@ -1,0 +1,26 @@
+*** Settings ***
+Documentation   Check that all fields must be entered when creating product family 
+Suite Setup    Login as partner with cra
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+*** Variables ***
+${USER}    ${VALID_PARTNERCRA}
+${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
+
+*** Test Cases ***
+Add product family
+    Wait Until Page Contains    Add content
+    Mouse Over  link=Add content
+    Click Element   link=Product family
+    Wait Until Page Contains    Product family title
+    Input Text  id=edit-title   ${EMPTY}
+    Input Text  id=edit-field-page-title-und-0-value    ${EMPTY}
+    Input Text  id=edit-field-product-family-title-und-0-value  ${EMPTY}
+    Click Element   id=edit-submit
+    Page Should Contain    Title field is required
+    Page Should Contain    Product family title field is required
+    Page Should Contain    Product family title field is required
+

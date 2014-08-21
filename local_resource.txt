@@ -8,11 +8,34 @@ login Auth
     Input Text    id=password    ${password}
     Set Log Level    DEBUG
     Click Button  name=button
+
 Go to dashboard 
     Open Browser    ${DRUPAL_URL}    ${BROWSER}    
+
 Go to homepage
     Open Browser    ${AUTH_URL}    ${BROWSER}    
 #    Wait Until Page Contains    FORGE
+
 Go to frontpage
     Open Browser    ${DRUPAL_URL}   ${BROWSER}
 
+Auth LOGIN OK
+    Set Log Level    NONE
+    login Auth    ${VALID_USER}      ${VALID_PASSWORD}    You are currently logged in as ${VALID_USER}
+    Set Log Level    DEBUG
+    Go to   ${DRUPAL_URL}
+
+Login as partner with cra
+    Open Browser    ${DRUPAL_URL}
+    Click Link    Log in
+    Input Text    id=username    ${USER}
+    Set Log Level    NONE
+    Input Text    id=password    ${PASSWORD}
+    Set Log Level    DEBUG
+    Click Button  name=button
+
+Log Out and Close Browsers
+    Wait Until Page Contains    Log out
+    Click Element   link=Log out
+    Wait Until Page Contains    Log in
+    Close All Browsers

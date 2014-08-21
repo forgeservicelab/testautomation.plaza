@@ -1,0 +1,62 @@
+*** Settings ***
+Documentation   Test Product offering category fields
+Suite Setup    Login as partner with cra 
+Suite Teardown    Log out and Close Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+*** Variables ***
+${USER}    ${VALID_PARTNERCRA}
+${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
+${ORGANIZATION_TITLE}   Test organization
+${PRODUCT_FAMILY_TITLE}     Test title
+${PRODUCT_OFFERING_TITLE}   Test product offering
+${SERVICE_OFFERING_TITLE}   Test service offering
+${SEARCH_URL}   ${DRUPAL_URL}/en/search
+
+
+*** Test Cases ***
+Add product offering Category fields
+    Wait Until Page Contains    Add content
+    Mouse Over  link=Add content
+    Click Element   link=Product offering
+    Wait Until Page Contains    What is your offering and why is it great?
+    Input Text  id=edit-field-page-title-und-0-value    title
+    Input Text  id=edit-field-offering-tags-und     tags
+    Click Element   id=cke_55
+    Input Text  jquery=textarea.cke_contents_ltr    info
+    Click Element   id=cke_55
+#    Select Checkbox     id=edit-field-category-und-73
+#    Select Checkbox     id=edit-field-category-und-36
+#    Select Checkbox     id=edit-field-category-und-47
+#    Select From List By Label   id=edit-field-collection-und    ${PRODUCT_FAMILY_TITLE}
+    Input Text  id=edit-field-geographical-coverage-und-0-value     Europe only
+    Select Checkbox     id=edit-field-geographical-coverage-term-und-8
+    Click Element   id=cke_88
+#    Input Text  jquery=textarea.cke_contents_ltr    This is a test owerview text for the product offering
+    Click Element   id=cke_88
+    Click Link  Pricing
+    Input Text  id=edit-field-pricing-information-und-0-value   100 $
+    Click Element   id=cke_152
+#    Input Text  jquery=textarea.cke_contents_ltr    Test pricing description
+    Click Element   id=cke_152
+    Click Link  Terms and conditions
+    Click Element   id=cke_216
+    Input Text  jquery=textarea.cke_contents_ltr    terms
+    Click Element   id=cke_216
+    Click Element   id=cke_248
+    Input Text  jquery=textarea.cke_contents_ltr    terms
+    Input Text  id=edit-field-cancellation-refund-policy-und-0-value    cancellation
+#    Click Element   id=cke_248
+#    Input Text  id=edit-field-live-demo-url-und-0-title     Test url title
+#    Input Text  id=edit-field-live-demo-url-und-0-url   http://www.google.com
+#    Click Element   dom=document.getElementsByName('field_organizer[und]')[0]
+#    Input Text  id=edit-field-offering-address-und-0-value  Test Person, Testroad 5
+#    Input Text  id=edit-field-offering-phone-und-0-value    +358400123456
+#    Input Text  id=edit-field-offering-email-und-0-email    test@testemailaddress.com
+#    Input Text  id=edit-field-offering-website-und-0-url    http://www.google.com
+    Click Element    id=edit-submit
+    Wait Until Page Contains    Minimum 1, maximum 99
+
+*** Keywords ***

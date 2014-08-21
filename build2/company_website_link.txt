@@ -1,0 +1,26 @@
+*** Settings ***
+Documentation    Searching Company, and click company website link. 
+Suite Setup    Go to frontpage
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+${SEARCH_TERM}  Weego 
+
+
+*** Test Cases ***
+Company website is link
+    Go to   ${DRUPAL_URL}/en/search
+    Wait Until Page Contains Element    id=edit-keyword
+    Input Text  id=edit-keyword     ${SEARCH_TERM}
+    Click Element   id=edit-submit-search
+    Wait Until Page Contains    Filter by category
+    Page Should Contain     Search found
+    Page Should Not Contain     Search found 0 items
+    Click Element   xpath=//div[1]/h4/a   
+    Wait Until Page Contains    Website
+    Click Link    www.weego.fi
+    Wait Until Page Contains  Tervetuloa Weegon kotisivuille  

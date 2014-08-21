@@ -1,0 +1,24 @@
+*** Settings ***
+Documentation    Check all Contracts link in Wizard
+Suite Setup    Go to frontpage
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+
+
+*** Test Cases ***
+Check link and content
+    Click Link    Join Forge
+    Wait Until Page Contains    All contracts 
+    Click Link    FORGE Service Lab contractual framework including all contract documents
+    Page Should Contain    Here are FORGE Service Lab Terms of Services and Contracts for you to get familiar and to download.
+    Page Should Contain    FORGE Service Lab TC
+    Page Should Contain    FORGE Service Lab SDA
+    Page Should Contain    FORGE Service Lab FPA CRA
+    Page Should Contain    FORGE Service Lab FPA
+    Click Link    Click here to return to the Join Forge.
+    Page Should Contain    Join FORGE Service Lab!

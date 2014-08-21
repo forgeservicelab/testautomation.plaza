@@ -1,0 +1,51 @@
+*** Settings ***
+Documentation   Test phone number validation when adding new organization
+Suite Setup    Login as partner with cra 
+Suite Teardown    Log out and Close Browsers
+Test Template    Add company
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+*** Variables ***
+${USER}    ${VALID_PARTNERCRA}
+${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
+${ORGANIZATION_TITLE}   Test organization
+${PRODUCT_FAMILY_TITLE}     Test title
+${PRODUCT_OFFERING_TITLE}   Test product offering
+${SERVICE_OFFERING_TITLE}   Test service offering
+${SEARCH_URL}   ${DRUPAL_URL}/en/search
+
+
+*** Test Cases ***      Phone Number
+Plain text              phonenumber
+#Empty                   ${EMPTY}  #Phone number is not mandatory
+Text starting with +    +phone
+Text and numbers        +345test
+Numbers                 12345678
+Number and text         1234abc
+PlusNumber and text     +358asd
+
+*** Keywords ***
+Add company
+    [Arguments]    ${phonenumber}
+    Mouse Over  link=Add content    
+    Click Element   link=Organization
+    Wait Until Page Contains    Organization title
+    Input Text  id=edit-field-page-title-und-0-value    ${ORGANIZATION_TITLE}
+    Click Element   id=cke_31_label
+    Input Text  jquery=textarea.cke_contents_ltr   Test organization created with automation
+    Click Element   id=cke_31_label
+    Input Text  id=edit-field-company-address-und-0-value   Kuopio
+    Input Text  id=edit-field-company-webpage-und-0-title   test organization
+    Input Text  id=edit-field-company-webpage-und-0-url     http://www.google.com
+    Input Text  id=edit-field-admin-name-und-0-value    Test
+    Input Text  id=edit-field-admin-phone-und-0-value   ${phonenumber}
+    Input Text  id=edit-field-admin-email-und-0-email   test@testemailaddress.com
+    Click Element   id=edit-submit
+    Page Should Contain    Phone number must start with "+" and must includes only numbers
+Log Out and Close Browsers
+    Wait Until Page Contains    Log out
+    Click Element   link=Log out
+    Wait Until Page Contains    Log in
+    Close All Browsers

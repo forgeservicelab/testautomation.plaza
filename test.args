@@ -1,4 +1,5 @@
 --name Testing Environment
+build2/
 dashboard.txt
 join_forge.txt
 localization.txt
