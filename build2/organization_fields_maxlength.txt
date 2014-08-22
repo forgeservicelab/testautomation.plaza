@@ -1,0 +1,42 @@
+*** Settings ***
+Documentation   Test mandatory fields in organization adding
+Suite Setup    Login as partner with cra 
+Suite Teardown    Log out and Close Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../common/functions.txt
+Resource    ../local_resource.txt
+
+*** Variables ***
+${USER}    ${VALID_PARTNERCRA}
+${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
+
+*** Test Cases ***
+MaxLen title
+    Go Add organization page
+    Verify maxlength    edit-field-page-title-und-0-value    255
+MaxLen webpage title
+    Verify maxlength    edit-field-company-webpage-und-0-title    128
+MaxLen webpage url
+    Verify maxlength    edit-field-company-webpage-und-0-url    2048
+MaxLen company phone
+    Verify maxlength    edit-field-company-phone-und-0-value    100
+MaxLen company email
+    Verify maxlength    edit-field-company-email-und-0-email    128
+MaxLen admin name
+    Verify maxlength    edit-field-admin-name-und-0-value    255
+MaxLen admin phone
+    Verify maxlength    edit-field-admin-phone-und-0-value    255
+MaxLen admin email
+    Verify maxlength    edit-field-admin-email-und-0-email    128
+
+*** Keywords ***
+Go Add organization page
+    Mouse Over  link=Add content    
+    Click Element   link=Organization
+    Wait Until Page Contains    Organization title
+Log Out and Close Browsers
+    Wait Until Page Contains    Log out
+    Click Element   link=Log out
+    Wait Until Page Contains    Log in
+    Close All Browsers
