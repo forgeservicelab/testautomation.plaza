@@ -7,9 +7,9 @@ Resource    ./common/assets/resource.txt
 Resource    local_resource.txt
 
 *** Variables ***
-${USER}    ${VALID_USER}
-${PASSWORD}    ${VALID_PASSWORD}
-${TO}    ${TO_XMPP}
+#${USER}    ${VALID_USER}
+#${PASSWORD}    ${VALID_PASSWORD}
+#${TO}    ${TO_XMPP}
 
 *** Test Cases ***    Username                Password
 digile staff           ${VALID_USER}   ${VALID_PASSWORD}
