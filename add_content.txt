@@ -1,9 +1,9 @@
 *** Settings ***
 Documentation   Login as partnercra and create a company, product family and product- & service offerings. In the end, delete all created content.
 Suite Setup    Login as partner with cra
-#Suite Teardown    Close All Browsers
-Resource    ../common/assets/secrets.txt
-Resource    ../common/assets/resource.txt
+Suite Teardown    Close All Browsers
+Resource    ./common/assets/secrets.txt
+Resource    ./common/assets/resource.txt
 Resource    ./local_resource.txt
 
 *** Variables ***
