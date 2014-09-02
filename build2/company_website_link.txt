@@ -14,9 +14,11 @@ ${SEARCH_TERM}  Weego
 *** Test Cases ***
 Company website is link
     Go to   ${DRUPAL_URL}/en/search
-    Wait Until Page Contains Element    id=edit-keyword
-    Input Text  id=edit-keyword     ${SEARCH_TERM}
-    Click Element   id=edit-submit-search
+    Wait Until Page Contains    Search
+    Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${SEARCH_TERM}    
+#Input Text    id=edit-keyword     ${SEARCH_TERM}A
+#Click Element   id=edit-submit-search
+    Click Element   xpath=(//input[@id='edit-submit-search'])[2]
     Wait Until Page Contains    Filter by category
     Page Should Contain     Search found
     Page Should Not Contain     Search found 0 items
