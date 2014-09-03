@@ -57,6 +57,7 @@ Add product offering Category fields
 #    Input Text  id=edit-field-offering-email-und-0-email    test@testemailaddress.com
 #    Input Text  id=edit-field-offering-website-und-0-url    http://www.google.com
     Click Element    id=edit-submit
-    Wait Until Page Contains    Minimum 1, maximum 99
+#    Wait Until Page Contains    Minimum 1, maximum 99
+    Wait Until Page Contains    Category field is required
 
 *** Keywords ***
