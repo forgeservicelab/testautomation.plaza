@@ -13,7 +13,7 @@ Go to dashboard
     Open Browser    ${DRUPAL_URL}    ${BROWSER}    
 
 Go to homepage
-    Open Browser    ${AUTH_URL}    ${BROWSER}    
+    Open Browser    ${AUTH_URL}    ${BROWSER}    ${ff_profile_dir}
 #    Wait Until Page Contains    FORGE
 
 Go to frontpage
