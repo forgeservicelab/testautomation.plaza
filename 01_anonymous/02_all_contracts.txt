@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Check all Contracts link in Wizard
-Suite Setup    Go to frontpage
-Suite Teardown    Close All Browsers
+#Suite Setup    Go to frontpage
+#Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
@@ -12,6 +12,8 @@ Resource    ../local_resource.txt
 
 *** Test Cases ***
 Check link and content
+    Go to    ${DRUPAL_URL}
+    Wait Until Page Contains    Join Forge
     Click Link    Join Forge
     Wait Until Page Contains    All contracts 
     Click Link    FORGE Service Lab contractual framework including all contract documents

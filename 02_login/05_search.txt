@@ -2,9 +2,9 @@
 Documentation    Searching Company, parameter for search is SEARCH_TERM
 Suite Setup    Go to frontpage
 Suite Teardown    Close All Browsers
-Resource    ./common/assets/secrets.txt
-Resource    ./common/assets/resource.txt
-Resource    local_resource.txt
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
 
 
 *** Variables ***
@@ -38,7 +38,7 @@ Search Weego as partner
     Page Should Not Contain     Search found 0 items
     Click Element   xpath=//div[1]/h4/a   
     Wait Until Page Contains    Contact
-    #Click Element   link=Log out
+#   Click Element   link=Log out
 Search Weego as admin
     Go to   ${AUTH_URL}
     Click Link  Logout

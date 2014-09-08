@@ -1,14 +1,12 @@
 *** Settings ***
-Documentation   Login as partnercra and create a company, product family and product- & service offerings. In the end, delete all created content.
-Suite Setup    Login as partner with cra
-Suite Teardown    Close All Browsers
-Resource    ./common/assets/secrets.txt
-Resource    ./common/assets/resource.txt
-Resource    ./local_resource.txt
+Documentation   Create a company, product family and product- & service offerings. In the end, delete all created content.
+#Suite Setup    Login as partner with cra
+#Suite Teardown    Close All Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
 
 *** Variables ***
-${USER}    ${VALID_PARTNERCRA}
-${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 ${ORGANIZATION_TITLE}   Test organization
 ${ORGANIZATION_DESCRIPTION}    TestOrganizationDescription
 ${PRODUCT_FAMILY_TITLE}     Test Product Family Title
@@ -17,6 +15,9 @@ ${SERVICE_OFFERING_TITLE}   Test service offering
 ${SEARCH_URL}   ${DRUPAL_URL}/en/search
 
 *** Test Cases ***
+Start
+    Go to    ${DRUPAL_URL}
+    Click Link    Log in
 Add organization
     Mouse Over  link=Add content    
     Click Element   link=Organization

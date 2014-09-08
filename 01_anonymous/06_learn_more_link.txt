@@ -1,6 +1,6 @@
 *** Settings ***
-Documentation    Test learn more link
-Suite Setup    Go to dashboard
+#Documentation    Test learn more link
+#Suite Setup    Go to dashboard
 Suite Teardown    Close All Browsers
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
@@ -10,6 +10,8 @@ Resource    ../local_resource.txt
 
 *** Test Cases ***
 Learn More service developer
+    Go to    ${DRUPAL_URL}
+    Wait Until Page Contains    Join Forge
     Click Link    Join Forge
     Wait Until Page Contains    Join FORGE Service Lab!
     Click Element   id=edit-submitted-role-1

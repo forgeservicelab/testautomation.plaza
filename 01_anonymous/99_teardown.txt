@@ -1,0 +1,15 @@
+*** Settings ***
+Documentation    Check that bulletin board is available for anonymous users
+#Suite Setup    Go to frontpage
+#Suite Teardown    Close All Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+
+
+*** Test Cases ***
+Anonymous teardown
+    Close All Browsers

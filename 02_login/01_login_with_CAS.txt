@@ -1,10 +1,10 @@
 *** Settings ***
-Suite Setup    Go to frontpage
-Suite Teardown    Close All Browsers
+#Suite Setup    Go to frontpage
+#Suite Teardown    Close All Browsers
 Test Template    Plaza Login with CAS
-Resource    ./common/assets/secrets.txt
-Resource    ./common/assets/resource.txt
-Resource    local_resource.txt
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
 
 *** Variables ***
 #${USER}    ${VALID_USER}
@@ -22,15 +22,17 @@ partner with cra       ${VALID_PARTNERCRA}    ${VALID_PARTNERCRA_PASSWORD}
 *** Keywords ***
 Plaza Login with CAS
     [Arguments]    ${username}    ${password}
-    Go to    ${DRUPAL_URL} 
+    Open Browser    ${DRUPAL_URL} 
     Wait Until Page Contains    Log in
     Click Link    Log in
     Set Log Level    NONE
     login Auth    ${username}      ${password}    You are currently logged in as ${username}
     Set Log Level    DEBUG
-    Wait Until Page Contains    ${username}
+    Wait Until Page Contains    Forge
+    Page Should Contain    ${username}
     Click Link    Log out
     Wait Until Page Contains    Log in
     Go to     ${AUTH_URL}
     Click Link    Logout
     Wait Until Page Contains    Bye 
+    Close All Browsers

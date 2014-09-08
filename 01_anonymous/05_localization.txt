@@ -1,14 +1,15 @@
 *** Settings ***
-Suite Setup    Go to dashboard
-Suite Teardown    Close All Browsers
-Resource    ./common/assets/resource.txt
-Resource    local_resource.txt
+#Suite Setup    Go to dashboard
+#Suite Teardown    Close All Browsers
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
 
 
 *** Variables ***
 
 *** Test Cases ***
 Suomi Dashboard
+    Go to    ${DRUPAL_URL}
     Wait Until Page Contains    Join Forge
     Click Link    link=SUOMI
     Wait Until Page Contains    Palvelupaja

@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Check that all fields must be entered when creating product family 
-Suite Setup    Login as partner with cra
-Suite Teardown    Close All Browsers
+#Suite Setup    Login as partner with cra
+#Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt

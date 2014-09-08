@@ -1,15 +1,15 @@
 *** Settings ***
 Documentation   Verify that role selection stays when resuming back to role selection
-Suite Setup    Login as partner with cra
-Suite Teardown    Close All Browsers
+#Suite Setup    Login as partner with cra
+#Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
 
 
 *** Variables ***
-${USER}    ${VALID_PARTNERCRA}
-${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
+#${USER}    ${VALID_PARTNERCRA}
+#${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 
 *** Test Cases ***
 I want to develop a world-class digital service Role after back to role selection

@@ -1,9 +1,3 @@
 --name Testing Environment
-build2/
-build5/
-build6/
-join_forge.txt
-localization.txt
-search.txt
-add_content.txt
-build13/
+01_anonymous/
+04_patrnercra/

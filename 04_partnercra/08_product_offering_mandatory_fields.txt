@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Test Product offering mandatory fields
-Suite Setup    Login as partner with cra 
-Suite Teardown    Log out and Close Browsers
+#Suite Setup    Login as partner with cra 
+#Suite Teardown    Log out and Close Browsers
 Test Template    Add product offering
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
