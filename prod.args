@@ -1,7 +1,2 @@
 --name Production Environment
-build2/company_website_link.txt
-build5/
-build6/
-localization.txt
-login_with_CAS.txt
-build13/bulletin_board_anonym_access.txt
+build2/all_contracts.txt
