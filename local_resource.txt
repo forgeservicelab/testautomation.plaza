@@ -10,14 +10,14 @@ login Auth
     Click Button  name=button
 
 Go to dashboard 
-    Open Browser    ${DRUPAL_URL}    ${BROWSER}    
+    Open Browser    ${DRUPAL_URL}    ${BROWSER}   ff_profile_dir=${ff_profile_dir} 
 
 Go to homepage
-    Open Browser    ${AUTH_URL}    ${BROWSER}    ${ff_profile_dir}
+    Open Browser    ${AUTH_URL}    ${BROWSER}    ff_profile_dir=${ff_profile_dir}
 #    Wait Until Page Contains    FORGE
 
 Go to frontpage
-    Open Browser    ${DRUPAL_URL}   ${BROWSER}
+    Open Browser    ${DRUPAL_URL}   ${BROWSER}	ff_profile_dir=${ff_profile_dir}
 
 Auth LOGIN OK
     Set Log Level    NONE
@@ -26,7 +26,7 @@ Auth LOGIN OK
     Go to   ${DRUPAL_URL}
 
 Login as partner with cra
-    Open Browser    ${DRUPAL_URL}
+    Open Browser    ${DRUPAL_URL}	${BROWSER}  ff_profile_dir=${ff_profile_dir}
     Click Link    Log in
     Input Text    id=username    ${USER}
     Set Log Level    NONE
