@@ -7,8 +7,6 @@ Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
 
 *** Variables ***
-${USER}    ${VALID_PARTNERCRA}
-${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 
 *** Test Cases ***
 Teardown partnercra

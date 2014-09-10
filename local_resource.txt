@@ -1,4 +1,7 @@
 *** Variables ***
+#${SELENIUM_HOST}    localhost
+${SELENIUM_HOST}    ci.forgeservicelab.fi
+${SELENIUM_PORT}    4444
 
 *** Keywords ***
 login Auth
@@ -10,14 +13,14 @@ login Auth
     Click Button  name=button
 
 Go to dashboard 
-    Open Browser    ${DRUPAL_URL}    ${BROWSER}    remote_url=http://ci.forgeservicelab.fi:4444/wd/hub
+    Open Browser    ${DRUPAL_URL}    ${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub
 
 Go to homepage
-    Open Browser    ${AUTH_URL}    ${BROWSER}    remote_url=http://ci.forgeservicelab.fi:4444/wd/hub
+    Open Browser    ${AUTH_URL}    ${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub
 #    Wait Until Page Contains    FORGE
 
 Go to frontpage
-    Open Browser    ${DRUPAL_URL}   ${BROWSER}    remote_url=http://ci.forgeservicelab.fi:4444/wd/hub
+    Open Browser    ${DRUPAL_URL}   ${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub
 
 Auth LOGIN OK
     Set Log Level    NONE
@@ -26,7 +29,7 @@ Auth LOGIN OK
     Go to   ${DRUPAL_URL}
 
 Login as partner with cra
-    Open Browser    ${DRUPAL_URL}	${BROWSER}    remote_url=http://ci.forgeservicelab.fi:4444/wd/hub
+    Open Browser    ${DRUPAL_URL}	${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub
     Click Link    Log in
     Input Text    id=username    ${USER}
     Set Log Level    NONE

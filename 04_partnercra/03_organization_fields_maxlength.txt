@@ -13,21 +13,29 @@ ${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 
 *** Test Cases ***
 MaxLen title
+    [Tags]    noncritical
     Go Add organization page
     Verify maxlength    edit-field-page-title-und-0-value    255
 MaxLen webpage title
+    [Tags]    noncritical
     Verify maxlength    edit-field-company-webpage-und-0-title    128
 MaxLen webpage url
+    [Tags]    noncritical
     Verify maxlength    edit-field-company-webpage-und-0-url    2048
 MaxLen company phone
+    [Tags]    noncritical
     Verify maxlength    edit-field-company-phone-und-0-value    100
 MaxLen company email
+    [Tags]    noncritical
     Verify maxlength    edit-field-company-email-und-0-email    128
 MaxLen admin name
+    [Tags]    noncritical
     Verify maxlength    edit-field-admin-name-und-0-value    255
 MaxLen admin phone
+    [Tags]    noncritical
     Verify maxlength    edit-field-admin-phone-und-0-value    255
 MaxLen admin email
+    [Tags]    noncritical
     Verify maxlength    edit-field-admin-email-und-0-email    128
 
 *** Keywords ***
