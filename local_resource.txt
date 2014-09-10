@@ -10,14 +10,14 @@ login Auth
     Click Button  name=button
 
 Go to dashboard 
-    Open Browser    ${DRUPAL_URL}    ${BROWSER}
+    Open Browser    ${DRUPAL_URL}    ${BROWSER}    remote_url=http://ci.forgeservicelab.fi:4444/wd/hub
 
 Go to homepage
-    Open Browser    ${AUTH_URL}    ${BROWSER}
+    Open Browser    ${AUTH_URL}    ${BROWSER}    remote_url=http://ci.forgeservicelab.fi:4444/wd/hub
 #    Wait Until Page Contains    FORGE
 
 Go to frontpage
-    Open Browser    ${DRUPAL_URL}   ${BROWSER}
+    Open Browser    ${DRUPAL_URL}   ${BROWSER}    remote_url=http://ci.forgeservicelab.fi:4444/wd/hub
 
 Auth LOGIN OK
     Set Log Level    NONE
@@ -26,7 +26,7 @@ Auth LOGIN OK
     Go to   ${DRUPAL_URL}
 
 Login as partner with cra
-    Open Browser    ${DRUPAL_URL}	${BROWSER}
+    Open Browser    ${DRUPAL_URL}	${BROWSER}    remote_url=http://ci.forgeservicelab.fi:4444/wd/hub
     Click Link    Log in
     Input Text    id=username    ${USER}
     Set Log Level    NONE

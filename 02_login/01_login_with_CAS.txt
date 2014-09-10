@@ -22,7 +22,7 @@ partner with cra       ${VALID_PARTNERCRA}    ${VALID_PARTNERCRA_PASSWORD}
 *** Keywords ***
 Plaza Login with CAS
     [Arguments]    ${username}    ${password}
-    Open Browser    ${DRUPAL_URL} 
+    Open Browser    ${DRUPAL_URL}    remote_url=http://ci.forgeservicelab.fi:4444/wd/hub
     Wait Until Page Contains    Log in
     Click Link    Log in
     Set Log Level    NONE
