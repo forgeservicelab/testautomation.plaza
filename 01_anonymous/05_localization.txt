@@ -1,6 +1,7 @@
 *** Settings ***
-#Suite Setup    Go to dashboard
-#Suite Teardown    Close All Browsers
+Documentation   Verify Finnish localization
+Suite Setup    Go to dashboard
+Suite Teardown    Close All Browsers
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
 

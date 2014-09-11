@@ -11,5 +11,5 @@ Resource    ../local_resource.txt
 
 
 *** Test Cases ***
-Anonymous teardown
-    Close All Browsers
+#Anonymous teardown
+#    Close All Browsers

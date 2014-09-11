@@ -11,5 +11,5 @@ Resource    ../local_resource.txt
 
 
 *** Test Cases ***
-Anonymous startup
-    Go to frontpage
+#Anonymous startup
+#    Go to frontpage

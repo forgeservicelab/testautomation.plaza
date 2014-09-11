@@ -1,6 +1,7 @@
 *** Settings ***
-#Documentation    Test learn more link
-#Suite Setup    Go to dashboard
+Documentation    Learn More pages    
+Documentation    Test learn more link
+Suite Setup    Go to dashboard
 Suite Teardown    Close All Browsers
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt

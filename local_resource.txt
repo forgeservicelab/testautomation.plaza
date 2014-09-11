@@ -14,13 +14,16 @@ login Auth
 
 Go to dashboard 
     Open Browser    ${DRUPAL_URL}    ${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub
+#    Open Browser    ${DRUPAL_URL}    ${BROWSER}
 
 Go to homepage
     Open Browser    ${AUTH_URL}    ${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub
-#    Wait Until Page Contains    FORGE
+#    Open Browser    ${AUTH_URL}    ${BROWSER}
+    Wait Until Page Contains    FORGE
 
 Go to frontpage
     Open Browser    ${DRUPAL_URL}   ${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub
+#    Open Browser    ${DRUPAL_URL}   ${BROWSER}
 
 Auth LOGIN OK
     Set Log Level    NONE
@@ -30,6 +33,7 @@ Auth LOGIN OK
 
 Login as partner with cra
     Open Browser    ${DRUPAL_URL}	${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub
+#    Open Browser    ${DRUPAL_URL}	${BROWSER}
     Click Link    Log in
     Input Text    id=username    ${USER}
     Set Log Level    NONE

@@ -1,7 +1,7 @@
-** Settings ***
+*** Settings ***
 Documentation   Join forge with different roles
-#Suite Setup    Go to frontpage
-#Suite Teardown    Close All Browsers
+Suite Setup    Go to frontpage
+Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
