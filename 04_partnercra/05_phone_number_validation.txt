@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Test phone number validation when adding new organization
-#Suite Setup    Login as partner with cra 
-#Suite Teardown    Log out and Close Browsers
+Suite Setup    Login as partner with cra 
+Suite Teardown    Log out and Close Browsers
 Test Template    Add company
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt

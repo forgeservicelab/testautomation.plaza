@@ -1,15 +1,15 @@
 *** Settings ***
 Documentation   Login as Parner with CRA and test wizard mandatory fields
-#Suite Setup    Login as partner with cra
-#Suite Teardown    Close All Browsers
+Suite Setup    Login as partner with cra
+Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
 
 
 *** Variables ***
-#${USER}    ${VALID_PARTNERCRA}
-#${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
+${USER}    ${VALID_PARTNERCRA}
+${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 
 *** Test Cases ***
 I want to develop a world-class digital service Mandatory Fields

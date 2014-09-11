@@ -1,12 +1,14 @@
 *** Settings ***
 Documentation   Test Product offering category fields
-#Suite Setup    Login as partner with cra 
-#Suite Teardown    Log out and Close Browsers
+Suite Setup    Login as partner with cra 
+Suite Teardown    Log out and Close Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
 
 *** Variables ***
+${USER}    ${VALID_PARTNERCRA}
+${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 ${ORGANIZATION_TITLE}   Test organization
 ${PRODUCT_FAMILY_TITLE}     Test title
 ${PRODUCT_OFFERING_TITLE}   Test product offering

@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Test mandatory fields in organization adding
-#Suite Setup    Login as partner with cra 
-#Suite Teardown    Close All Browsers
+Suite Setup    Login as partner with cra 
+Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../common/functions.txt
@@ -12,6 +12,9 @@ ${USER}    ${VALID_PARTNERCRA}
 ${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 
 *** Test Cases ***
+Start
+    Go to    ${DRUPAL_URL}
+    Click Link    Log in
 MaxLen title
     [Tags]    noncritical
     Go Add organization page

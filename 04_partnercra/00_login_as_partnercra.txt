@@ -11,5 +11,5 @@ ${USER}    ${VALID_PARTNERCRA}
 ${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 
 *** Test Cases ***
-Login as testpartnercra
-    Login as partner with cra
+#Login as testpartnercra
+#    Login as partner with cra

@@ -1,12 +1,14 @@
 *** Settings ***
 Documentation   Create a company, product family and product- & service offerings. In the end, delete all created content.
-#Suite Setup    Login as partner with cra
-#Suite Teardown    Close All Browsers
+Suite Setup    Login as partner with cra
+Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
 
 *** Variables ***
+${USER}    ${VALID_PARTNERCRA}
+${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 ${ORGANIZATION_TITLE}   Test organization
 ${ORGANIZATION_DESCRIPTION}    TestOrganizationDescription
 ${PRODUCT_FAMILY_TITLE}     Test Product Family Title
