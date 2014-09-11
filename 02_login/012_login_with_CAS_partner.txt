@@ -1,0 +1,26 @@
+*** Settings ***
+Documentation    Test login as Partner
+Suite Setup    Go to frontpage
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+*** Variables ***
+${USER}    ${VALID_PARTNER}
+${PASSWORD}    ${VALID_PARTNER_PASSWORD}
+
+*** Test Cases ***
+Login as Digile Stuff
+    Wait Until Page Contains    Log in
+    Click Link    Log in
+    Set Log Level    NONE
+    login Auth    ${USER}      ${PASSWORD}    You are currently logged in as ${USER}
+    Set Log Level    DEBUG
+    Wait Until Page Contains    Forge
+    Page Should Contain    ${USER}
+    Click Link    Log out
+    Wait Until Page Contains    Log in
+    Go to     ${AUTH_URL}
+    Click Link    Logout
+    Wait Until Page Contains    Bye 
