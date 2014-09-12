@@ -19,10 +19,13 @@ I want to offer APIs, software, datasets or tools and I need computing capacity 
     Wait Until Page Contains    Join FORGE Service Lab!
     Sleep   9 s
     Click Element   id=edit-submitted-role-4
-    Click Element   jquery=input.button-primary
-    Wait Until Page Contains    Join FORGE Service Lab!
+    Click Element   xpath=(//a[contains(text(),'Continue >')])[4]
+#    Click Element   jquery=input.button-primary
+#    Click Link    Continue >
+    Wait Until Page Contains    Forge partner role and CRA information 
     Sleep   9 s
-    Click Element   jquery=input.button-primary
+#    Click Element   jquery=input.button-primary
+    Click Link    Fill in application
     Wait Until Page Contains    Username
     Input Text  id=edit-name    ${USER_NAME}
     Input Text  id=edit-mail    ${USER_EMAIL}

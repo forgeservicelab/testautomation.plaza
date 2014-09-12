@@ -29,14 +29,10 @@ PlusNumber and text     +358asd
 *** Keywords ***
 Add company
     [Arguments]    ${phonenumber}
-    [Tags]    noncritical
     Mouse Over  link=Add content    
     Click Element   link=Organization
     Wait Until Page Contains    Organization title
     Input Text  id=edit-field-page-title-und-0-value    ${ORGANIZATION_TITLE}
-    Click Element   id=cke_31_label
-    Input Text  jquery=textarea.cke_contents_ltr   Test organization created with automation
-    Click Element   id=cke_31_label
     Input Text  id=edit-field-company-address-und-0-value   Kuopio
     Input Text  id=edit-field-company-webpage-und-0-title   test organization
     Input Text  id=edit-field-company-webpage-und-0-url     http://www.google.com
@@ -46,7 +42,6 @@ Add company
     Click Element   id=edit-submit
     Page Should Contain    Phone number must start with "+" and must includes only numbers
 Log Out and Close Browsers
-    [Tags]    noncritical
     Wait Until Page Contains    Log out
     Click Element   link=Log out
     Wait Until Page Contains    Log in

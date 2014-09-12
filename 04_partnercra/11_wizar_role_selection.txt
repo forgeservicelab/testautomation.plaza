@@ -18,36 +18,39 @@ I want to develop a world-class digital service Role after back to role selectio
     Wait Until Page Contains    Join FORGE Service Lab!
     Sleep   2 s
     Click Element   id=edit-submitted-role-1
-    Click Element   jquery=input.button-primary
-    Wait Until Page Contains    Join FORGE Service Lab!
-    Click Element   name=op
+    Click Link    Continue >
+    Wait Until Page Contains    I want to
+    Click Link    Back to role selection
     Wait Until Page Contains    To begin choose the role
     ${ch}     Get Element Attribute    edit-submitted-role-1@checked
     Should Be Equal    ${ch}    true
 I want to offer my expertice Role after back to role selection
     [Tags]    noncritical
     Click Element   id=edit-submitted-role-2
-    Click Element   jquery=input.button-primary
-    Wait Until Page Contains    Join FORGE Service Lab!
-    Click Element   name=op
+    Click Element   xpath=(//a[contains(text(),'Continue >')])[2]
+    Wait Until Page Contains    FORGE Partner role information
+    Click Link    Back to role selection
+#    Click Element   name=op
     Wait Until Page Contains    To begin choose the role
     ${ch}     Get Element Attribute    edit-submitted-role-2@checked
     Should Be Equal    ${ch}    true
 I want to offer APIs Role after back to role selection
     [Tags]    noncritical
     Click Element   id=edit-submitted-role-3
-    Click Element   jquery=input.button-primary
-    Wait Until Page Contains    Join FORGE Service Lab!
-    Click Element   name=op
+    Click Element   xpath=(//a[contains(text(),'Continue >')])[3]
+    Wait Until Page Contains    FORGE Partner role information
+    Click Link    Back to role selection
+#    Click Element   name=op
     Wait Until Page Contains    To begin choose the role
     ${ch}     Get Element Attribute    edit-submitted-role-3@checked
     Should Be Equal    ${ch}    true
 I want to offer APIs Rnd need CRAole after back to role selection
     [Tags]    noncritical
     Click Element   id=edit-submitted-role-4
-    Click Element   jquery=input.button-primary
-    Wait Until Page Contains    Join FORGE Service Lab!
-    Click Element   name=op
+    Click Element   xpath=(//a[contains(text(),'Continue >')])[4]
+    Wait Until Page Contains    information 
+    Click Link    Back to role selection
+#    Click Element   name=op
     Wait Until Page Contains    To begin choose the role
     ${ch}     Get Element Attribute    edit-submitted-role-4@checked
     Should Be Equal    ${ch}    true

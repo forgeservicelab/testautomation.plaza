@@ -16,30 +16,28 @@ Learn More service developer
     Click Link    Join Forge
     Wait Until Page Contains    Join FORGE Service Lab!
     Click Element   id=edit-submitted-role-1
-    Wait Until Page Contains    Learn more
-    Click Link    Learn more
+    Click Link    Continue >
+#    Wait Until Page Contains    Learn more
+#    Click Link    Learn more
     Page Should Contain    I want to develop a world-class digital service
     Page Should Contain    What is this?
     Click Link    Back to role selection
 Learn More offer my expertice
     Click Element   id=edit-submitted-role-2
-    Wait Until Page Contains    Learn more
-    Click Element    xpath=(//a[contains(text(),'Learn more')])[2]
+    Click Element    xpath=(//a[contains(text(),'Continue >')])[2]
     Page Should Contain    FORGE Partner role information 
     Page Should Contain    What is this?
     Click Link    Back to role selection
 Learn More offer my APIs
     Click Element   id=edit-submitted-role-3
-    Wait Until Page Contains    Learn more
-    Click Element    xpath=(//a[contains(text(),'Learn more')])[3]
+    Click Element    xpath=(//a[contains(text(),'Continue >')])[3]
     Page Should Contain    FORGE Partner role information
     Page Should Contain    What is this?
     Click Link    Back to role selection
 Learn More offer my APIs and need cra
     Sleep    5 s
     Click Element   id=edit-submitted-role-4
-    Wait Until Page Contains    Learn more
-    Click Element    xpath=(//a[contains(text(),'Learn more')])[4]
+    Click Element    xpath=(//a[contains(text(),'Continue >')])[4]
     Page Should Contain    FORGE Partner role information
     Page Should Contain    What is this?
     Click Link    Back to role selection

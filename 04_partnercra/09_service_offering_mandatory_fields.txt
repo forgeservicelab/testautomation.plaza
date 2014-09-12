@@ -32,36 +32,37 @@ Price only letters      Title     Testing   info        terms       asd€      
 *** Keywords ***
 Add service offering
     [Arguments]    ${title}    ${tags}    ${info}    ${terms}    ${pricing}    ${validate}
-    [Tags]    noncritical
     Wait Until Page Contains    Add content
     Mouse Over  link=Add content
     Click Element   link=Service offering
     Wait Until Page Contains    Offering title
     Input Text  id=edit-field-page-title-und-0-value    ${title}
     Input Text  id=edit-field-offering-tags-und     ${Tags} 
-    Click Element   id=cke_47
-    Input Text  jquery=textarea.cke_contents_ltr    ${info} 
-    Click Element   id=cke_47
+#    Click Element   id=cke_47
+#    Input Text  jquery=textarea.cke_contents_ltr    ${info} 
+#    Click Element   id=cke_47
 #    Select Checkbox     id=edit-field-category-und-73
 #    Select Checkbox     id=edit-field-category-und-36
 #    Select Checkbox     id=edit-field-category-und-47
 #    Select From List By Label   id=edit-field-collection-und    ${PRODUCT_FAMILY_TITLE}
 #    Input Text  id=edit-field-geographical-coverage-und-0-value     Europe only
-    Click Element   id=cke_80
+#    Click Element   id=cke_80
 #    Input Text  jquery=textarea.cke_contents_ltr    anttiiiiii 
-    Click Element   id=cke_80
+#    Click Element   id=cke_80
     Click Link  Pricing
     Input Text  id=edit-field-pricing-information-und-0-value    ${pricing}
-    Click Element   id=cke_112
-    Input Text  jquery=textarea.cke_contents_ltr    Test pricing description
-    Click Element   id=cke_112
+#    Click Element   id=cke_112
+#    Input Text  jquery=textarea.cke_contents_ltr    Test pricing description
+#    Click Element   id=cke_112
     Click Link  Terms and conditions
-    Click Element   id=cke_144
-    Input Text  jquery=textarea.cke_contents_ltr    ${terms} 
-    Click Element   id=cke_144
-    Click Element   id=cke_176
-    Input Text  jquery=textarea.cke_contents_ltr    ${terms} 
-    Click Element   id=cke_176
+    Input Text    id=edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value    ${terms}
+    Input Text    id=edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value    ${terms}
+#    Click Element   id=cke_144
+#    Input Text  jquery=textarea.cke_contents_ltr    ${terms} 
+#    Click Element   id=cke_144
+#    Click Element   id=cke_176
+#    Input Text  jquery=textarea.cke_contents_ltr    ${terms} 
+#    Click Element   id=cke_176
 #    Input Text  id=edit-field-live-demo-url-und-0-title     Test url title
 #    Input Text  id=edit-field-live-demo-url-und-0-url   http://www.google.com
 #    Click Element   dom=document.getElementsByName('field_organizer[und]')[0]

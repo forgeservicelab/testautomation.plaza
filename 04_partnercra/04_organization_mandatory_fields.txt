@@ -22,19 +22,16 @@ Start
     Click Link    Log in
 Add company
     [Arguments]    ${orgtitle}    ${freetext}    ${address}    ${validation}
-    [Tags]    noncritical
+    Wait Until Page Contains    Add content
     Mouse Over  link=Add content    
     Click Element   link=Organization
     Wait Until Page Contains    Organization title
     Input Text  id=edit-field-page-title-und-0-value    ${orgtitle}
-    Click Element   id=cke_31_label
-    Input Text  jquery=textarea.cke_contents_ltr   ${freetext}
-    Click Element   id=cke_31_label
+    Input Text   id=edit-field-free-text-company-und-0-value    ${freetext}
     Input Text  id=edit-field-company-address-und-0-value    ${address}   
     Click Element   id=edit-submit
     Page Should Contain    ${validation} 
 Log Out and Close Browsers
-    [Tags]    noncritical
     Wait Until Page Contains    Log out
     Click Element   link=Log out
     Wait Until Page Contains    Log in

@@ -26,9 +26,7 @@ Add organization
     Click Element   link=Organization
     Wait Until Page Contains    Organization title
     Input Text  id=edit-field-page-title-und-0-value    ${ORGANIZATION_TITLE}
-    Click Element   id=cke_31_label
-    Input Text  jquery=textarea.cke_contents_ltr   ${ORGANIZATION_DESCRIPTION}
-    Click Element   id=cke_31_label
+    Input Text  id=edit-field-free-text-company-und-0-value     ${ORGANIZATION_DESCRIPTION}
     Input Text  id=edit-field-company-address-und-0-value   Kuopio
     Input Text  id=edit-field-company-webpage-und-0-title   test organization
     Input Text  id=edit-field-company-webpage-und-0-url     http://www.google.com
@@ -46,7 +44,7 @@ Add product family
     Input Text  id=edit-field-page-title-und-0-value    ${PRODUCT_FAMILY_TITLE} + 1
     Input Text  id=edit-field-product-family-title-und-0-value  ${PRODUCT_FAMILY_TITLE} + 2
     Click Element   id=edit-submit
-#    Page Should Contain    Product family ${PRODUCT_FAMILY_TITLE} has been created.
+    Page Should Contain    Product family ${PRODUCT_FAMILY_TITLE} has been created.
     Wait Until Page Contains    has been created.
 Add product offering
     [Tags]    noncritical
@@ -56,30 +54,16 @@ Add product offering
     Wait Until Page Contains    What is your offering and why is it great?
     Input Text  id=edit-field-page-title-und-0-value    ${PRODUCT_OFFERING_TITLE}
     Input Text  id=edit-field-offering-tags-und     Test mobile product
-    Click Element   id=cke_55
-    Input Text  jquery=textarea.cke_contents_ltr    Brief description for the product offering
-    Click Element   id=cke_55
-#    Select Checkbox     id=edit-field-category-und-73
+    Input Text  id=edit-field-brief-overview-description-und-0-value     Brief description for the product offering
     Select Checkbox     id=edit-field-category-und-36
     Select Checkbox     id=edit-field-category-und-47
-#    Select From List By Label   id=edit-field-collection-und    ${PRODUCT_FAMILY_TITLE}
     Input Text  id=edit-field-geographical-coverage-und-0-value     Europe only
     Select Checkbox     id=edit-field-geographical-coverage-term-und-8
-    Click Element   id=cke_88
-    Input Text  jquery=textarea.cke_contents_ltr    This is a test owerview text for the product offering
-    Click Element   id=cke_88
     Click Link  Pricing
     Input Text  id=edit-field-pricing-information-und-0-value   10,000 test money / month
-    Click Element   id=cke_152
-    Input Text  jquery=textarea.cke_contents_ltr    Test pricing description
-    Click Element   id=cke_152
     Click Link  Terms and conditions
-    Click Element   id=cke_216
-    Input Text  jquery=textarea.cke_contents_ltr    Terms and confitions for the test product offering inside the FORGE Service lab
-    Click Element   id=cke_216
-    Click Element   id=cke_248
-    Input Text  jquery=textarea.cke_contents_ltr    Terms and confitions for the test product offering in the production environment
-    Click Element   id=cke_248
+    Input Text    id=edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value    Terms and conditions
+    Input Text    id=edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value    Terms and conditions 2
     Input Text    id=edit-field-cancellation-refund-policy-und-0-value    No Cancellation policy
     Input Text  id=edit-field-live-demo-url-und-0-title     Test url title
     Input Text  id=edit-field-live-demo-url-und-0-url   http://www.google.com
@@ -90,7 +74,6 @@ Add product offering
     Input Text  id=edit-field-offering-website-und-0-url    http://www.google.com
     Click Element   id=edit-submit
     Wait Until Page Contains    has been created.
-#    Page Should Contain    Product offering ${PRODUCT_OFFERING_TITLE} has been created.
     Page Should Contain    has been created.
 Add service offering
     [Tags]    noncritical
@@ -100,29 +83,15 @@ Add service offering
     Wait Until Page Contains    Offering title
     Input Text  id=edit-field-page-title-und-0-value    ${SERVICE_OFFERING_TITLE}
     Input Text  id=edit-field-offering-tags-und     Test service mobile qa
-    Click Element   id=cke_47
-    Input Text  jquery=textarea.cke_contents_ltr    Brief description for the service offering
-    Click Element   id=cke_47
+    Input Text    id=edit-field-brief-overview-description-und-0-value    Brief description for the service offering
     Select Checkbox     id=edit-field-category-und-73
     Select Checkbox     id=edit-field-category-und-36
     Select Checkbox     id=edit-field-category-und-47
-#    Select From List By Label   id=edit-field-collection-und    ${PRODUCT_FAMILY_TITLE}
-    Input Text  id=edit-field-geographical-coverage-und-0-value     Europe only
-    Click Element   id=cke_80
-    Input Text  jquery=textarea.cke_contents_ltr    This is a test owerview text for the product offering
-    Click Element   id=cke_80
     Click Link  Pricing
     Input Text  id=edit-field-pricing-information-und-0-value   10,000 test money / month
-    Click Element   id=cke_112
-    Input Text  jquery=textarea.cke_contents_ltr    Test pricing description
-    Click Element   id=cke_112
     Click Link  Terms and conditions
-    Click Element   id=cke_144
-    Input Text  jquery=textarea.cke_contents_ltr    Terms and confitions for the test service offering inside the FORGE Service lab
-    Click Element   id=cke_144
-    Click Element   id=cke_176
-    Input Text  jquery=textarea.cke_contents_ltr    Terms and confitions for the test service offering in the production environment
-    Click Element   id=cke_176
+    Input Text    id=edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value    Terms and conditions
+    Input Text    id=edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value    Terms and conditions 2
     Input Text  id=edit-field-live-demo-url-und-0-title     Test url title
     Input Text  id=edit-field-live-demo-url-und-0-url   http://www.google.com
     Click Element   dom=document.getElementsByName('field_organizer[und]')[0]
@@ -228,5 +197,4 @@ Delete Organization
     Click Element   id=edit-delete
     Wait Until Page Contains    This action cannot be undone.
     Click Element   id=edit-submit
-#    Wait Until Page Contains    Organization ${ORGANIZATION_TITLE} has been deleted.
     Page Should Contain    has been deleted.
