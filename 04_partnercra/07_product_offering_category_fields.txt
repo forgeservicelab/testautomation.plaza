@@ -31,6 +31,7 @@ Add product offering Category fields
     Input Text  id=edit-field-pricing-information-und-0-value   100 $
     Click Link  Terms and conditions
     Input Text  id=edit-field-cancellation-refund-policy-und-0-value    cancellation
+    Click Element   id=edit-submit
     Wait Until Page Contains    Category field is required
 
 *** Keywords ***
