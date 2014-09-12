@@ -13,6 +13,7 @@ ${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 
 *** Test Cases ***
 I want to develop a world-class digital service Mandatory Fields
+    [Tags]    noncritical
     Click Link  Join Forge
     Wait Until Page Contains    Join FORGE Service Lab!
     Sleep   10 s
@@ -40,6 +41,7 @@ I want to develop a world-class digital service Mandatory Fields
     Page Should Contain    Attn field is required.
     Page Should Contain    Address field is required.
 I want to offer my expertice Mandatory Fields
+    [Tags]    noncritical
     Click Link  Join Forge
     Wait Until Page Contains    Join FORGE Service Lab!
     Sleep   10 s
@@ -56,6 +58,7 @@ I want to offer my expertice Mandatory Fields
     Page Should Contain    Attn field is required.
     Page Should Contain    Address field is required.
 I want to offer APIs Fields
+    [Tags]    noncritical
     Click Link  Join Forge
     Wait Until Page Contains    Join FORGE Service Lab!
     Sleep   10 s
@@ -72,6 +75,7 @@ I want to offer APIs Fields
     Page Should Contain    Attn field is required.
     Page Should Contain    Address field is required.
 I want to offer APIs and neewd cra Fields
+    [Tags]    noncritical
     Click Link  Join Forge
     Wait Until Page Contains    Join FORGE Service Lab!
     Sleep   10 s

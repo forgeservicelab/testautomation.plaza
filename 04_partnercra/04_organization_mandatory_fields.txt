@@ -22,6 +22,7 @@ Start
     Click Link    Log in
 Add company
     [Arguments]    ${orgtitle}    ${freetext}    ${address}    ${validation}
+    [Tags]    noncritical
     Mouse Over  link=Add content    
     Click Element   link=Organization
     Wait Until Page Contains    Organization title
@@ -33,6 +34,7 @@ Add company
     Click Element   id=edit-submit
     Page Should Contain    ${validation} 
 Log Out and Close Browsers
+    [Tags]    noncritical
     Wait Until Page Contains    Log out
     Click Element   link=Log out
     Wait Until Page Contains    Log in

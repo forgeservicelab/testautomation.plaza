@@ -13,6 +13,7 @@ ${USER_EMAIL}   test@testemailaddress.com
 
 *** Test Cases ***
 I want to offer my expertise in digital service creation
+    [Tags]    noncritical
     Go to    ${DRUPAL_URL}
     Click Link  Join Forge
     Wait Until Page Contains    Join FORGE Service Lab!

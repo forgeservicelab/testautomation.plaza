@@ -13,6 +13,7 @@ ${USER_EMAIL}   test@testemailaddress.com
 
 *** Test Cases ***
 I want to develop a world-class digital service
+    [Tags]    noncritical
     Go to    ${DRUPAL_URL}
     Wait Until Page Contains    Join Forge
     Click Link  Join Forge

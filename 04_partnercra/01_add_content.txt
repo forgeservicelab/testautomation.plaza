@@ -21,6 +21,7 @@ Start
     Go to    ${DRUPAL_URL}
     Click Link    Log in
 Add organization
+    [Tags]    noncritical
     Mouse Over  link=Add content    
     Click Element   link=Organization
     Wait Until Page Contains    Organization title
@@ -36,6 +37,7 @@ Add organization
     Input Text  id=edit-field-admin-email-und-0-email   test@testemailaddress.com
     Click Element   id=edit-submit
 Add product family
+    [Tags]    noncritical
     Wait Until Page Contains    Add content
     Mouse Over  link=Add content
     Click Element   link=Product family
@@ -47,6 +49,7 @@ Add product family
 #    Page Should Contain    Product family ${PRODUCT_FAMILY_TITLE} has been created.
     Wait Until Page Contains    has been created.
 Add product offering
+    [Tags]    noncritical
     Wait Until Page Contains    Add content
     Mouse Over  link=Add content
     Click Element   link=Product offering
@@ -90,6 +93,7 @@ Add product offering
 #    Page Should Contain    Product offering ${PRODUCT_OFFERING_TITLE} has been created.
     Page Should Contain    has been created.
 Add service offering
+    [Tags]    noncritical
     Wait Until Page Contains    Add content
     Mouse Over  link=Add content
     Click Element   link=Service offering
@@ -129,6 +133,7 @@ Add service offering
     Click Element   id=edit-submit
     Page Should Contain    has been created.
 Search organization
+    [Tags]    noncritical
     Go to   ${SEARCH_URL}
     Wait Until Page Contains Element    id=edit-keyword
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${ORGANIZATION_TITLE}
@@ -139,6 +144,7 @@ Search organization
     Click Link  ${ORGANIZATION_TITLE}
     Page Should Contain    ${ORGANIZATION_DESCRIPTION}
 Search product offering
+    [Tags]    noncritical
     Go to   ${SEARCH_URL}
     Wait Until Page Contains Element    id=edit-keyword
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${PRODUCT_OFFERING_TITLE}
@@ -149,6 +155,7 @@ Search product offering
     Click Link  ${PRODUCT_OFFERING_TITLE}
     Page Should Contain    ${PRODUCT_OFFERING_TITLE}
 Search product family
+    [Tags]    noncritical
     Go to   ${SEARCH_URL}
     Wait Until Page Contains Element    id=edit-keyword
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${PRODUCT_FAMILY_TITLE}
@@ -160,6 +167,7 @@ Search product family
     Page Should Contain    ${PRODUCT_FAMILY_TITLE}
     Page Should Not Contain    found 0 items
 Search service offering
+    [Tags]    noncritical
     Go to   ${SEARCH_URL}
     Wait Until Page Contains Element    id=edit-keyword
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${SERVICE_OFFERING_TITLE}
@@ -170,6 +178,7 @@ Search service offering
     Click Link  ${SERVICE_OFFERING_TITLE}
     Page Should Contain    Brief description for the service offering
 Delete product family
+    [Tags]    noncritical
     Wait Until Page Contains    Own content
     Click Link    Own content
     Page Should Contain    ${PRODUCT_FAMILY_TITLE}
@@ -182,6 +191,7 @@ Delete product family
     Click Element    id=edit-submit
     Page Should Contain    ${PRODUCT_FAMILY_TITLE} has been deleted
 Delete product offering
+    [Tags]    noncritical
     Wait Until Page Contains    Own content
     Click Link  Own content
     Wait Until Page Contains    Title
@@ -194,6 +204,7 @@ Delete product offering
     Click Element    id=edit-submit
     Page Should Contain    ${PRODUCT_OFFERING_TITLE} has been deleted
 Delete service offering
+    [Tags]    noncritical
     Wait Until Page Contains    Own content
     Click Link  Own content
     Wait Until Page Contains    Title
@@ -206,6 +217,7 @@ Delete service offering
     Click Element    id=edit-submit
     Page Should Contain    Service offering ${SERVICE_OFFERING_TITLE} has been deleted
 Delete Organization
+    [Tags]    noncritical
     Wait Until Page Contains    Own content
     Click Link  Own content
     Wait Until Page Contains    Title

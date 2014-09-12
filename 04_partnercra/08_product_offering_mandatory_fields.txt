@@ -31,6 +31,7 @@ Empty Cancellation      title     Testing   inf         terms       100 €     
 *** Keywords ***
 Add product offering
     [Arguments]    ${title}    ${tags}    ${info}    ${terms}    ${pricing}    ${cancellation}    ${validate}
+    [Tags]    noncritical
     Wait Until Page Contains    Add content
     Mouse Over  link=Add content
     Click Element   link=Product offering

@@ -13,6 +13,7 @@ ${USER_EMAIL}   test@testemailaddress.com
 
 *** Test Cases ***
 I want to offer APIs, software, datasets or tools and I need computing capacity to do that 
+    [Tags]    noncritical
     Go to    ${DRUPAL_URL}
     Click Link  Join Forge
     Wait Until Page Contains    Join FORGE Service Lab!

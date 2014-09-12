@@ -18,6 +18,7 @@ ${SEARCH_URL}   ${DRUPAL_URL}/en/search
 
 *** Test Cases ***
 Add product offering Category fields
+    [Tags]    noncritical
     Wait Until Page Contains    Add content
     Mouse Over  link=Add content
     Click Element   link=Product offering

@@ -29,6 +29,7 @@ PlusNumber and text     +358asd
 *** Keywords ***
 Add company
     [Arguments]    ${phonenumber}
+    [Tags]    noncritical
     Mouse Over  link=Add content    
     Click Element   link=Organization
     Wait Until Page Contains    Organization title
@@ -45,6 +46,7 @@ Add company
     Click Element   id=edit-submit
     Page Should Contain    Phone number must start with "+" and must includes only numbers
 Log Out and Close Browsers
+    [Tags]    noncritical
     Wait Until Page Contains    Log out
     Click Element   link=Log out
     Wait Until Page Contains    Log in

@@ -12,7 +12,8 @@ ${USER_NAME}    tperson
 ${USER_EMAIL}   test@testemailaddress.com
 
 *** Test Cases ***
- I want to offer APIs, software, datasets or tools
+I want to offer APIs, software, datasets or tools
+    [Tags]    noncritical
     Go to    ${DRUPAL_URL}
     Click Link  Join Forge
     Wait Until Page Contains    Join FORGE Service Lab!

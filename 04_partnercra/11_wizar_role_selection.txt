@@ -13,6 +13,7 @@ ${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 
 *** Test Cases ***
 I want to develop a world-class digital service Role after back to role selection
+    [Tags]    noncritical
     Click Link  Join Forge
     Wait Until Page Contains    Join FORGE Service Lab!
     Sleep   2 s
@@ -24,6 +25,7 @@ I want to develop a world-class digital service Role after back to role selectio
     ${ch}     Get Element Attribute    edit-submitted-role-1@checked
     Should Be Equal    ${ch}    true
 I want to offer my expertice Role after back to role selection
+    [Tags]    noncritical
     Click Element   id=edit-submitted-role-2
     Click Element   jquery=input.button-primary
     Wait Until Page Contains    Join FORGE Service Lab!
@@ -32,6 +34,7 @@ I want to offer my expertice Role after back to role selection
     ${ch}     Get Element Attribute    edit-submitted-role-2@checked
     Should Be Equal    ${ch}    true
 I want to offer APIs Role after back to role selection
+    [Tags]    noncritical
     Click Element   id=edit-submitted-role-3
     Click Element   jquery=input.button-primary
     Wait Until Page Contains    Join FORGE Service Lab!
@@ -40,6 +43,7 @@ I want to offer APIs Role after back to role selection
     ${ch}     Get Element Attribute    edit-submitted-role-3@checked
     Should Be Equal    ${ch}    true
 I want to offer APIs Rnd need CRAole after back to role selection
+    [Tags]    noncritical
     Click Element   id=edit-submitted-role-4
     Click Element   jquery=input.button-primary
     Wait Until Page Contains    Join FORGE Service Lab!
