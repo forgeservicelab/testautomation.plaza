@@ -1,3 +1,6 @@
-01_anonymous/
+01_anonymous/01_bulletin_board_anonym_access.txt
+01_anonymous/02_all_contracts.txt
+01_anonymous/03_company_website_link.txt
 02_login/
-04_partnercra/
+04_partnercra/02_bulletin_board_add_item.txt
+04_partnercra/03_organization_fields_maxlength.txt
