@@ -26,7 +26,7 @@ I want to offer my expertise in digital service creation
     Wait Until Page Contains    FORGE Partner role information 
     Sleep   9 s
 #    Click Element   jquery=input.button-primary
-    Click Link    Fill in application
+    Click Link    Fill in the application
     Wait Until Page Contains    Username
     Input Text  id=edit-name    ${USER_NAME}
     Input Text  id=edit-mail    ${USER_EMAIL}

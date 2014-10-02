@@ -25,7 +25,7 @@ I want to offer APIs, software, datasets or tools and I need computing capacity 
     Wait Until Page Contains    Forge partner role and CRA information 
     Sleep   9 s
 #    Click Element   jquery=input.button-primary
-    Click Link    Fill in application
+    Click Link    Fill in the application
     Wait Until Page Contains    Username
     Input Text  id=edit-name    ${USER_NAME}
     Input Text  id=edit-mail    ${USER_EMAIL}
