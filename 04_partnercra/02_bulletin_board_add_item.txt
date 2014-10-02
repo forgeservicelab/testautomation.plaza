@@ -13,9 +13,9 @@ ${USER}    ${VALID_PARTNERCRA}
 ${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 
 *** Test Cases ***
-Go to plaza
-    Go to    ${DRUPAL_URL}
-    Click Link     Log in
+#Go to plaza
+#    Go to    ${DRUPAL_URL}
+#    Click Link     Log in
 Open bulletin board
     Go to    ${DRUPAL_URL}/en/bulletin-board
     Page Should Contain    Bulletin board

@@ -17,9 +17,9 @@ ${SERVICE_OFFERING_TITLE}   Test service offering
 ${SEARCH_URL}   ${DRUPAL_URL}/en/search
 
 *** Test Cases ***
-Start
-    Go to    ${DRUPAL_URL}
-    Click Link    Log in
+#Start
+#    Go to    ${DRUPAL_URL}
+#    Click Link    Log in
 Add organization
     [Tags]    noncritical
     Mouse Over  link=Add content    
