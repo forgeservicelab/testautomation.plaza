@@ -12,9 +12,10 @@ ${USER}    ${VALID_PARTNERCRA}
 ${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 
 *** Test Cases ***
-Start
-    Go to    ${DRUPAL_URL}
-    Click Link    Log in
+#Start
+#    [Tags]    noncritical
+#    Go to    ${DRUPAL_URL}
+#    Click Link    Log in
 MaxLen title
     [Tags]    noncritical
     Go Add organization page
