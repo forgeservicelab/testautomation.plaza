@@ -1,0 +1,20 @@
+*** Settings ***
+Documentation    Test searchbar in main page
+Suite Setup    Go to dashboard
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+
+*** Test Cases ***
+Click Magnifier
+    Click Element    id=block-views-exp-search-page
+    Element Should Be Visible    id=edit-submit-search
+Use search
+    Input Text    id=edit-keyword    weego
+    Click Element    id=edit-submit-search
+    Page Should Contain    Weego Software
+    
+*** Keywords ***
