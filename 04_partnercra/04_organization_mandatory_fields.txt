@@ -32,7 +32,7 @@ Add company
     Click Element   id=edit-submit
     Page Should Contain    ${validation} 
 Log Out and Close Browsers
-    Wait Until Page Contains    Log out
-    Click Element   link=Log out
-    Wait Until Page Contains    Log in
+#    Wait Until Page Contains    Log out
+#    Click Element   link=Log out
+#    Wait Until Page Contains    Log in
     Close All Browsers
