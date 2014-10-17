@@ -1,0 +1,17 @@
+*** Settings ***
+Documentation    Test Projects link
+Suite Setup    Go to dashboard
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+
+*** Test Cases ***
+Projects exists
+    Wait Until Page Contains    Projects
+    Click link    Projects 
+    Page Should Contain    Paikkatiedon ekosysteemin kehittämisen pilotti
+    Page Should Contain    Kansallisen palveluväylän pilotoinnin tukeminen
+*** Keywords ***
