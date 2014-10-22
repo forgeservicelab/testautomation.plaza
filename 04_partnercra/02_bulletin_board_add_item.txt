@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Check that user is able to add bulletin board item, comment it and delete it
 Suite Setup    Login as partner with cra
-Suite Teardown    Close All Browsers
+#Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../common/functions.txt
@@ -19,9 +19,10 @@ ${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 Open bulletin board
     Go to    ${DRUPAL_URL}/en/bulletin-board
     Page Should Contain    Bulletin board
-    Page Should Contain    Create new topic
 Has access to create new item
-    Click Link    Create new topic
+    Wait Until Page Contains    Add content
+    Mouse Over  link=Add content
+    Click Link    Bulletin board item
     Page Should Contain    Create Bulletin board item
 Check mandatory fields
     Click Element    id=edit-submit
@@ -30,15 +31,25 @@ Check mandatory fields
 Check maxlength title
     [Tags]    noncritical
     Verify maxlength    edit-field-page-title-und-0-value    255
-#Add item
-#    Input Text    id=edit-field-page-title-und-0-value    TA bb item
-#    Input Text    id=edit-field-bulletin-summary-und-0-value    TA bb summary
-#    Click Element    id=edit-submit
-#    Page Should Contain    Bulletin board item TA bb item has been created.
-#Add new Reply mandatory field
-#    Click Element    id=edit-submit
-#    Page Should Contain    Reply field is required.
-#Add new Reply
+Add BB item
+    Input Text    id=edit-field-page-title-und-0-value    TA bb item
+    Input Text    id=edit-field-bulletin-summary-und-0-value    TA bb summary
+    Click Element    id=edit-submit
+    Page Should Contain    Bulletin board item TA bb item has been created.
+Add new Reply mandatory field
+    Click Element    id=edit-submit
+    Page Should Contain    Reply field is required.
+Add new Reply
+    Input Text    id=edit-comment-body-und-0-value    TA bb comment
+    Click Element    id=edit-submit
+    Page Should Contain    TA bb comment
+Delete BB item
+    Click Link    Edit
+    Page Should Contain    Write here a short summary of what your bulletin board item is about.
+    Click Element    id=edit-delete
+    Page Should Contain    This action cannot be undone.
+    Click Element    id=edit-submit
+    Page Should Contain    has been deleted
 #    Click Element    css=span.cke_button_icon.cke_button__bold_icon
 #    Input Text  jquery=body.cke_contents_ltr    test
 #    Press Key    id=edit-comment-body-und-0-value    \\65
