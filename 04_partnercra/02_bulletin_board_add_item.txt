@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Check that user is able to add bulletin board item, comment it and delete it
 Suite Setup    Login as partner with cra
-#Suite Teardown    Close All Browsers
+Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../common/functions.txt
@@ -50,6 +50,3 @@ Delete BB item
     Page Should Contain    This action cannot be undone.
     Click Element    id=edit-submit
     Page Should Contain    has been deleted
-#    Click Element    css=span.cke_button_icon.cke_button__bold_icon
-#    Input Text  jquery=body.cke_contents_ltr    test
-#    Press Key    id=edit-comment-body-und-0-value    \\65

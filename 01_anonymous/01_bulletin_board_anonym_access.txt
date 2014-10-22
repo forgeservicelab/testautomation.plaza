@@ -11,13 +11,11 @@ Resource    ../local_resource.txt
 
 
 *** Test Cases ***
-Check link and content
+Check link 
     Go to    ${DRUPAL_URL}/en/bulletin-board
     Page Should Contain    Bulletin board
-    Page Should Contain    Create new topic
 Anonymous add new topic Should Fail
-    Click Link    Create new topic
-    Page Should Contain    You are not authorized to access this page.
+    Page Should Not Contain    Create new topic
 Anonymous cannot add new reply
      Go to    ${DRUPAL_URL}/en/bulletin-board/testing-testing
      Page Should Not Contain    Add new reply
