@@ -14,7 +14,6 @@ ${ORGANIZATION_TITLE}   Test organization
 ${PRODUCT_FAMILY_TITLE}     Test title
 ${PRODUCT_OFFERING_TITLE}   Test product offering
 ${SERVICE_OFFERING_TITLE}   Test service offering
-${SEARCH_URL}   ${DRUPAL_URL}/en/search
 
 
 *** Test Cases ***      Phone Number
