@@ -4,5 +4,10 @@
 04_partnercra/02_bulletin_board_add_item.txt
 04_partnercra/03_organization_fields_maxlength.txt
 04_partnercra/04_organization_mandatory_fields.txt
+04_partnercra/05_phone_number_validation.txt
+04_partnercra/06_product_family_mandatory_fields.txt
 04_partnercra/07_product_offering_category_fields.txt
+04_partnercra/08_product_offering_mandatory_fields.txt
+04_partnercra/09_service_offering_mandatory_fields.txt
+
 

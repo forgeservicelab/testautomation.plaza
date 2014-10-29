@@ -16,58 +16,34 @@ ${PRODUCT_OFFERING_TITLE}   Test product offering
 ${SERVICE_OFFERING_TITLE}   Test service offering
 
 
- *** Test Cases ***     Title     Tags      Info        Terms       Price       Validate
-Empty Title             ${EMPTY}  Testing   info        terms       100 €       title field is required
-Empty Tags              Title     ${EMPTY}  info        terms       100 €       Tags field is required
-Empty Info              Title     Testing   ${EMPTY}    terms       100 €       Brief overview description field is required.
-Empty Price             Title     Testing   info        terms       ${EMPTY}    Pricing information field is required.
-Price only letters      Title     Testing   info        terms       asd€         Pricing information must contains letters and at least one number.
+ *** Test Cases ***     Title     Tags      Info        Terms       Price       Contact   Validate
+Empty Title             ${EMPTY}  Testing   info        terms       100 €       auto      title field is required
+Empty Tags              Title     ${EMPTY}  info        terms       100 €       auto      Tags field is required
+Empty Info              Title     Testing   ${EMPTY}    terms       100 €       auto      Brief overview description field is required.
+Empty Price             Title     Testing   info        terms       ${EMPTY}    auto      Pricing information field is required.
+Empty Contact          Title     Testing   info        terms       100€        ${EMPTY}  Contact person / Address field is required
+#Price only letters      Title     Testing   info        terms       asd€         Pricing information must contains letters and at least one number.
 # TODO!! These are failing
 #Empty Terms and Cond    Title     Testing   info        ${EMPTY}    100 €       Terms overview description field is required.
 #Price only Numbers      Title     Testing   info        terms       100         Pricing information must contains letters and at least one number.
-#Empty Contact
 #Emtpy Cancellation
 
 *** Keywords ***
 Add service offering
-    [Arguments]    ${title}    ${tags}    ${info}    ${terms}    ${pricing}    ${validate}
+    [Arguments]    ${title}    ${tags}    ${info}    ${terms}    ${pricing}    ${contact}    ${validate}
     Wait Until Page Contains    Add content
     Mouse Over  link=Add content
+    Wait Until PAge Contains    Service offering
     Click Element   link=Service offering
     Wait Until Page Contains    Offering title
     Input Text  id=edit-field-page-title-und-0-value    ${title}
     Input Text  id=edit-field-offering-tags-und     ${Tags} 
-#    Click Element   id=cke_47
-#    Input Text  jquery=textarea.cke_contents_ltr    ${info} 
-#    Click Element   id=cke_47
-#    Select Checkbox     id=edit-field-category-und-73
-#    Select Checkbox     id=edit-field-category-und-36
-#    Select Checkbox     id=edit-field-category-und-47
-#    Select From List By Label   id=edit-field-collection-und    ${PRODUCT_FAMILY_TITLE}
-#    Input Text  id=edit-field-geographical-coverage-und-0-value     Europe only
-#    Click Element   id=cke_80
-#    Input Text  jquery=textarea.cke_contents_ltr    anttiiiiii 
-#    Click Element   id=cke_80
+    Input Text  id=edit-field-offering-address-und-0-value    ${contact}
+    Execute Javascript   CKEDITOR.instances['edit-field-brief-overview-description-und-0-value'].setData('${info}');
     Click Link  Pricing
     Input Text  id=edit-field-pricing-information-und-0-value    ${pricing}
-#    Click Element   id=cke_112
-#    Input Text  jquery=textarea.cke_contents_ltr    Test pricing description
-#    Click Element   id=cke_112
     Click Link  Terms and conditions
-    Input Text    id=edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value    ${terms}
-    Input Text    id=edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value    ${terms}
-#    Click Element   id=cke_144
-#    Input Text  jquery=textarea.cke_contents_ltr    ${terms} 
-#    Click Element   id=cke_144
-#    Click Element   id=cke_176
-#    Input Text  jquery=textarea.cke_contents_ltr    ${terms} 
-#    Click Element   id=cke_176
-#    Input Text  id=edit-field-live-demo-url-und-0-title     Test url title
-#    Input Text  id=edit-field-live-demo-url-und-0-url   http://www.google.com
-#    Click Element   dom=document.getElementsByName('field_organizer[und]')[0]
-#    Input Text  id=edit-field-offering-address-und-0-value  ${contat}
-#    Input Text  id=edit-field-offering-phone-und-0-value    +358400123456
-#    Input Text  id=edit-field-offering-email-und-0-email    test@testemailaddress.com
-#    Input Text  id=edit-field-offering-website-und-0-url    http://www.google.com
+    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('Terms and conditions');
+    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('Terms and conditions 2');
     Click Element    id=edit-submit
     Wait Until Page Contains    ${validate}
