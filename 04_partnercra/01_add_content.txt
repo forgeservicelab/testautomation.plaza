@@ -26,7 +26,9 @@ Add organization
     Click Element   link=Organization
     Wait Until Page Contains    Organization title
     Input Text  id=edit-field-page-title-und-0-value    ${ORGANIZATION_TITLE}
-    Input Text  id=edit-field-free-text-company-und-0-value     ${ORGANIZATION_DESCRIPTION}
+    Click Element    id=cke_edit-field-free-text-company-und-0-value
+    Execute Javascript   CKEDITOR.instances['edit-field-free-text-company-und-0-value'].setData('${ORGANIZATION_DESCRIPTION}');
+#    Input Text  id=edit-field-free-text-company-und-0-value     ${ORGANIZATION_DESCRIPTION}
     Input Text  id=edit-field-company-address-und-0-value   Kuopio
     Input Text  id=edit-field-company-webpage-und-0-title   test organization
     Input Text  id=edit-field-company-webpage-und-0-url     http://www.google.com
@@ -54,7 +56,9 @@ Add product offering
     Wait Until Page Contains    What is your offering and why is it great?
     Input Text  id=edit-field-page-title-und-0-value    ${PRODUCT_OFFERING_TITLE}
     Input Text  id=edit-field-offering-tags-und     Test mobile product
-    Input Text  id=edit-field-brief-overview-description-und-0-value     Brief description for the product offering
+    Click Element    id=cke_edit-field-brief-overview-description-und-0-value
+    Execute Javascript   CKEDITOR.instances['edit-field-brief-overview-description-und-0-value'].setData('Brief description for the product offering');
+#    Input Text  id=edit-field-brief-overview-description-und-0-value     Brief description for the product offering
     Select Checkbox     id=edit-field-category-und-36
     Select Checkbox     id=edit-field-category-und-47
     Input Text  id=edit-field-geographical-coverage-und-0-value     Europe only
@@ -62,8 +66,10 @@ Add product offering
     Click Link  Pricing
     Input Text  id=edit-field-pricing-information-und-0-value   10,000 test money / month
     Click Link  Terms and conditions
-    Input Text    id=edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value    Terms and conditions
-    Input Text    id=edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value    Terms and conditions 2
+    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('Terms and conditions');
+    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('Terms and conditions 2');
+#    Input Text    id=edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value    Terms and conditions
+#    Input Text    id=edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value    Terms and conditions 2
     Input Text    id=edit-field-cancellation-refund-policy-und-0-value    No Cancellation policy
     Input Text  id=edit-field-live-demo-url-und-0-title     Test url title
     Input Text  id=edit-field-live-demo-url-und-0-url   http://www.google.com
@@ -83,15 +89,18 @@ Add service offering
     Wait Until Page Contains    Offering title
     Input Text  id=edit-field-page-title-und-0-value    ${SERVICE_OFFERING_TITLE}
     Input Text  id=edit-field-offering-tags-und     Test service mobile qa
-    Input Text    id=edit-field-brief-overview-description-und-0-value    Brief description for the service offering
+    Execute Javascript   CKEDITOR.instances['edit-field-brief-overview-description-und-0-value'].setData('Brief description for the service offering');
+#    Input Text    id=edit-field-brief-overview-description-und-0-value    Brief description for the service offering
     Select Checkbox     id=edit-field-category-und-73
     Select Checkbox     id=edit-field-category-und-36
     Select Checkbox     id=edit-field-category-und-47
     Click Link  Pricing
     Input Text  id=edit-field-pricing-information-und-0-value   10,000 test money / month
     Click Link  Terms and conditions
-    Input Text    id=edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value    Terms and conditions
-    Input Text    id=edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value    Terms and conditions 2
+    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('Terms and conditions');
+    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('Terms and conditions 2');
+#    Input Text    id=edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value    Terms and conditions
+#    Input Text    id=edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value    Terms and conditions 2
     Input Text    id=edit-field-cancellation-refund-policy-und-0-value    Cancellation policy
     Input Text  id=edit-field-live-demo-url-und-0-title     Test url title
     Input Text  id=edit-field-live-demo-url-und-0-url   http://www.google.com

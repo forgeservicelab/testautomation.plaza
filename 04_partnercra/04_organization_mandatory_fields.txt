@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Test mandatory fields in organization adding
 Suite Setup    Login as partner with cra 
-#Suite Teardown    Log out and Close Browsers
+Suite Teardown    Log out and Close Browsers
 Test Template    Add company
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
