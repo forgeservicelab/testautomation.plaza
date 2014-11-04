@@ -1,0 +1,74 @@
+*** Settings ***
+Documentation   Create free of charge service offering, delete created content at the end
+Suite Setup    Login as julkict
+#Suite Teardown    Close All Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+*** Variables ***
+${USER}    ${VALID_JULKICT}
+${PASSWORD}    ${VALID_JULKICT_PASSWORD}
+${SERVICE_OFFERING_TITLE}   Free Test service offering
+${SEARCH_URL}   ${DRUPAL_URL}/en/search
+
+*** Test Cases ***
+Add free of charge offering
+    [Tags]    noncritical
+    Wait Until Page Contains    Add content
+    Mouse Over  link=Add content
+    Wait Until Page Contains    Free of charge
+    Click Element   link=Free of charge offering
+    Wait Until Page Contains    Offering title
+    Input Text  id=edit-field-page-title-und-0-value    ${SERVICE_OFFERING_TITLE}
+    Input Text  id=edit-field-offering-tags-und     Test service mobile qa
+    Execute Javascript   CKEDITOR.instances['edit-field-brief-overview-description-und-0-value'].setData('Brief description for the service offering');
+    Click Element    id=edit-field-this-is-julkict-lab-projec-und-1
+    Click Element    id=edit-field-this-project-is-free-of-ch-und-1
+#    Input Text    id=edit-field-brief-overview-description-und-0-value    Brief description for the service offering
+#    Select Checkbox     id=edit-field-category-und-73
+#    Select Checkbox     id=edit-field-category-und-36
+#    Select Checkbox     id=edit-field-category-und-47
+    Click Link  Pricing
+    Input Text  id=edit-field-pricing-information-und-0-value   10,000 test money / month
+    Click Link  Terms and conditions
+    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('Terms and conditions');
+    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('Terms and conditions 2');
+#    Input Text    id=edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value    Terms and conditions
+#    Input Text    id=edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value    Terms and conditions 2
+    Input Text    id=edit-field-cancellation-refund-policy-und-0-value    Cancellation policy
+    Input Text  id=edit-field-live-demo-url-und-0-title     Test url title
+    Input Text  id=edit-field-live-demo-url-und-0-url   http://www.google.com
+    Click Element   dom=document.getElementsByName('field_organizer[und]')[0]
+    Input Text  id=edit-field-offering-address-und-0-value  Test Person, Testroad 5
+    Input Text  id=edit-field-offering-phone-und-0-value    +358400123456
+    Input Text  id=edit-field-offering-email-und-0-email    test@testemailaddress.com
+    Input Text  id=edit-field-offering-website-und-0-url    http://www.google.com
+    Click Element   id=edit-submit
+    Page Should Contain    has been created.
+    Page Should Contain    Free of charge offering
+Search Free of charge offer 
+    [Tags]    noncritical
+    Go to   ${SEARCH_URL}
+    Wait Until Page Contains Element    id=edit-keyword
+    Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${SERVICE_OFFERING_TITLE}
+    Click Element   xpath=(//input[@id='edit-submit-search'])[2]
+#   Input Text  id=edit-keyword     ${ORGANIZATION_TITLE}
+#    Click Element   id=edit-submit-search
+    Wait Until Page Contains    Filter by category
+    Click Link  ${SERVICE_OFFERING_TITLE}
+    Page Should Contain    ${SERVICE_OFFERING_TITLE}
+Delete free of charge offering
+    [Tags]    noncritical
+    Wait Until Page Contains    Own content
+    Click Link  Own content
+    Wait Until Page Contains    Title
+    Click Link  ${SERVICE_OFFERING_TITLE}
+    Wait Until Page Contains    Edit
+    Click Link    Edit
+    Wait Until Page Contains    ${SERVICE_OFFERING_TITLE}
+    Click Element    id=edit-delete
+    Wait Until Page Contains    This action cannot be undone
+    Click Element    id=edit-submit
+    Wait Until Page Contains    has been deleted
+    Page Should Contain    Free of charge offering ${SERVICE_OFFERING_TITLE} has been deleted
