@@ -11,14 +11,17 @@ ${USER}    ${VALID_PARTNERCRA}
 ${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 
 *** Test Cases ***
-Login as Digile Stuff
+Login as Partner with CRA
     Wait Until Page Contains    Log in
     Click Link    Log in
     Set Log Level    NONE
     login Auth    ${USER}      ${PASSWORD}    You are currently logged in as ${USER}
     Set Log Level    DEBUG
     Wait Until Page Contains    Forge
+    Page Should Contain    Logged in via CAS as
     Page Should Contain    ${USER}
+Toolbar visible partner with cra
+    Page Should Contain    Add content
     Click Link    Log out
     Wait Until Page Contains    Log in
     Go to     ${AUTH_URL}

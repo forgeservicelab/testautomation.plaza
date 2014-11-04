@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Test login as Digile staff
+Documentation    Test login as JulkICT
 Suite Setup    Go to frontpage
 Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
@@ -7,11 +7,11 @@ Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
 
 *** Variables ***
-${USER}    ${VALID_USER}
-${PASSWORD}    ${VALID_PASSWORD}
+${USER}    ${VALID_JULKICT}
+${PASSWORD}    ${VALID_JULKICT_PASSWORD}
 
 *** Test Cases ***
-Login as Digile Stuff
+Login as julkict
     Wait Until Page Contains    Log in
     Click Link    Log in
     Set Log Level    NONE
@@ -20,7 +20,7 @@ Login as Digile Stuff
     Wait Until Page Contains    Forge
     Page Should Contain    Logged in via CAS as
     Page Should Contain    ${USER}
-Toolbar visible stuff 
+Toolbar visible julkict
     Page Should Contain    Add content
     Click Link    Log out
     Wait Until Page Contains    Log in
