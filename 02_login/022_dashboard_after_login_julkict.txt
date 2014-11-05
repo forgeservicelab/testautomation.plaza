@@ -22,6 +22,21 @@ Dashboard Service Developer after Login
 Plaza own content
     Click Link    Own content
     Page Should Contain    Published
+Access to add content to plaza
+    Wait until Page Contains    Add content
+    Mouse over    link=Add content
+Can add Bulletin board item
+    Page Should Contain    Bulletin board item
+Can add Organization
+    Page Should Contain    Organization
+Can add Product family
+    Page Should Contain    Product family
+Can add Product offering
+    Page Should Contain    Product offering
+Can add Seervice offering
+    Page Should Contain    Service offering
+Can add Free of charge project
+    Page Should Contain    Free of charge offering
 
 *** Keywords ***
 
