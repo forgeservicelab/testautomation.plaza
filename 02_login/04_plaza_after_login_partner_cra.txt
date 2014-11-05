@@ -19,6 +19,7 @@ Plaza opened for Partner after Login
     login Auth    ${username}      ${password}    You are currently logged in as ${username}
     Set Log Level    DEBUG
     Wait Until Page Contains    FORGE Plaza
+    Page Should Contain    FORGE Plaza is a service catalogue
     Page Should Contain    ${username}
 Plaza own content
     Click Link    Own content

@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Verifyes that when partner logs in plaza he will be redirected to plaza page instead of forgeservilab main page
+Documentation    Verifyes that when partner logs in plaza he wont be redirected to plaza page but to forgeservilab main page
 Suite Setup    Go to frontpage
 Suite Teardown    Close All Browsers
 Resource    ../common/assets/resource.txt
@@ -12,17 +12,26 @@ ${username}    ${VALID_PARTNER}
 ${password}    ${VALID_PARTNER_PASSWORD}
 
 *** Test Cases ***
-Plaza opened for Partner after Login
+Plaza NOT opened for Partner after Login
     Click Link    Log in
     Wait Until Page Contains    Username
     Set Log Level    NONE
     login Auth    ${username}      ${password}    You are currently logged in as ${username}
     Set Log Level    DEBUG
     Wait Until Page Contains    FORGE Plaza
+    Page Should Not Contain    FORGE Plaza is a service catalogue
     Page Should Contain    ${username}
 Plaza own content
     Click Link    Own content
     Page Should Contain    Published
+No access to create plaza items
+    Wait Until Page Contains    Add content
+    Mouse Over    link=Add content
+    Page Should Not Contain    Organization
+    Page Should Not Contain    Service offering
+    Page Should Not Contain    Product offering
+    Page Should Not Contain    Product family
+    
 
 *** Keywords ***
 
