@@ -1,7 +1,11 @@
+*** Settings ***
+Library           uuid
+
 *** Variables ***
 #${SELENIUM_HOST}    localhost
 ${SELENIUM_HOST}    ci.forgeservicelab.fi
 ${SELENIUM_PORT}    4444
+
 
 *** Keywords ***
 login Auth
@@ -31,6 +35,17 @@ Auth LOGIN OK
     Set Log Level    DEBUG
     Go to   ${DRUPAL_URL}
 
+Login as service developer
+    Open Browser    ${DRUPAL_URL}	${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub
+#    Open Browser    ${DRUPAL_URL}	${BROWSER}
+    Click Link    Log in
+    Input Text    id=username    ${USER}
+    Set Log Level    NONE
+    Input Text    id=password    ${PASSWORD}
+    Set Log Level    DEBUG
+    Click Button  name=button
+    Page Should Contain    ${USER}
+
 Login as partner with cra
     Open Browser    ${DRUPAL_URL}	${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub
 #    Open Browser    ${DRUPAL_URL}	${BROWSER}
@@ -40,6 +55,17 @@ Login as partner with cra
     Input Text    id=password    ${PASSWORD}
     Set Log Level    DEBUG
     Click Button  name=button
+
+Login as julkict
+    Open Browser    ${DRUPAL_URL}	${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub
+#    Open Browser    ${DRUPAL_URL}	${BROWSER}
+    Click Link    Log in
+    Input Text    id=username    ${USER}
+    Set Log Level    NONE
+    Input Text    id=password    ${PASSWORD}
+    Set Log Level    DEBUG
+    Click Button  name=button
+    Wait Until Page Contains    Logged in via CAS as ${USER}
 
 Log Out and Close Browsers
     Wait Until Page Contains    Log out
