@@ -1,0 +1,46 @@
+*** Settings ***
+Documentation    Test Feeds & filters
+Suite Setup    Go to dashboard
+#Suite Teardown    Close All Browsers
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+
+*** Test Cases ***
+Feeds
+    Click Element    link=FEED
+    Page Should Contain    News
+    Page Should Contain    Blog
+    Page Should Contain    Twitter
+    Page Should Contain    Facebook
+News filter
+    Click Element    //div[@id='edit-type']/div[2]/label
+    Page Should contain    Share
+    Sleep    1s
+News filter off
+    Wait Until Page Contains    Feed
+    Click Element    css=label.option.checked
+    Page Should contain    Share
+    Sleep    3s
+Blog filter
+    Click Element     //div[@id='edit-type']/div[3]/label
+    Page Should contain    Share       
+    Sleep    1s
+Blog filter off
+    Wait Until Page Contains    Feed
+    Click Element    css=label.option.checked
+    Page Should Contain    Share
+    Sleep    3s
+Twitter filter
+    Click Element     //div[@id='edit-type']/div[4]/label
+    Page Should contain    Share       
+    Sleep    1s
+Twitter filter off
+    Wait Until Page Contains    Feed
+    Click Element    css=label.option.checked
+    Page Should Contain    Share
+    
+
+*** Keywords ***
