@@ -25,17 +25,11 @@ Add free of charge offering
     Execute Javascript   CKEDITOR.instances['edit-field-brief-overview-description-und-0-value'].setData('Brief description for the service offering');
     Click Element    id=edit-field-this-is-julkict-lab-projec-und-1
     Click Element    id=edit-field-this-project-is-free-of-ch-und-1
-#    Input Text    id=edit-field-brief-overview-description-und-0-value    Brief description for the service offering
-#    Select Checkbox     id=edit-field-category-und-73
-#    Select Checkbox     id=edit-field-category-und-36
-#    Select Checkbox     id=edit-field-category-und-47
     Click Link  Pricing
     Input Text  id=edit-field-pricing-information-und-0-value   10,000 test money / month
     Click Link  Terms and conditions
     Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('Terms and conditions');
     Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('Terms and conditions 2');
-#    Input Text    id=edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value    Terms and conditions
-#    Input Text    id=edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value    Terms and conditions 2
     Input Text    id=edit-field-cancellation-refund-policy-und-0-value    Cancellation policy
     Input Text  id=edit-field-live-demo-url-und-0-title     Test url title
     Input Text  id=edit-field-live-demo-url-und-0-url   http://www.google.com
@@ -53,8 +47,6 @@ Search Free of charge offer
     Wait Until Page Contains Element    id=edit-keyword
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${SERVICE_OFFERING_TITLE}
     Click Element   xpath=(//input[@id='edit-submit-search'])[2]
-#   Input Text  id=edit-keyword     ${ORGANIZATION_TITLE}
-#    Click Element   id=edit-submit-search
     Wait Until Page Contains    Filter by category
     Click Link  ${SERVICE_OFFERING_TITLE}
     Page Should Contain    ${SERVICE_OFFERING_TITLE}

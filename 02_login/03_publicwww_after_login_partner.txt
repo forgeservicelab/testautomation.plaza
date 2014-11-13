@@ -37,6 +37,8 @@ Cannot add product offering
     Page Should Not Contain    Product offering
 Cannot add Product family
     Page Should Not Contain    Product family
+Cannot add Free of charge project
+    Page Should Not Contain    Free of charge offering
     
 *** Keywords ***
 
