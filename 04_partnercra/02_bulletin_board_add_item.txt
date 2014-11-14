@@ -36,6 +36,11 @@ Add BB item
     Input Text    id=edit-field-bulletin-summary-und-0-value    TA bb summary
     Click Element    id=edit-submit
     Page Should Contain    Bulletin board item TA bb item has been created.
+Edit BB item
+    Click Link    Edit
+    Page Should Contain    Title
+    Page Should Contain    Write here a short summary
+    Click Element   id=edit-submit
 Add new Reply mandatory field
     Click Element    id=edit-submit
     Page Should Contain    Reply field is required.
