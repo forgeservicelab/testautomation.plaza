@@ -9,8 +9,8 @@ Resource    ../local_resource.txt
 
 
 *** Variables ***
-${USER}    ${VALID_PARTNER}
-${PASSWORD}    ${VALID_PARTNER_PASSWORD}
+${USER}    ${VALID_SERVICEDEVELOPER}
+${PASSWORD}    ${VALID_SERVICEDEVELOPER_PASSWORD}
 
 *** Test Cases ***
 #Go to plaza
