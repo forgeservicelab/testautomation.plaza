@@ -9,8 +9,8 @@ Resource    ../local_resource.txt
 
 
 *** Variables ***
-${USER}    ${VALID_PARTNERCRA}
-${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
+${USER}    ${VALID_JULKICT}
+${PASSWORD}    ${VALID_JULKICT_PASSWORD}
 
 *** Test Cases ***
 #Go to plaza
@@ -32,10 +32,10 @@ Check maxlength title
     [Tags]    noncritical
     Verify maxlength    edit-field-page-title-und-0-value    255
 Add BB item
-    Input Text    id=edit-field-page-title-und-0-value    TA bb item partnercra
+    Input Text    id=edit-field-page-title-und-0-value    TA bb item julkict
     Input Text    id=edit-field-bulletin-summary-und-0-value    TA bb summary
     Click Element    id=edit-submit
-    Page Should Contain    Bulletin board item TA bb item partnercra has been created.
+    Page Should Contain    Bulletin board item TA bb item julkict has been created.
 Edit BB item
     Click Link    Edit
     Page Should Contain    Title
