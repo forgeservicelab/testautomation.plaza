@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Create free of charge service offering, delete created content at the end
 Suite Setup    Login as julkict
-#Suite Teardown    Close All Browsers
+Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
