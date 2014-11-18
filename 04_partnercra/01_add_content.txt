@@ -42,9 +42,9 @@ Add product family
     Mouse Over  link=Add content
     Click Element   link=Product family
     Wait Until Page Contains    Product family title
-    Input Text  id=edit-title   ${PRODUCT_FAMILY_TITLE}
-    Input Text  id=edit-field-page-title-und-0-value    ${PRODUCT_FAMILY_TITLE} + 1
-    Input Text  id=edit-field-product-family-title-und-0-value  ${PRODUCT_FAMILY_TITLE} + 2
+#    Input Text  id=edit-title   ${PRODUCT_FAMILY_TITLE}
+    Input Text  id=edit-field-page-title-und-0-value    ${PRODUCT_FAMILY_TITLE}
+#    Input Text  id=edit-field-product-family-title-und-0-value  ${PRODUCT_FAMILY_TITLE} + 2
     Click Element   id=edit-submit
     Page Should Contain    Product family ${PRODUCT_FAMILY_TITLE} has been created.
     Wait Until Page Contains    has been created.
