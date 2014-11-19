@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Test mandatory fields in organization adding
 Suite Setup    Login as partner with cra 
-Suite Teardown    Log Out and Close Browsers
+Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../common/functions.txt
@@ -41,6 +41,12 @@ MaxLen admin phone
 MaxLen admin email
     [Tags]    noncritical
     Verify maxlength    edit-field-admin-email-und-0-email    128
+Logout
+    Click Link    Log out
+    Wait Until Page Contains    Log in
+    Go to     ${AUTH_URL}
+    Click Link    Logout
+    Wait Until Page Contains    Bye
 
 *** Keywords ***
 Go Add organization page

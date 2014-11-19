@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Check that all fields must be entered when creating product family 
 Suite Setup    Login as partner with cra
-Suite Teardown    Log Out and Close Browsers
+Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
@@ -23,4 +23,10 @@ Add product family
 #    Page Should Contain    Title field is required
 #    Page Should Contain    Product family title field is required
     Page Should Contain    Product family title field is required
+Logout
+    Click Link    Log out
+    Wait Until Page Contains    Log in
+    Go to     ${AUTH_URL}
+    Click Link    Logout
+    Wait Until Page Contains    Bye
 
