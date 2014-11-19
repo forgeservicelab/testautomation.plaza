@@ -71,4 +71,8 @@ Log Out and Close Browsers
     Wait Until Page Contains    Log out
     Click Element   link=Log out
     Wait Until Page Contains    Log in
+    Go to    ${AUTH_URL}
+    Click Link    Logout
+    Page Should Contain    Bye
     Close All Browsers
+

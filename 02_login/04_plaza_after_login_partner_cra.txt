@@ -39,6 +39,12 @@ Can add Service offering
     Page Should Contain    Service offering
 Cannot add Free of charge project
     Page Should Not Contain    Free of charge offering
+Logout
+    Click Link    Log out
+    Wait Until Page Contains    Log in
+    Go to     ${AUTH_URL}
+    Click Link    Logout
+    Wait Until Page Contains    Bye
 
 *** Keywords ***
 

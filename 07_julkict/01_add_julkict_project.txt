@@ -64,3 +64,10 @@ Delete free of charge offering
     Click Element    id=edit-submit
     Wait Until Page Contains    has been deleted
     Page Should Contain    Free of charge offering ${SERVICE_OFFERING_TITLE} has been deleted
+Logout
+    Click Link    Log out
+    Wait Until Page Contains    Log in
+    Go to     ${AUTH_URL}
+    Click Link    Logout
+    Wait Until Page Contains    Bye
+

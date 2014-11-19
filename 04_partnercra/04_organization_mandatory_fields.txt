@@ -35,8 +35,8 @@ Add company
     Input Text  id=edit-field-company-address-und-0-value    ${address}   
     Click Element   id=edit-submit
     Page Should Contain    ${validation} 
-Log Out and Close Browsers
+#Log Out and Close Browsers
 #    Wait Until Page Contains    Log out
 #    Click Element   link=Log out
 #    Wait Until Page Contains    Log in
-    Close All Browsers
+#    Close All Browsers

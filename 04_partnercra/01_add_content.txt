@@ -208,3 +208,10 @@ Delete Organization
     Wait Until Page Contains    This action cannot be undone.
     Click Element   id=edit-submit
     Page Should Contain    has been deleted.
+Logout
+    Click Link    Log out
+    Wait Until Page Contains    Log in
+    Go to     ${AUTH_URL}
+    Click Link    Logout
+    Wait Until Page Contains    Bye
+

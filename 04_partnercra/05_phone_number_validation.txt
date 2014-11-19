@@ -43,8 +43,8 @@ Add company
     Input Text  id=edit-field-admin-email-und-0-email   test@testemailaddress.com
     Click Element   id=edit-submit
     Page Should Contain    Phone number must start with "+" and must includes only numbers
-Log Out and Close Browsers
-    Wait Until Page Contains    Log out
-    Click Element   link=Log out
-    Wait Until Page Contains    Log in
-    Close All Browsers
+#Log Out and Close Browsers
+#    Wait Until Page Contains    Log out
+#    Click Element   link=Log out
+#    Wait Until Page Contains    Log in
+#    Close All Browsers
