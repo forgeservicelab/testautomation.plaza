@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Join forge with different roles
 Suite Setup    Go to frontpage
-Suite Teardown    Close All Browsers
+#Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
@@ -32,3 +32,11 @@ I want to develop a world-class digital service
     Sleep   9 s
     Click Element   id=edit-submit
     Wait Until Page Contains    The name ${USER_NAME} is already taken
+Mandatory fields
+    Input Text  id=edit-name    ${EMPTY}
+    Input Text  id=edit-mail    ${EMPTY}
+    Sleep   9 s
+    Click Element   id=edit-submit
+    Page Should Contain    Username field is required.
+    Page Should Contain    E-mail address field is required.
+    
