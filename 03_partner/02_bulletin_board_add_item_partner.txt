@@ -36,6 +36,13 @@ Add BB item
     Input Text    id=edit-field-bulletin-summary-und-0-value    TA bb summary
     Click Element    id=edit-submit
     Page Should Contain    Bulletin board item TA bb item partner has been created.
+Edit BB mandatory fields
+    Click Link    Edit
+    Input Text    id=edit-field-page-title-en-0-value    ${EMPTY}
+    Input Text    id=edit-field-bulletin-summary-und-0-value    ${EMPTY}
+    Click Element    id=edit-submit
+    Page Should Contain    Title field is required
+    Page Should Contain    Summary field is required
 Edit BB item
     Click Link    Edit
     Page Should Contain    Title
