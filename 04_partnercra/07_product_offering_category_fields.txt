@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Test Product offering category fields
 Suite Setup    Login as partner with cra 
-Suite Teardown    Log Out and Close Browsers
+#Suite Teardown    Log Out and Close Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
@@ -31,6 +31,8 @@ Add product offering Category fields
     Click Link  Terms and conditions
     Input Text  id=edit-field-cancellation-refund-policy-und-0-value    cancellation
     Click Element   id=edit-submit
-    Wait Until Page Contains    Category field is required
+    Page Should Contain    Minimum 1, maximum 99
+Add product offergin Provider fields
+    Page Should Contain    Provider field is required.
 
 *** Keywords ***

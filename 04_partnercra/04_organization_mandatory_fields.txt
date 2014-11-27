@@ -6,7 +6,6 @@ Test Template    Add company
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
-Library    ckeditor
 
 *** Variables ***
 ${USER}    ${VALID_PARTNERCRA}
