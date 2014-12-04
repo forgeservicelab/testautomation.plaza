@@ -16,21 +16,21 @@ ${PRODUCT_OFFERING_TITLE}   Test product offering
 ${SERVICE_OFFERING_TITLE}   Test service offering
 
 
- *** Test Cases ***     Title     Tags      Info        Terms       Price       Contact   Validate
-Empty Title             ${EMPTY}  Testing   info        terms       100 €       auto      title field is required
-Empty Tags              Title     ${EMPTY}  info        terms       100 €       auto      Tags field is required
-Empty Info              Title     Testing   ${EMPTY}    terms       100 €       auto      Brief overview description field is required.
-Empty Price             Title     Testing   info        terms       ${EMPTY}    auto      Pricing information field is required.
-Empty Contact          Title     Testing   info        terms       100€        ${EMPTY}  Contact person / Address field is required
-#Price only letters      Title     Testing   info        terms       asd€         Pricing information must contains letters and at least one number.
-# TODO!! These are failing
-#Empty Terms and Cond    Title     Testing   info        ${EMPTY}    100 €       Terms overview description field is required.
-#Price only Numbers      Title     Testing   info        terms       100         Pricing information must contains letters and at least one number.
-#Emtpy Cancellation
+ *** Test Cases ***     Title     Tags      Info        Terms     T2        Price          Contact   Cancel    Validate
+Empty Title             ${EMPTY}  Testing   info        terms     t2        100 €uro       auto      cancel    title field is required
+Empty Tags              Title     ${EMPTY}  info        terms     t2        100 €uro       auto      cancel    Tags field is required
+Empty Info              Title     Testing   ${EMPTY}    terms     t2        100 €uro       auto      cancel    Brief overview description field is required.
+Empty Contact           Title     Testing   info        terms     t2        100 €uro       ${EMPTY}  cancel    Contact person / Address field is required
+Empty Price             Title     Testing   info        terms     t2        ${EMPTY}       auto      cancel    Pricing information field is required.
+Price only letters      Title     Testing   info        terms     t2        asd euro       auto      cancel    Pricing information must contains letters and at least one number.
+Price only Numbers      Title     Testing   info        terms     t2        100            auto      cancel    Pricing information must contains letters and at least one number.
+Empty Terms and Cond    Title     Testing   info        ${EMPTY}  t2        100 €uro       auto      cancel    Terms overview description field is required.
+Empty Terms and Cond2   Title     Testing   info        terms     ${EMPTY}  100 €uro       auto      cancel    Terms overview description field is required.
+Empty Cancellation      Title     Testing   info        terms     t2        100 $uro       auto      ${EMPTY}  Cancellation / refund policy field is required.
 
 *** Keywords ***
 Add service offering
-    [Arguments]    ${title}    ${tags}    ${info}    ${terms}    ${pricing}    ${contact}    ${validate}
+    [Arguments]    ${title}    ${tags}    ${info}    ${terms}   ${t2}     ${pricing}    ${contact}   ${cancel}    ${validate}
     Wait Until Page Contains    Add content
     Mouse Over  link=Add content
     Wait Until PAge Contains    Service offering
@@ -43,7 +43,8 @@ Add service offering
     Click Link  Pricing
     Input Text  id=edit-field-pricing-information-und-0-value    ${pricing}
     Click Link  Terms and conditions
-    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('Terms and conditions');
-    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('Terms and conditions 2');
+    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('${terms}');
+    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('${t2}');
+    Input Text  id=edit-field-cancellation-refund-policy-und-0-value    ${cancel}
     Click Element    id=edit-submit
     Wait Until Page Contains    ${validate}
