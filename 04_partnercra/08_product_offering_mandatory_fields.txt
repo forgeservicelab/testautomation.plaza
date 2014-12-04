@@ -16,20 +16,21 @@ ${PRODUCT_OFFERING_TITLE}   Test product offering
 ${SERVICE_OFFERING_TITLE}   Test service offering
 
 
- *** Test Cases ***     Title     Tags      Info        Terms       Price      Cancellation    Contact     Validate
-Empty Title             ${EMPTY}  Testing   info        terms       100 €      joo             auto        title field is required
-Empty Tags              title     ${EMPTY}  info        terms       100 €      joo             auto        Tags field is required
-Empty Info              title     Testing   ${EMPTY}    terms       100 €      joo             auto        Brief overview description field is required
-Empty Terms             title     Testing   info        ${EMPTY}    100 €      joo             auto        Terms and conditions field is required
-Empty Price             title     Testing   info        terms       ${EMPTY}   joo             auto        Pricing information field is required
-#Price only letters      title     Testing   info        terms       EMPTY      joo             auto        Pricing information must contains letters and at least one number.
-Empty contact           title     Testing   info        terms       EMPTY      joo             ${EMPTY}    Contact person / Address field is required.
-#Price only numbers      title     Testing   inf         terms       100      joo              Pricing information must contains letters and at least one number.
-Empty Cancellation      title     Testing   info         terms       100 €      ${EMPTY}        auto        Cancellation / refund policy field is required.
+ *** Test Cases ***     Title     Tags      Info        Terms     T2          Price      Cancellation    Contact     Validate
+Empty Title             ${EMPTY}  Testing   info        terms     t2          100 €uro      joo             auto        title field is required
+Empty Tags              title     ${EMPTY}  info        terms     t2          100 €uro      joo             auto        Tags field is required
+Empty Info              title     Testing   ${EMPTY}    terms     t2          100 €uro      joo             auto        Brief overview description field is required
+Empty Terms             title     Testing   info        ${EMPTY}  t2          100 €uro      joo             auto        Terms and conditions field is required
+Empty Terms2            title     Testing   info        terms     ${EMPTY}    100 €uro      joo             auto        Terms and conditions field is required
+Empty Price             title     Testing   info        terms     t2          ${EMPTY}      joo             auto        Pricing information field is required
+Price only letters      title     Testing   info        terms     t2          EMPTY         joo             auto        Pricing information must contains letters and at least one number.
+Empty contact           title     Testing   info        terms     t2          EMPTY         joo             ${EMPTY}    Contact person / Address field is required.
+Price only numbers      title     Testing   inf         terms     t2          100           joo             auto        Pricing information must contains letters and at least one number.
+Empty Cancellation      title     Testing   info        terms     t2          100 €uro      ${EMPTY}        auto        Cancellation / refund policy field is required.
 
 *** Keywords ***
 Add product offering
-    [Arguments]    ${title}    ${tags}    ${info}    ${terms}    ${pricing}    ${cancellation}    ${contact}    ${validate}
+    [Arguments]    ${title}    ${tags}    ${info}    ${terms}    ${t2}    ${pricing}    ${cancellation}    ${contact}    ${validate}
     Wait Until Page Contains    Add content
     Mouse Over  link=Add content
     Click Element   link=Product offering
@@ -46,8 +47,10 @@ Add product offering
     Click Link  Pricing
     Input Text  id=edit-field-pricing-information-und-0-value   ${pricing}
     Click Link  Terms and conditions
-    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('Terms and conditions');
-    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('Terms and conditions 2');
+#    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('Terms and conditions');
+#    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('Terms and conditions 2');
+    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('${terms}');
+    Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('${t2}');
     Input Text  id=edit-field-cancellation-refund-policy-und-0-value    ${cancellation}
     Click Element    id=edit-submit
     Wait Until Page Contains    ${validate}
