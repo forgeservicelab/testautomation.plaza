@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Join forge with different roles
 Suite Setup    Go to frontpage
-#Suite Teardown    Close All Browsers
+Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
@@ -23,6 +23,7 @@ I want to develop a world-class digital service
 #    Click Element   jquery=input.button-primary
     Click Link    Continue >
     Wait Until Page Contains    I want to develop a world-class digital service
+    Page Should Not Contain    Warning
     Sleep   9 s
 #    Click Element   jquery=input.button-primary
     Click Link    Fill in the application
