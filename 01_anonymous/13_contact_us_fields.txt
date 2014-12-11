@@ -1,0 +1,31 @@
+*** Settings ***
+Documentation    Check that Contact us is available
+Suite Setup    Go to frontpage
+Suite Teardown    Close All Browsers
+Test Template   Contact us fields 
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+
+
+*** Test Cases ***  Name      Email           Message    Validate
+empty name          ${empty}  test@test.com   message    Your name field is required.
+empty email         name      ${empty}        message    Your email field is required.
+empty message       name      test@test.com   ${empty}   Message field is required.
+email format        name      testattee.com   message    The value in Your email is not a valid email address.
+email format1        name     testa@tee.      message    The value in Your email is not a valid email address.
+email format2        name     tesee.com@fi    message    The value in Your email is not a valid email address.
+
+*** Keywords ***
+Contact us fields
+    [Arguments]    ${name}    ${email}    ${message}    ${validate}
+    Click Element    Link=Contact us
+    Page Should Not Contain    Warning
+    Page Should Contain    Please do not hesitate to contact us
+    Input Text    id=edit-submitted-your-name    ${name}
+    Input Text    id=edit-submitted-your-email    ${email}
+    Input Text    id=edit-submitted-message    ${message}
+    Page Should Contain    ${validate}

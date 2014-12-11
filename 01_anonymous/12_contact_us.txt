@@ -1,0 +1,18 @@
+*** Settings ***
+Documentation    Check that Contact us is available
+Suite Setup    Go to frontpage
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+
+
+*** Test Cases ***
+Check link 
+    Wait Until Page Contains    Contact us
+    Click Element    link=Contact us
+    Page Should Not Contain    Warning
+    Page Should Contain    Please do not hesitate to contact us
