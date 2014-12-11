@@ -29,3 +29,4 @@ Contact us fields
     Input Text    id=edit-submitted-your-email    ${email}
     Input Text    id=edit-submitted-message    ${message}
     Page Should Contain    ${validate}
+    Page Should Not Contain    Thank you! Your message has been received and we will reply to you ASAP.
