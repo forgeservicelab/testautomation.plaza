@@ -16,8 +16,6 @@ Company website is link
     Go to   ${DRUPAL_URL}/en/search
     Wait Until Page Contains    Search
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${SEARCH_TERM}    
-#Input Text    id=edit-keyword     ${SEARCH_TERM}A
-#Click Element   id=edit-submit-search
     Click Element   xpath=(//input[@id='edit-submit-search'])[2]
     Wait Until Page Contains    Filter by category
     Page Should Contain     Search found
@@ -27,3 +25,14 @@ Company website is link
     Wait Until Page Contains    Website 
     Click Link    www.weego.fi
     Wait Until Page Contains  Tervetuloa Weegon kotisivuille  
+Service offer contact
+    Go to    ${DRUPAL_URL}/en/search
+    Wait Until Page Contains    Search
+    Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${SEARCH_TERM}    
+    Click Element   xpath=(//input[@id='edit-submit-search'])[2]
+    Wait Until Page Contains    Filter by category
+    Click Link    Quality Assurance and Testing Services
+    Page Should Contain    Contact:
+    Click Link    http://www.weego.fi
+    Page Should Contain    Tervetuloa
+
