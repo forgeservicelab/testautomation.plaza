@@ -1,0 +1,23 @@
+*** Settings ***
+Documentation    Test search filters
+Suite Setup    Go to dashboard
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+
+*** Test Cases ***
+search url
+    Go to    ${DRUPAL_URL}/en/search
+    Wait Until Page Contains    Search
+    Input Text    xpath=(//input[@id='edit-keyword'])[2]    testing
+    Click Element   xpath=(//input[@id='edit-submit-search'])[2]
+    Wait Until Page Contains    Filter by category
+    Page Should Not Contain     Search found 0 items
+    Click Element    id=facetapi-link--21--checkbox
+    Click Element    id=facetapi-link--2
+    Page Should Contain    Search found 2 items
+    
+*** Keywords ***
