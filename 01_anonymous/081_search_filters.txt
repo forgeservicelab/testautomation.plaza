@@ -9,7 +9,7 @@ Resource    ../local_resource.txt
 *** Variables ***
 
 *** Test Cases ***
-search url
+search checkbox
     Go to    ${DRUPAL_URL}/en/search
     Wait Until Page Contains    Search
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    testing
@@ -19,5 +19,6 @@ search url
     Click Element    id=facetapi-link--21--checkbox
     Click Element    id=facetapi-link--2
     Page Should Contain    Search found 2 items
+    Checkbox Should Be Selected    id=facetapi-link--12--checkbox
     
 *** Keywords ***
