@@ -26,15 +26,18 @@ I want to offer APIs, software, datasets or tools and I need computing capacity 
     Page Should Not Contain    Warning
 Contract link
     Click Link    Forge Partner Contract
+    Page Should Not Contain    Page not found
 Back Button
     Go Back
     Page Should Not Contain    expired
 Addendum link
     Click Link    Partner addendum for computing capacity Contract
+    Page Should Not Contain    Page not found
     Go Back
     Page Should Not Contain    expired
 Term and conditions link
     Click Link    Forge servicelab Terms and conditions
+    Page Should Not Contain    Page not found
     Go Back
     Page Should Not Contain    expired
 #    Sleep   9 s

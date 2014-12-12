@@ -26,11 +26,13 @@ I want to develop a world-class digital service
     Page Should Not Contain    Warning
 Contract link
     Click Link    Service Developer Contract
+    Page Should Not Contain    Page not found
 Back Button
     Go Back
     Page Should Not Contain    expired
 Term and conditions link
     Click Link    Forge servicelab Terms and conditions
+    Page Should Not Contain    Page not found
     Go Back
     Page Should Not Contain    expired
 Input name & email    
