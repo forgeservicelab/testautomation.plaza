@@ -17,7 +17,7 @@ I want to offer APIs, software, datasets or tools and I need computing capacity 
     Go to    ${DRUPAL_URL}
     Click Link  Join Forge
     Wait Until Page Contains    Join FORGE Service Lab!
-    Sleep   9 s
+#    Sleep   9 s
     Click Element   id=edit-submitted-role-6
     Page Should Contain    Service developer's contract with DIGILE covers subcontractors
     Page Should Not Contain    Warning

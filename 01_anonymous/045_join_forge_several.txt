@@ -18,6 +18,6 @@ I want to offer APIs, software, datasets or tools and I need computing capacity 
     Click Link  Join Forge
     Wait Until Page Contains    Join FORGE Service Lab!
     Page Should Not Contain    Warning
-    Sleep   9 s
+#    Sleep   9 s
     Click Element   id=edit-submitted-role-5
     Page Should Contain    If you need more than one role

@@ -18,19 +18,28 @@ I want to offer my expertise in digital service creation
     Wait Until Page Contains    Join Forge
     Click Link  Join Forge
     Wait Until Page Contains    Join FORGE Service Lab!
-    Sleep   9 s
+#    Sleep   9 s
     Click Element    id=edit-submitted-role-2
     Click Element    xpath=(//a[contains(text(),'Continue >')])[2]
 #    Click Element   jquery=input.button-primary
 #    Click Link    Continue >
     Wait Until Page Contains    FORGE Partner role information 
     Page Should Not Contain    Warning
-    Sleep   9 s
+Contract link
+    Click Link    Forge Partner Contract
+Back Button
+    Go Back
+    Page Should Not Contain    expired
+Term and conditions link
+    Click Link    Forge servicelab Terms and conditions
+    Go Back
+    Page Should Not Contain    expired
+#    Sleep   9 s
 #    Click Element   jquery=input.button-primary
     Click Link    Fill in the application
     Wait Until Page Contains    Username
     Input Text  id=edit-name    ${USER_NAME}
     Input Text  id=edit-mail    ${USER_EMAIL}
-    Sleep   9 s
+#    Sleep   9 s
     Click Element   id=edit-submit
     Wait Until Page Contains    The name ${USER_NAME} is already taken
