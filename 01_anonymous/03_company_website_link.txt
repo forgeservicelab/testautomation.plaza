@@ -20,9 +20,12 @@ Company website is link
     Wait Until Page Contains    Filter by category
     Page Should Contain     Search found
     Page Should Not Contain     Search found 0 items
-#    Click Element   xpath=//div[1]/h4/a   
     Click Link    Weego Software Ltd.
     Wait Until Page Contains    Website 
+HTML tag not visible
+    Page Should Not Contain    <br />
+    Page Should Not Contain    <p>
+    Page Should Not Contain    </p>
     Click Link    www.weego.fi
     Wait Until Page Contains  Tervetuloa Weegon kotisivuille  
 Service offer contact
