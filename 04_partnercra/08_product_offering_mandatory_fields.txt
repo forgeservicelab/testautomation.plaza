@@ -52,5 +52,6 @@ Add product offering
     Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('${terms}');
     Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('${t2}');
     Input Text  id=edit-field-cancellation-refund-policy-und-0-value    ${cancellation}
+    Click Element   dom=document.getElementsByName('field_organizer[und]')[0]
     Click Element    id=edit-submit
     Wait Until Page Contains    ${validate}
