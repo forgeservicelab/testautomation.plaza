@@ -96,6 +96,7 @@ Delete draft product offering
     Wait Until Page Contains    Edit
     Click Link    Edit
     Wait Until Page Contains    ${PRODUCT_OFFERING_TITLE}
+    Click Element   dom=document.getElementsByName('field_organizer[und]')[0]
     Click Element    id=edit-delete
     Wait Until Page Contains    This action cannot be undone
     Click Element    id=edit-submit
@@ -111,6 +112,7 @@ Delete draft service offering
     Wait Until Page Contains    Edit
     Click Link    Edit
     Wait Until Page Contains    ${SERVICE_OFFERING_TITLE}
+    Click Element   dom=document.getElementsByName('field_organizer[und]')[0]
     Click Element    id=edit-delete
     Wait Until Page Contains    This action cannot be undone
     Click Element    id=edit-submit
