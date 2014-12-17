@@ -19,8 +19,33 @@ Dashboard Service Developer after Login
     login Auth    ${username}      ${password}    You are currently logged in as ${username}
     Set Log Level    DEBUG
     Page Should Contain    Welcome to FORGE Service Lab
+Tool Links Redmine
+    Click Link    Redmine
+    Page Should Contain    My page
+    Go Back
+Tool Links My FORGE 
+    Click Link    My FORGE
+    Page Should Contain    Forge Approach
+    Go Back
+Tool Links Gitlab 
+    Click Link    GitLab
+    Page Should Contain    Forge ServiceLab GitLab
+    Go Back
+Tool Links OpenStack
+    Click Link    OpenStack
+    Page Should Contain    Login - OpenStack Dashboard
+    Go Back
+Tool Links Forums
+    Click Link    Forums 
+    Page Should Contain    FORGE OpenStack related discussions
+    Go Back
+Tool Links Support wiki
+    Click Link   Support Wiki
+    Page Should Contain    0 Trainings and tutorials
+    Go Back
 Plaza own content
-    Click Link    Own content
+    Wait Until Page Contains    Own content
+    Click Element    Link=Own content
     Page Should Contain    Published
 Access to add content to plaza
     Wait until Page Contains    Add content
