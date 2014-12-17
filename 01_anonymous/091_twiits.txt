@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Test Feeds & filters
 Suite Setup    Go to dashboard
-#Suite Teardown    Close All Browsers
+Suite Teardown    Close All Browsers
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
 
@@ -19,16 +19,19 @@ Share on facebook
     Click Link    Share on Facebook
     Select Window    title=facebook
     Page Should Contain     You must log in to continue.
+    Page Should Not Contain   404
 Share on twitter
     Select Window    title=Feed | Forge
     Click Link    Share on Twitter
     Select Window    title=Login on Twitter
     Page Should Contain    Log in to Twitter
+    Page Should Not Contain   Error 404
 Share on LinkedIn
     Select Window    title=Feed | Forge
     Click Link    Share on LinkedIn
     Select Window    title=Sign In | LinkedIn
     Page Should Contain    Join now
+    Page Should Not Contain   404
 Blog filter
     Select Window    title=Feed | Forge
     Click Element     //div[@id='edit-type']/div[2]/label
