@@ -4,6 +4,7 @@ Suite Setup    Login as partner with cra
 Suite Teardown    Close All Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
+Resource    ../common/functions.txt
 Resource    ../local_resource.txt
 
 *** Variables ***
@@ -12,6 +13,7 @@ ${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 
 *** Test Cases ***
 Add product family
+    [Tags]    noncritical
     Wait Until Page Contains    Add content
     Mouse Over  link=Add content
     Click Element   link=Product family
@@ -23,6 +25,9 @@ Add product family
 #    Page Should Contain    Title field is required
 #    Page Should Contain    Product family title field is required
     Page Should Contain    Product family title field is required
+MaxLen title
+    [Tags]    noncritical
+    Verify maxlength    edit-field-page-title-und-0-value    255
 Logout
     Click Link    Log out
     Wait Until Page Contains    Log in

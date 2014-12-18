@@ -4,6 +4,7 @@ Suite Setup    Login as partner with cra
 Suite Teardown    Log Out and Close Browsers
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
+Resource    ../common/functions.txt
 Resource    ../local_resource.txt
 
 *** Variables ***
@@ -34,5 +35,42 @@ Add product offering Category fields
     Page Should Contain    Minimum 1, maximum 99
 Add product offergin Provider fields
     Page Should Contain    Provider field is required.
+MaxLen title
+    [Tags]    noncritical
+    Verify maxlength    edit-field-page-title-und-0-value    255
+MaxLen Oneliner
+    [Tags]    noncritical
+    Verify maxlength    edit-field-oneliner-und-0-value    120
+MaxLen Tags
+    [Tags]    noncritical
+    Verify maxlength    edit-field-offering-tags-und    1024
+MaxLen geographical
+    [Tags]    noncritical
+    Verify maxlength    edit-field-geographical-coverage-und-0-value    1255
+MaxLen pricing
+    [Tags]    noncritical
+    Verify maxlength    edit-field-pricing-information-und-0-value    1255
+MaxLen refund policy
+    [Tags]    noncritical
+    Verify maxlength    edit-field-cancellation-refund-policy-und-0-value    1255
+MaxLen more information
+    [Tags]    noncritical
+    Verify maxlength    edit-field-more-information-und-0-value    255
+MaxLen demo url title
+    [Tags]    noncritical
+    Verify maxlength    edit-field-live-demo-url-und-0-title    128
+MaxLen demo rul
+    [Tags]    noncritical
+    Verify maxlength    edit-field-live-demo-url-und-0-url    2048
+MaxLen phone
+    [Tags]    noncritical
+    Verify maxlength    edit-field-offering-phone-und-0-value    100
+MaxLen email
+    [Tags]    noncritical
+    Verify maxlength    edit-field-offering-email-und-0-email    128
+MaxLen website
+    [Tags]    noncritical
+    Verify maxlength    edit-field-offering-website-und-0-url    2048
+
 
 *** Keywords ***
