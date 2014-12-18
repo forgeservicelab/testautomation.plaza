@@ -1,0 +1,84 @@
+*** Settings ***
+Documentation    Verifyes dashboard content
+Suite Setup    Go to frontpage
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/resource.txt
+Resource    ../common/assets/secrets.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+${username}    ${VALID_SERVICE_DEVELOPER}
+${password}    ${VALID_SERVICE_DEVELOPER_PASSWORD}
+
+*** Test Cases ***
+Dashboard Service Developer after Login
+    Click Link    Log in
+    Wait Until Page Contains    Username
+    Set Log Level    NONE
+    login Auth    ${username}      ${password}    You are currently logged in as ${username}
+    Set Log Level    DEBUG
+    Page Should Contain    Welcome to FORGE Service Lab
+Go the Dashboard Define
+    Click Element    css=img
+    Page should Contain    Define
+    Page Should Contain    Forge Approach
+    Page Should Contain    Purpose of the DEFINE phase is to crystallize
+Links in define
+     ${count}     Get Matching XPath Count     //div[@class="sidebar-block__item"]/a
+     Should Be Equal     ${count}     1
+     ${count}     Get Matching XPath Count     //div[@class="field-content"]/a
+     Should Be Equal     ${count}     1
+Go the Dashboard Learn
+     Click Link    Learn
+     Page Should Contain    Knowing the customer leads to understanding the needs
+Links in Learn
+     ${count}     Get Matching XPath Count     //div[@class="sidebar-block__item"]/a
+     Should Be Equal     ${count}     1
+     ${count}     Get Matching XPath Count     //div[@class="field-content"]/a
+     Should Be Equal     ${count}     1
+Go the Dashboard Explore
+    Click Link    Explore
+    Page Should Contain    Concept development based on business goals and customer insights.
+Links in Explore
+     ${count}     Get Matching XPath Count     //div[@class="sidebar-block__item"]/a
+     Should Be Equal     ${count}     0
+     ${count}     Get Matching XPath Count     //div[@class="field-content"]/a
+     Should Be Equal     ${count}     1
+Go the Dashboard Build
+    Click Link    Build
+    Page Should Contain    The purpose of this phase is to start and carry on the development activities using agile methods 
+Links in Build
+     ${count}     Get Matching XPath Count     //div[@class="sidebar-block__item"]/a
+     Should Be Equal     ${count}     0
+     ${count}     Get Matching XPath Count     //div[@class="field-content"]/a
+     Should Be Equal     ${count}     4
+Go the Dashboard Go Live
+    Click Link    Go live
+    Page Should Contain    A deployment pipeline is, in essence, an automated implementation of your applicatio
+Links in Go Live
+     ${count}     Get Matching XPath Count     //div[@class="sidebar-block__item"]/a
+     Should Be Equal     ${count}     0
+     ${count}     Get Matching XPath Count     //div[@class="field-content"]/a
+     Should Be Equal     ${count}     4
+Go the Dashboard Measure
+    Click Link    Measure
+    Page Should Contain    The team will measure the service usage which will serve
+Links in Measure 
+     ${count}     Get Matching XPath Count     //div[@class="sidebar-block__item"]/a
+     Should Be Equal     ${count}     0
+     ${count}     Get Matching XPath Count     //div[@class="field-content"]/a
+     Should Be Equal     ${count}     2
+Go Back to Define
+    Click Link    Define
+    Page Should Contain    Purpose of the DEFINE phase is to crystallize
+Logout
+    Click Link    Log out
+    Wait Until Page Contains    Log in
+    Go to     ${AUTH_URL}
+    Click Link    Logout
+    Wait Until Page Contains    Bye
+
+
+*** Keywords ***
+
