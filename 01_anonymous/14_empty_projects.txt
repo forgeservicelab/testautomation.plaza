@@ -1,0 +1,28 @@
+*** Settings ***
+Documentation    Check that there is no empty project in projects page
+Suite Setup    Go to frontpage
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+${SEARCH_TERM}  Weego 
+
+
+*** Test Cases ***
+Go to projects page
+    Wait Until Page Contains    Projects
+    Click Link    Projects
+Check first project element title1
+    ${title}    Get Text    dom=document.getElementsByClassName("node--project")[0].getElementsByTagName("h2")
+    Should Not Be Empty    ${title}    msg=Empty Project in Projects page
+    ${title}    Get Text    dom=document.getElementsByClassName("node--project")[1].getElementsByTagName("h2")
+    Should Not Be Empty    ${title}    msg=Empty Project in Projects page
+    ${title}    Get Text    dom=document.getElementsByClassName("node--project")[2].getElementsByTagName("h2")
+    Should Not Be Empty    ${title}    msg=Empty Project in Projects page
+    ${title}    Get Text    dom=document.getElementsByClassName("node--project")[3].getElementsByTagName("h2")
+    Should Not Be Empty    ${title}    msg=Empty Project in Projects page
+    ${title}    Get Text    dom=document.getElementsByClassName("node--project")[4].getElementsByTagName("h2")
+    Should Not Be Empty    ${title}    msg=Empty Project in Projects page
