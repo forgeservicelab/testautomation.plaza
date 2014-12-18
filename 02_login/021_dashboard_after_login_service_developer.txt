@@ -19,7 +19,13 @@ Dashboard Service Developer after Login
     login Auth    ${username}      ${password}    You are currently logged in as ${username}
     Set Log Level    DEBUG
     Page Should Contain    Welcome to FORGE Service Lab
+My Forge link to point Dashboard
+    Go to    ${DRUPAL_URL}
+    Page Should Contain    FORGE Service Lab is a place for creating digital services.
+    Click Link    My Forge
+    Page Should Contain    Welcome to FORGE Service Lab
 Plaza own content
+    Wait Until Page Contains    Own content
     Click Link    Own content
     Page Should Contain    Published
 Access to add content to plaza
