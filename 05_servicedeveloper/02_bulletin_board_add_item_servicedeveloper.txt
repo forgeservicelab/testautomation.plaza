@@ -36,6 +36,7 @@ Add BB item
     Input Text    id=edit-field-bulletin-summary-und-0-value    TA bb summary
     Click Element    id=edit-submit
     Page Should Contain    Bulletin board item TA bb item servicedeveloper has been created.
+    Page Should Not Contain    What would your digital service be like?
 Edit BB item
     Click Link    Edit
     Page Should Contain    Title
