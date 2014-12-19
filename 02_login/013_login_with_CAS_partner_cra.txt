@@ -20,6 +20,8 @@ Login as Partner with CRA
     Wait Until Page Contains    Forge
     Page Should Contain    Logged in via CAS as
     Page Should Contain    ${USER}
+Devel tab not visible
+    Page Should Not Contain    Devel
 Toolbar visible partner with cra
     Page Should Contain    Add content
     Click Link    Log out
