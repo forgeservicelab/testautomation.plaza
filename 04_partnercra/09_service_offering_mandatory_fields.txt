@@ -45,6 +45,7 @@ Add service offering
     Click Link  Terms and conditions
     Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('${terms}');
     Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('${t2}');
+    Click Element   dom=document.getElementsByName('field_organizer[und]')[0]
     Input Text  id=edit-field-cancellation-refund-policy-und-0-value    ${cancel}
     Click Element    id=edit-submit
     Wait Until Page Contains    ${validate}
