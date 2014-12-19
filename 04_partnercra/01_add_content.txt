@@ -9,17 +9,14 @@ Resource    ../local_resource.txt
 *** Variables ***
 ${USER}    ${VALID_PARTNERCRA}
 ${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
-${ORGANIZATION_TITLE}   Test organization
-${ORGANIZATION_DESCRIPTION}    TestOrganizationDescription
-${PRODUCT_FAMILY_TITLE}     Test Product Family Title
-${PRODUCT_OFFERING_TITLE}   Test product offering
-${SERVICE_OFFERING_TITLE}   Test service offering
+${ORGANIZATION_TITLE}   Test organization2
+${ORGANIZATION_DESCRIPTION}    TestOrganizationDescription2
+${PRODUCT_FAMILY_TITLE}     Test Product Family Title2
+${PRODUCT_OFFERING_TITLE}   Test product offering2
+${SERVICE_OFFERING_TITLE}   Test service offering2
 ${SEARCH_URL}   ${DRUPAL_URL}/en/search
 
 *** Test Cases ***
-#Start
-#    Go to    ${DRUPAL_URL}
-#    Click Link    Log in
 Add organization
     [Tags]    noncritical
     Mouse Over  link=Add content    
@@ -28,7 +25,6 @@ Add organization
     Input Text  id=edit-field-page-title-und-0-value    ${ORGANIZATION_TITLE}
     Click Element    id=cke_edit-field-free-text-company-und-0-value
     Execute Javascript   CKEDITOR.instances['edit-field-free-text-company-und-0-value'].setData('${ORGANIZATION_DESCRIPTION}');
-#    Input Text  id=edit-field-free-text-company-und-0-value     ${ORGANIZATION_DESCRIPTION}
     Input Text  id=edit-field-company-address-und-0-value   Kuopio
     Input Text  id=edit-field-company-webpage-und-0-title   test organization
     Input Text  id=edit-field-company-webpage-und-0-url     http://www.google.com
@@ -42,9 +38,7 @@ Add product family
     Mouse Over  link=Add content
     Click Element   link=Product family
     Wait Until Page Contains    Product family title
-#    Input Text  id=edit-title   ${PRODUCT_FAMILY_TITLE}
     Input Text  id=edit-field-page-title-und-0-value    ${PRODUCT_FAMILY_TITLE}
-#    Input Text  id=edit-field-product-family-title-und-0-value  ${PRODUCT_FAMILY_TITLE} + 2
     Click Element   id=edit-submit
     Page Should Contain    Product family ${PRODUCT_FAMILY_TITLE} has been created.
     Wait Until Page Contains    has been created.
@@ -58,7 +52,6 @@ Add product offering
     Input Text  id=edit-field-offering-tags-und     Test mobile product
     Click Element    id=cke_edit-field-brief-overview-description-und-0-value
     Execute Javascript   CKEDITOR.instances['edit-field-brief-overview-description-und-0-value'].setData('Brief description for the product offering');
-#    Input Text  id=edit-field-brief-overview-description-und-0-value     Brief description for the product offering
     Select Checkbox     id=edit-field-category-und-36
     Select Checkbox     id=edit-field-category-und-47
     Input Text  id=edit-field-geographical-coverage-und-0-value     Europe only
@@ -68,8 +61,6 @@ Add product offering
     Click Link  Terms and conditions
     Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('Terms and conditions');
     Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('Terms and conditions 2');
-#    Input Text    id=edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value    Terms and conditions
-#    Input Text    id=edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value    Terms and conditions 2
     Input Text    id=edit-field-cancellation-refund-policy-und-0-value    No Cancellation policy
 Add video link to product offer
     Click Link    Media
@@ -93,7 +84,6 @@ Add service offering
     Input Text  id=edit-field-page-title-und-0-value    ${SERVICE_OFFERING_TITLE}
     Input Text  id=edit-field-offering-tags-und     Test service mobile qa
     Execute Javascript   CKEDITOR.instances['edit-field-brief-overview-description-und-0-value'].setData('Brief description for the service offering');
-#    Input Text    id=edit-field-brief-overview-description-und-0-value    Brief description for the service offering
     Select Checkbox     id=edit-field-category-und-73
     Select Checkbox     id=edit-field-category-und-36
     Select Checkbox     id=edit-field-category-und-47
@@ -102,8 +92,6 @@ Add service offering
     Click Link  Terms and conditions
     Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value'].setData('Terms and conditions');
     Execute Javascript   CKEDITOR.instances['edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value'].setData('Terms and conditions 2');
-#    Input Text    id=edit-field-terms-conditions-inside-und-0-field-terms-and-conditions-text-und-0-value    Terms and conditions
-#    Input Text    id=edit-field-terms-conditions-prod-und-0-field-terms-conditions-text-2-und-0-value    Terms and conditions 2
     Input Text    id=edit-field-cancellation-refund-policy-und-0-value    Cancellation policy
 Add video link to service offer
     Click Link    Media
@@ -123,8 +111,6 @@ Search organization
     Wait Until Page Contains Element    id=edit-keyword
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${ORGANIZATION_TITLE}
     Click Element   xpath=(//input[@id='edit-submit-search'])[2]
-#   Input Text  id=edit-keyword     ${ORGANIZATION_TITLE}
-#    Click Element   id=edit-submit-search
     Wait Until Page Contains    Filter by category
     Click Link  ${ORGANIZATION_TITLE}
     Page Should Contain    ${ORGANIZATION_DESCRIPTION}
@@ -134,8 +120,6 @@ Search product offering
     Wait Until Page Contains Element    id=edit-keyword
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${PRODUCT_OFFERING_TITLE}
     Click Element   xpath=(//input[@id='edit-submit-search'])[2]
-#    Input Text  id=edit-keyword     ${PRODUCT_OFFERING_TITLE}
-#    Click Element   id=edit-submit-search
     Wait Until Page Contains    Filter by category
     Click Link  ${PRODUCT_OFFERING_TITLE}
     Page Should Contain    ${PRODUCT_OFFERING_TITLE}
@@ -145,8 +129,6 @@ Search product family
     Wait Until Page Contains Element    id=edit-keyword
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${PRODUCT_FAMILY_TITLE}
     Click Element   xpath=(//input[@id='edit-submit-search'])[2]
-#    Input Text  id=edit-keyword     ${PRODUCT_FAMILY_TITLE}
-#    Click Element   id=edit-submit-search
     Wait Until Page Contains    Filter by category
     Click Link  ${PRODUCT_FAMILY_TITLE}
     Page Should Contain    ${PRODUCT_FAMILY_TITLE}
@@ -157,8 +139,6 @@ Search service offering
     Wait Until Page Contains Element    id=edit-keyword
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${SERVICE_OFFERING_TITLE}
     Click Element   xpath=(//input[@id='edit-submit-search'])[2]
-#    Input Text  id=edit-keyword     ${SERVICE_OFFERING_TITLE}
-#    Click Element   id=edit-submit-search
     Wait Until Page Contains    Filter by category
     Click Link  ${SERVICE_OFFERING_TITLE}
     Page Should Contain    Brief description for the service offering
@@ -214,6 +194,39 @@ Delete Organization
     Wait Until Page Contains    This action cannot be undone.
     Click Element   id=edit-submit
     Page Should Contain    has been deleted.
+Search deleted organization should not find it
+    [Tags]    noncritical
+    Go to   ${SEARCH_URL}
+    Wait Until Page Contains Element    id=edit-keyword
+    Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${ORGANIZATION_TITLE}
+    Click Element   xpath=(//input[@id='edit-submit-search'])[2]
+    Wait Until Page Contains    Filter by category
+    Page Should Not Contain    ${ORGANIZATION_TITLE}
+Search deleted product offering should not find it
+    [Tags]    noncritical
+    Go to   ${SEARCH_URL}
+    Wait Until Page Contains Element    id=edit-keyword
+    Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${PRODUCT_OFFERING_TITLE}
+    Click Element   xpath=(//input[@id='edit-submit-search'])[2]
+    Wait Until Page Contains    Filter by category
+    Page Should Not Contain   ${PRODUCT_OFFERING_TITLE}
+Search deleted product family should not find it
+    [Tags]    noncritical
+    Go to   ${SEARCH_URL}
+    Wait Until Page Contains Element    id=edit-keyword
+    Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${PRODUCT_FAMILY_TITLE}
+    Click Element   xpath=(//input[@id='edit-submit-search'])[2]
+    Wait Until Page Contains    Filter by category
+    Page Should Not Contain    ${PRODUCT_FAMILY_TITLE}
+    Page Should Contain    found 0 items
+Search deleted service offering should not find it
+    [Tags]    noncritical
+    Go to   ${SEARCH_URL}
+    Wait Until Page Contains Element    id=edit-keyword
+    Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${SERVICE_OFFERING_TITLE}
+    Click Element   xpath=(//input[@id='edit-submit-search'])[2]
+    Wait Until Page Contains    Filter by category
+    Page Should Not Contain    ${SERVICE_OFFERING_TITLE}
 Logout
     Click Link    Log out
     Wait Until Page Contains    Log in
