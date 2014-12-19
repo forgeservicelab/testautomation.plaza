@@ -9,11 +9,11 @@ Resource    ../local_resource.txt
 *** Variables ***
 ${USER}    ${VALID_PARTNERCRA}
 ${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
-${ORGANIZATION_TITLE}   Test organization2
-${ORGANIZATION_DESCRIPTION}    TestOrganizationDescription2
-${PRODUCT_FAMILY_TITLE}     Test Product Family Title2
-${PRODUCT_OFFERING_TITLE}   Test product offering2
-${SERVICE_OFFERING_TITLE}   Test service offering2
+${ORGANIZATION_TITLE}   testorganizationtobedel
+${ORGANIZATION_DESCRIPTION}    testorganizationdescription
+${PRODUCT_FAMILY_TITLE}     testproductfamilytitletobedel
+${PRODUCT_OFFERING_TITLE}   testproductofferingtobedel
+${SERVICE_OFFERING_TITLE}   testserviceofferingtobedel
 ${SEARCH_URL}   ${DRUPAL_URL}/en/search
 
 *** Test Cases ***
@@ -112,6 +112,7 @@ Search organization
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${ORGANIZATION_TITLE}
     Click Element   xpath=(//input[@id='edit-submit-search'])[2]
     Wait Until Page Contains    Filter by category
+    Page Should Not Contain    Search found 0 items
     Click Link  ${ORGANIZATION_TITLE}
     Page Should Contain    ${ORGANIZATION_DESCRIPTION}
 Search product offering
@@ -120,6 +121,7 @@ Search product offering
     Wait Until Page Contains Element    id=edit-keyword
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${PRODUCT_OFFERING_TITLE}
     Click Element   xpath=(//input[@id='edit-submit-search'])[2]
+    Page Should Not Contain    Search found 0 items
     Wait Until Page Contains    Filter by category
     Click Link  ${PRODUCT_OFFERING_TITLE}
     Page Should Contain    ${PRODUCT_OFFERING_TITLE}
@@ -130,24 +132,26 @@ Search product family
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${PRODUCT_FAMILY_TITLE}
     Click Element   xpath=(//input[@id='edit-submit-search'])[2]
     Wait Until Page Contains    Filter by category
+    Page Should Not Contain    Search found 0 items
     Click Link  ${PRODUCT_FAMILY_TITLE}
     Page Should Contain    ${PRODUCT_FAMILY_TITLE}
-    Page Should Not Contain    found 0 items
 Search service offering
     [Tags]    noncritical
     Go to   ${SEARCH_URL}
     Wait Until Page Contains Element    id=edit-keyword
     Input Text    xpath=(//input[@id='edit-keyword'])[2]    ${SERVICE_OFFERING_TITLE}
     Click Element   xpath=(//input[@id='edit-submit-search'])[2]
+    Page Should Not Contain    found 0 items
     Wait Until Page Contains    Filter by category
     Click Link  ${SERVICE_OFFERING_TITLE}
     Page Should Contain    Brief description for the service offering
 Delete product family
     [Tags]    noncritical
     Wait Until Page Contains    Own content
-    Click Link    Own content
-    Page Should Contain    ${PRODUCT_FAMILY_TITLE}
-    Click Link    ${PRODUCT_FAMILY_TITLE}
+#    Click Link    Own content
+    Go to    ${DRUPAL_URL}/en/${PRODUCT_FAMILY_TITLE}
+#    Page Should Contain    ${PRODUCT_FAMILY_TITLE}
+#    Click Link    ${PRODUCT_FAMILY_TITLE}
     Wait Until Page Contains    Edit
     Click Link    Edit
     Wait Until Page Contains    ${PRODUCT_FAMILY_TITLE}
@@ -158,9 +162,10 @@ Delete product family
 Delete product offering
     [Tags]    noncritical
     Wait Until Page Contains    Own content
-    Click Link  Own content
-    Wait Until Page Contains    Title
-    Click Link  ${PRODUCT_OFFERING_TITLE}
+    Go to    ${DRUPAL_URL}/en/plaza/offer/${PRODUCT_OFFERING_TITLE}
+#    Click Link  Own content
+#    Wait Until Page Contains    Title
+#    Click Link  ${PRODUCT_OFFERING_TITLE}
     Wait Until Page Contains    Edit
     Click Link    Edit
     Wait Until Page Contains    ${PRODUCT_OFFERING_TITLE}
@@ -171,9 +176,10 @@ Delete product offering
 Delete service offering
     [Tags]    noncritical
     Wait Until Page Contains    Own content
-    Click Link  Own content
-    Wait Until Page Contains    Title
-    Click Link  ${SERVICE_OFFERING_TITLE}
+#    Click Link  Own content
+    Go to    ${DRUPAL_URL}/en/${SERVICE_OFFERING_TITLE}
+#    Wait Until Page Contains    Title
+#    Click Link  ${SERVICE_OFFERING_TITLE}
     Wait Until Page Contains    Edit
     Click Link    Edit
     Wait Until Page Contains    ${SERVICE_OFFERING_TITLE}
@@ -184,9 +190,10 @@ Delete service offering
 Delete Organization
     [Tags]    noncritical
     Wait Until Page Contains    Own content
-    Click Link  Own content
-    Wait Until Page Contains    Title
-    Click Link  ${ORGANIZATION_TITLE}
+#    Click Link  Own content
+    Go to    ${DRUPAL_URL}/en/org/${ORGANIZATION_TITLE}
+#    Wait Until Page Contains    Title
+#    Click Link  ${ORGANIZATION_TITLE}
     Wait Until Page Contains    Edit
     Click Link  Edit
     Wait Until Page Contains Element    id=edit-delete
