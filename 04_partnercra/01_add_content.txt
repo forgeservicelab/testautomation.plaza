@@ -41,6 +41,7 @@ Add product family
     Input Text  id=edit-field-page-title-und-0-value    ${PRODUCT_FAMILY_TITLE}
     Click Element   id=edit-submit
     Page Should Contain    Product family ${PRODUCT_FAMILY_TITLE} has been created.
+    Page Should Not Contain     Paikkatiedeon palvelualustan pilotti
     Wait Until Page Contains    has been created.
 Add product offering
     [Tags]    noncritical
