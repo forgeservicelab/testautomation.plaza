@@ -36,6 +36,6 @@ Service offer contact
     Wait Until Page Contains    Filter by category
     Click Link    Quality Assurance and Testing Services
     Page Should Contain    Contact:
-    Click Link    http://www.weego.fi
-    Page Should Contain    Tervetuloa
+Cannot comment offer
+    Page Should Not Contain    Comments 
 
