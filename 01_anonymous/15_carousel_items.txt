@@ -4,6 +4,7 @@ Suite Setup    Go to frontpage
 Suite Teardown    Close All Browsers
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
+Library    String
 
 *** Variables ***
 ${count}    0
@@ -15,8 +16,10 @@ Check Carousel elements titles
     Wait Until Page Contains    place for creating
     : FOR    ${INDEX}    IN RANGE    0    ${count}
     \    ${title}    Get Text    css=li.flex-active-slide
-    \    Log    ${title}
+    \    Log    ti|${title}|it
     \    Click Element    Link=Next
     \    Sleep    2 s
-    \    Should Not Be Empty    ${title}    msg=Empty element in frontpage carousel
+    \    ${trimmed}    Remove String    ${title}    ${SPACE}
+    \    Log    t|${trimmed}|t
+    \    Should Not Be Empty    ${trimmed}    msg=Empty element in frontpage carousel
     
