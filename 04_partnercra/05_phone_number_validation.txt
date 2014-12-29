@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Test phone number validation when adding new organization
 Suite Setup    Login as partner with cra 
-Suite Teardown    Log out and Close Browsers
+Suite Teardown    Log out and Close
 Test Template    Add company
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
@@ -43,8 +43,13 @@ Add company
     Input Text  id=edit-field-admin-email-und-0-email   test@testemailaddress.com
     Click Element   id=edit-submit
     Page Should Contain    Phone number must start with "+" and must includes only numbers
-#Log Out and Close Browsers
-#    Wait Until Page Contains    Log out
-#    Click Element   link=Log out
-#    Wait Until Page Contains    Log in
-#    Close All Browsers
+Log Out and Close
+    Mouse Over    link=Add content
+    Wait Until Page Contains    Log out
+    Click Element   link=Log out
+    Wait Until Page Contains    Log in
+    Go to    ${AUTH_URL}
+    Click Link    Logout
+    Page Should Contain    Bye
+    Close All Browsers
+
