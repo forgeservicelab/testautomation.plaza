@@ -23,10 +23,10 @@ Empty Info              title     Testing   ${EMPTY}    terms     t2          10
 Empty Terms             title     Testing   info        ${EMPTY}  t2          100 €uro      joo             auto        Terms and conditions field is required
 Empty Terms2            title     Testing   info        terms     ${EMPTY}    100 €uro      joo             auto        Terms and conditions field is required
 Empty Price             title     Testing   info        terms     t2          ${EMPTY}      joo             auto        Pricing information field is required
-Price only letters      title     Testing   info        terms     t2          EMPTY         joo             auto        Pricing information must contain letters and at least one number.
-Empty contact           title     Testing   info        terms     t2          EMPTY         joo             ${EMPTY}    Contact person / Address field is required.
-Price only numbers      title     Testing   inf         terms     t2          100           joo             auto        Pricing information must contains letters and at least one number.
 Empty Cancellation      title     Testing   info        terms     t2          100 €uro      ${EMPTY}        auto        Cancellation / refund policy field is required.
+Empty contact           title     Testing   info        terms     t2          100 €uro      joo             ${EMPTY}    Contact person / Address field is required.
+Price only letters      title     Testing   info        terms     t2          EMPTY         joo             auto        Pricing information must contain letters and at least one number.
+Price only numbers      title     Testing   inf         terms     t2          100           joo             auto        Pricing information must contain letters and at least one number.
 
 *** Keywords ***
 Add product offering

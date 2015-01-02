@@ -20,13 +20,13 @@ ${SERVICE_OFFERING_TITLE}   Test service offering
 Empty Title             ${EMPTY}  Testing   info        terms     t2        100 €uro       auto      cancel    title field is required
 Empty Tags              Title     ${EMPTY}  info        terms     t2        100 €uro       auto      cancel    Tags field is required
 Empty Info              Title     Testing   ${EMPTY}    terms     t2        100 €uro       auto      cancel    Brief overview description field is required.
-Empty Contact           Title     Testing   info        terms     t2        100 €uro       ${EMPTY}  cancel    Contact person / Address field is required
-Empty Price             Title     Testing   info        terms     t2        ${EMPTY}       auto      cancel    Pricing information field is required.
-Price only letters      Title     Testing   info        terms     t2        asd euro       auto      cancel    Pricing information must contain letters and at least one number.
-Price only Numbers      Title     Testing   info        terms     t2        100            auto      cancel    Pricing information must contain letters and at least one number.
 Empty Terms and Cond    Title     Testing   info        ${EMPTY}  t2        100 €uro       auto      cancel    Terms overview description field is required.
 Empty Terms and Cond2   Title     Testing   info        terms     ${EMPTY}  100 €uro       auto      cancel    Terms overview description field is required.
+Empty Price             Title     Testing   info        terms     t2        ${EMPTY}       auto      cancel    Pricing information field is required.
+Empty Contact           Title     Testing   info        terms     t2        100 €uro       ${EMPTY}  cancel    Contact person / Address field is required
 Empty Cancellation      Title     Testing   info        terms     t2        100 $uro       auto      ${EMPTY}  Cancellation / refund policy field is required.
+Price only letters      Title     Testing   info        terms     t2        asd euro       auto      cancel    Pricing information must contain letters and at least one number.
+Price only Numbers      Title     Testing   info        terms     t2        100            auto      cancel    Pricing information must contain letters and at least one number.
 
 *** Keywords ***
 Add service offering

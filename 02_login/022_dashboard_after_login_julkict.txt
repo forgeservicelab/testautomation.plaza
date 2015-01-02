@@ -44,6 +44,7 @@ Tool Links Support wiki
     Page Should Contain    0 Trainings and tutorials
     Go Back
 Plaza own content
+    Sleep    1 s
     Wait Until Page Contains    Own content
     Click Element    Link=Own content
     Page Should Contain    Published
