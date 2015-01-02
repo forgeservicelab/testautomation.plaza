@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Check mandatoryfields in julkICT service offer creation
 Suite Setup    Login as julkict
-Suite Teardown    Log out and Close Browsers
+Suite Teardown    Log out and Close
 Test Template    Add free of charge offering
 Resource    ../common/assets/secrets.txt
 Resource    ../common/assets/resource.txt
@@ -49,3 +49,13 @@ Add free of charge offering
     Click Element   id=edit-submit
     Page Should Not Contain    has been created.
     Page Should Contain    ${validate}
+
+Log Out and Close
+    Wait Until Page Contains    Log out
+    Click link    Log out
+    Wait Until Page Contains    Log in
+    Go to    ${AUTH_URL}
+    Click Link    Logout
+    Page Should Contain    Bye
+    Close All Browsers
+
