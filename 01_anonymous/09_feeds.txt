@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Test Feeds & filters
 Suite Setup    Go to dashboard
-#Suite Teardown    Close All Browsers
+Suite Teardown    Close All Browsers
 Resource    ../common/assets/resource.txt
 Resource    ../local_resource.txt
 
@@ -11,36 +11,44 @@ Resource    ../local_resource.txt
 *** Test Cases ***
 Feeds
     Click Element    link=FEED
-    Page Should Contain    News
-    Page Should Contain    Blog
-    Page Should Contain    Twitter
-    Page Should Contain    Facebook
-News filter
-    Click Element    //div[@id='edit-type']/div[2]/label
-    Page Should contain    Share
-    Sleep    1s
-News filter off
-    Wait Until Page Contains    Feed
-    Click Element    css=label.option.checked
-    Page Should contain    Share
-    Sleep    3s
-Blog filter
-    Click Element     //div[@id='edit-type']/div[3]/label
-    Page Should contain    Share       
-    Sleep    1s
-Blog filter off
-    Wait Until Page Contains    Feed
-    Click Element    css=label.option.checked
     Page Should Contain    Share
-    Sleep    3s
-Twitter filter
-    Click Element     //div[@id='edit-type']/div[4]/label
-    Page Should contain    Share       
-    Sleep    1s
-Twitter filter off
-    Wait Until Page Contains    Feed
-    Click Element    css=label.option.checked
-    Page Should Contain    Share
+Share on facebook
+    Click Element    css=span.social-icons-toggle
+    Click Link    Share on Facebook
+    Select Window    title=facebook
+    Page Should Contain     You must log in to continue.
+    Page Should Not Contain   404
+    Select Window    title=Feed | Forge
+Share on twitter
+    Click Link    Share on Twitter
+    Select Window    title=Login on Twitter
+    Page Should Contain    Log in to Twitter
+    Page Should Not Contain   Error 404
+Share on LinkedIn
+    Select Window    title=Feed | Forge
+    Click Link    Share on LinkedIn
+    Select Window    title=Sign In | LinkedIn
+    Page Should Contain    Join now
+    Page Should Not Contain   404
+#Blog filter
+#    Select Window    title=Feed | Forge
+#    Click Element     //div[@id='edit-type']/div[2]/label
+#    Page Should Contain    Share
+##Twitter filter
+#    Select Window    title=Feed | Forge
+#    Click Element     //div[@id='edit-type']/div[4]/label
+#    Page Should Contain    Share
+#News filter
+#    Select Window    title=Feed | Forge
+#    Click Element     //div[@id='edit-type']/div[3]/label
+#    Page Should Contain    Share
+#    Element Should be visible   //div[@id='edit-type']/div[2]/label
+#    Element Should be visible   //div[@id='edit-type']/div[3]/label
+#    Element Should be visible   //div[@id='edit-type']/div[4]/label
+#    Sleep    1s
+#    Go to    ${DRUPAL_URL}/en/rt-digilefi-robottiviikon-ohjelma-julkistettu-digile-mukana-my%C3%B6s-httptco11i54qamvu-robottiviikko 
+#    Page should Contain    Robottiviikon ohjelma julkistettu
+#    Click Link    http://t.co/11I54Qamvu
     
 
 *** Keywords ***
