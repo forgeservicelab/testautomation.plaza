@@ -22,7 +22,14 @@ See common submodule
 Tests:
 ------
 
-+ dashboard.txt
-+ localization.txt
-+ login_with_CAS.txt
+Tests are separated in role bases
+
++ 01_anonymous
++ 02_login
++ 03_partner
++ 04_partnercra
++ 05_servicedeveloper
++ 06_digile_staff
++ 07_julkict
+
 
