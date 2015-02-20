@@ -24,3 +24,39 @@ Check link and content
     Page Should Contain    FORGE Service Lab FPA
     Click Link    Click here to return to the Join Forge.
     Page Should Contain    Join FORGE Service Lab!
+Open TC
+    Click Link    FORGE Service Lab contractual framework including all contract documents
+    Page Should Contain    FORGE Service Lab TC version 0.6 (Effective 1 Sept 2014).pdf
+    Click Link    FORGE Service Lab TC version 0.6 (Effective 1 Sept 2014).pdf
+    Page Should Not Contain    Access denied
+    Page Should Not Contain    Page not found
+Open SDA
+    Go Back
+    Page Should Contain    FORGE Service Lab SDA v 0.4.pdf
+    Click Link    FORGE Service Lab SDA v 0.4.pdf
+    Page Should Not Contain    Access denied
+    Page Should Not Contain    Page not found
+Open FPA CRA
+    Go Back
+    Page Should Contain    FORGE Service Lab FPA CRA v 0.5.pdf
+    Click Link    FORGE Service Lab FPA CRA v 0.5.pdf
+    Page Should Not Contain    Access denied
+    Page Should Not Contain    Page not found
+Open FPA
+    Go Back
+    Page Should Contain    FORGE Service Lab FPA v 0.5.pdf
+    Click Link    FORGE Service Lab FPA v 0.5.pdf
+    Page Should Not Contain    Access denied
+    Page Should Not Contain    Page not found
+Open Personal data file
+    Go Back
+    Page Should Contain    All contracts
+    Go Back
+    Page Should Contain    Personal data file description (In Finnish)
+    Click Link     Personal data file description (In Finnish)
+    Page Should Not Contain    Page not found
+    Page Should Not Contain    Access denied
+    
+ 
+
+
