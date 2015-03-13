@@ -27,12 +27,17 @@ I want to develop a world-class digital service
 Contract link
     Click Link    Service Developer Contract
     Page Should Not Contain    Page not found
+SDA template version
+    Location Should Contain    v%200.4
 Back Button
     Go Back
     Page Should Not Contain    expired
 Term and conditions link
     Click Link    Forge servicelab Terms and conditions
     Page Should Not Contain    Page not found
+Terms and contidions template version
+    Location Should Contain    version%200.6
+Back Button 2
     Go Back
     Page Should Not Contain    expired
 Input name & email    

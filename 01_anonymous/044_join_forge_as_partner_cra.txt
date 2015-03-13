@@ -27,17 +27,25 @@ I want to offer APIs, software, datasets or tools and I need computing capacity 
 Contract link
     Click Link    Forge Partner Contract
     Page Should Not Contain    Page not found
+FAP template version
+    Location Should Contain    v%200.5
 Back Button
     Go Back
     Page Should Not Contain    expired
 Addendum link
     Click Link    Partner addendum for computing capacity Contract
     Page Should Not Contain    Page not found
+FAP CRA template version
+    Location Should Contain    v%200.5
+Back Button 2
     Go Back
     Page Should Not Contain    expired
 Term and conditions link
     Click Link    Forge servicelab Terms and conditions
     Page Should Not Contain    Page not found
+Terms and contidions template version
+    Location Should Contain    version%200.6
+Back Button 3
     Go Back
     Page Should Not Contain    expired
 #    Sleep   9 s

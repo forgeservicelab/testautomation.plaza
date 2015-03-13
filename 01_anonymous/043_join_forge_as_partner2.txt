@@ -27,12 +27,17 @@ I want to offer APIs, software, datasets or tools
 Contract link
     Click Link    Forge Partner Contract
     Page Should Not Contain    Page not found
+FPA Template version
+    Location Should Contain    v%200.5
 Back Button
     Go Back
     Page Should Not Contain    expired
 Term and conditions link
     Click Link    Forge servicelab Terms and conditions
     Page Should Not Contain    Page not found
+Terms and contidions template version
+    Location Should Contain    version%200.6
+Back Button 2
     Go Back
     Page Should Not Contain    expired
 #    Sleep   9 s
