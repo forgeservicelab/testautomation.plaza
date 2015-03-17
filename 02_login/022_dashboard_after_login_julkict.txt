@@ -22,28 +22,28 @@ Dashboard Service Developer after Login
 Tool Links Redmine
     Click Link    Redmine
     Page Should Contain    My page
-    Go Back
 Tool Links My FORGE 
+    Go Back
     Click Link    My FORGE
     Page Should Contain    Forge Approach
-    Go Back
 Tool Links Gitlab 
+    Go Back
     Click Link    GitLab
     Page Should Contain    Forge ServiceLab GitLab
-    Go Back
 Tool Links OpenStack
+    Go Back
     Click Link    OpenStack
     Page Should Contain    Login - OpenStack Dashboard
-    Go Back
 Tool Links Forums
+    Go Back
     Click Link    Forums 
     Page Should Contain    FORGE OpenStack related discussions
-    Go Back
 Tool Links Support wiki
+    Go Back
     Click Link   Support Wiki
     Page Should Contain    0 Trainings and tutorials
-    Go Back
 Plaza own content
+    Go Back
     Sleep    1 s
     Wait Until Page Contains    Own content
     Click Element    Link=Own content
