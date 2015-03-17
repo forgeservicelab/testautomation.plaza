@@ -13,12 +13,12 @@ ${USER}    ${VALID_PARTNERCRA}
 ${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
 
 *** Test Cases ***
-#Go to plaza
-#    Go to    ${DRUPAL_URL}
-#    Click Link     Log in
 Open bulletin board
     Go to    ${DRUPAL_URL}/en/bulletin-board
     Page Should Contain    Bulletin board
+Go to plaza
+    Go to    ${DRUPAL_URL}
+    Click Link     Log in
 Has access to create new item
     Wait Until Page Contains    Add content
     Mouse Over  link=Add content
