@@ -23,8 +23,8 @@ Add free of charge offering
     Input Text  id=edit-field-page-title-und-0-value    ${SERVICE_OFFERING_TITLE}
     Input Text  id=edit-field-offering-tags-und     Test service mobile qa
     Execute Javascript   CKEDITOR.instances['edit-field-brief-overview-description-und-0-value'].setData('Brief description for the service offering');
-    Click Element    id=edit-field-this-is-julkict-lab-projec-und-1
-    Click Element    id=edit-field-this-project-is-free-of-ch-und-1
+#    Click Element    id=edit-field-this-is-julkict-lab-projec-und-1
+#    Click Element    id=edit-field-this-project-is-free-of-ch-und-1
     Click Link  Pricing
     Input Text  id=edit-field-pricing-information-und-0-value   10,000 test money / month
     Click Link  Terms and conditions
