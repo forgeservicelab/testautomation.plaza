@@ -19,9 +19,11 @@ Plaza
     Page Should Contain    EXPERTISE AND BUILDING BLOCKS FOR DIGITAL SERVICE CREATION, BROUGHT TO YOU BY FORGE PARTNERS
 Feed
     Click Element    link=FEED
-    Page Should Contain    News
-    Page Should Contain    Blog
-    Page Should Contain    Twitter
-    Page Should Contain    Facebook
+    Page Should Not Contain    Access denied
+    Page Should Not Contain    Page not found
+#    Page Should Contain    News
+#    Page Should Contain    Blog
+#    Page Should Contain    Twitter
+#    Page Should Contain    Facebook
        
 *** Keywords ***
