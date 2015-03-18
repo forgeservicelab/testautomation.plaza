@@ -31,8 +31,8 @@ Add free of charge offering
     Input Text  id=edit-field-page-title-und-0-value    ${title}
     Input Text  id=edit-field-offering-tags-und     ${tags}
     Execute Javascript   CKEDITOR.instances['edit-field-brief-overview-description-und-0-value'].setData('${overview}');
-    Click Element    id=edit-field-this-is-julkict-lab-projec-und-1
-    Click Element    id=edit-field-this-project-is-free-of-ch-und-1
+#    Click Element    id=edit-field-this-is-julkict-lab-projec-und-1
+#    Click Element    id=edit-field-this-project-is-free-of-ch-und-1
     Click Link  Pricing
     Input Text  id=edit-field-pricing-information-und-0-value   ${price}
     Click Link  Terms and conditions
