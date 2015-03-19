@@ -19,3 +19,9 @@ Go to plaza
 Check plaza elements 
     ${title}    Get Text    dom=document.getElementsByClassName("node--teaser")[0].getElementsByTagName("h2")
     Should Not Be Empty    ${title}    msg=Empty Element in Plaza page
+Logout
+    Click Link    Log out
+    Wait Until Page Contains    Log in
+    Go to     ${AUTH_URL}
+    Click Link    Logout
+    Wait Until Page Contains    Bye
