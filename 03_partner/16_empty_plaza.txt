@@ -1,0 +1,29 @@
+*** Settings ***
+Documentation    Check that plaza is not empty
+Suite Setup    Go to frontpage
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+${USER}    ${VALID_PARTNER}
+${PASSWORD}    ${VALID_PARTNER_PASSWORD}
+
+*** Test Cases ***
+Login to Plaza
+    Click Link    Log in
+    Wait Until Page Contains    Username
+    Set Log Level    NONE
+    login Auth    ${USER}      ${PASSWORD}    You are currently logged in as ${USER}
+    Set Log Level    DEBUG
+    Page Should Contain    Logged in via CAS as
+    Page Should Contain    ${USER}
+Go to plaza
+    Wait Until Page Contains    Plaza
+    Click Link    Forge Plaza
+    Page Should Contain    EXPERTISE AND BUILDING BLOCKS FOR DIGITAL SERVICE CREATION
+Check plaza elements 
+    ${title}    Get Text    dom=document.getElementsByClassName("node--teaser")[0].getElementsByTagName("h2")
+    Should Not Be Empty    ${title}    msg=Empty Element in Plaza page

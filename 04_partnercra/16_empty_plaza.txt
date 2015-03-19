@@ -1,0 +1,21 @@
+*** Settings ***
+Documentation    Check that plaza is not empty
+Suite Setup    Login as partner with cra
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+${USER}    ${VALID_PARTNERCRA}
+${PASSWORD}    ${VALID_PARTNERCRA_PASSWORD}
+
+*** Test Cases ***
+Go to plaza
+    Wait Until Page Contains    Plaza
+    Click Link    Forge Plaza
+    Page Should Contain    EXPERTISE AND BUILDING BLOCKS FOR DIGITAL SERVICE CREATION
+Check plaza elements 
+    ${title}    Get Text    dom=document.getElementsByClassName("node--teaser")[0].getElementsByTagName("h2")
+    Should Not Be Empty    ${title}    msg=Empty Element in Plaza page
