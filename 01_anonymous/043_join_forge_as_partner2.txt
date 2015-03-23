@@ -40,12 +40,16 @@ Terms and contidions template version
 Back Button 2
     Go Back
     Page Should Not Contain    expired
-#    Sleep   9 s
-#    Click Element   jquery=input.button-primary
-    Click Link    Fill in the application
-    Wait Until Page Contains    Username
-    Input Text  id=edit-name    ${USER_NAME}
-    Input Text  id=edit-mail    ${USER_EMAIL}
-#    Sleep   9 s
-    Click Element   id=edit-submit
-    Wait Until Page Contains    The name ${USER_NAME} is already taken
+Contact us button
+    Click Element    xpath=(//a[contains(text(),'Contact us')])[2]
+    Wait Until Page Contains    Please do not hesitate to contact us in questions or ideas related to digital service creation.
+Mandatory fields
+    Click Element   name=op
+    Page Should Contain    Your name field is required
+    Page Should Contain    Your email field is required.
+    Page Should Contain    Message field is required.
+Email validation no at
+    Input text    id=edit-submitted-your-email    antti.weego.fi
+    Click Element   name=op
+    Page Should Contain    The value in Your email is not a valid email address.
+
