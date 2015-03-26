@@ -52,4 +52,24 @@ Email validation no at
     Input text    id=edit-submitted-your-email    antti.weego.fi
     Click Element   name=op
     Page Should Contain    The value in Your email is not a valid email address.
+Email validation no domain
+    Input text    id=edit-submitted-your-email    anttiweego@fi
+    Click Element   name=op
+    Page Should Contain    The value in Your email is not a valid email address.
+Email validation no domain2
+    Input text    id=edit-submitted-your-email    anttiweego@
+    Click Element   name=op
+    Page Should Contain    The value in Your email is not a valid email address.
+Email validation name
+    Input text    id=edit-submitted-your-email    @weego.fi
+    Click Element   name=op
+    Page Should Contain    The value in Your email is not a valid email address.
+Email validation start with dot
+    Input text    id=edit-submitted-your-email    .antti@weego.fi
+    Click Element   name=op
+    Page Should Contain    The value in Your email is not a valid email address.
+Email validation special characters1
+    Input text    id=edit-submitted-your-email    antti\@weego.fi
+    Click Element   name=op
+    Page Should Contain    The value in Your email is not a valid email address.
    
