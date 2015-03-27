@@ -25,6 +25,7 @@ Contact us fields
     Input Text    id=edit-submitted-your-name    ${name}
     Input Text    id=edit-submitted-your-email    ${email}
     Input Text    id=edit-submitted-message    ${message}
+    Click Element    name=op
     Page Should Contain    ${validate}
-#    Element Should be Visible    css=label.error    Error label not visible
+    Element Should be Visible    css=label.error    Error label not visible
     Page Should Not Contain    Thank you! Your message has been received and we will reply to you ASAP.

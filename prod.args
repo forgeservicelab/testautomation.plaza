@@ -12,7 +12,8 @@
 01_anonymous/08_searchbar.txt
 01_anonymous/15_carousel_items.txt 
 01_anonymous/16_empty_plaza.txt 
-01_anonymous/17_contact_us_email_format.txt
+01_anonymous/17_contact_us_email_format_FAIL.txt
+01_anonymous/18_contact_us_email_format_OK.txt
 02_login/011_login_with_CAS_digile_staff.txt
 02_login/012_login_with_CAS_partner.txt
 02_login/013_login_with_CAS_partner_cra.txt

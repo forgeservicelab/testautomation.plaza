@@ -1,0 +1,48 @@
+*** Settings ***
+Documentation    Check that Contact us is available
+Suite Setup    Go to frontpage
+Suite Teardown    Close All Browsers
+Test Template   Contact us fields 
+Resource    ../common/assets/secrets.txt
+Resource    ../common/assets/resource.txt
+Resource    ../local_resource.txt
+
+
+*** Variables ***
+
+
+*** Test Cases ***  Name      Email              Message    Validate
+email format        antti     tes@tattee.com     message    The value in Your email is not a valid email address.
+email format1       antti     tesi+1@tee.com     message    The value in Your email is not a valid email address.
+email format2       antti     \"()<>[]:,;@\\!#$%&'*+-/=?^_`{}| ~.a\"@example.org    message    bla
+email format3       antti    niceandsimple@example.com    message    bla
+email format4       antti    very.common@example.com    message    bla
+email format5       antti    a.little.lengthy.but.fine@dept.example.com    message    bla
+email format6       antti    disposable.style.email.with+symbol@example.com    message    bla
+email format7       antti    other.email-with-dash@example.com    message    bla
+email format8       antti    \"much.more unusual\"@example.com    message    bla
+email format9       antti    \"very.unusual.@.unusual.com\"@example.com    message    bla
+email format10      antti    \"very.(),:;<>[]\\\".VERY.\\\"very@\\\\ \\\"very\\\".unusual\"@strange.example.com    message    bla
+email format11      antti    \#!$%&'*+-/=?^_`{}|~@example.org    message    bla
+email format12      antti    \"()<>[]:,;@\\!#$%&'*+-/=?^_`{}| ~.a\"@example.org    message    bla
+email format13      antti    \" \"@example.org    message    bla
+email format14      antti    üñîçøðé@example.com    message    bla
+email format15      antti    üñîçøðé@üñîçøðé.com    message    bla
+
+*** Keywords ***
+Contact us fields
+    [Arguments]    ${name}    ${email}    ${message}    ${validate}
+    Click Element    Link=Contact us
+    Page Should Not Contain    Warning
+    Page Should Contain    Please do not hesitate to contact us
+    Input Text    id=edit-submitted-your-name    ${name}
+    Input Text    id=edit-submitted-your-email    ${email}
+    Input Text    id=edit-submitted-message    ${message}
+#    Click Element     name=op
+#    Element Should be Visible    css=label.error    Error label not visible
+#    Element Should be Visible    //form[@id='webform-client-form-13']/div/div[1]/label
+#    Element Should be Visible    //form[@id='webform-client-form-13']/div/div[3]/label
+#    Element Should not be Visible    //form[@id='webform-client-form-13']/div/div[2]/label    Email error visible
+    Element Should not be visible    css=label.error
+#    Page Should Not Contain    ${validate}
+    Page Should Not Contain    Thank you! Your message has been received and we will reply to you ASAP.
