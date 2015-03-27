@@ -12,15 +12,25 @@ Resource    ../local_resource.txt
 
 
 *** Test Cases ***  Name      Email              Message    Validate
-email format        name      testattee.com      message    The value in Your email is not a valid email address.
-email format1        name     testa@tee.         message    The value in Your email is not a valid email address.
-email format2        name     tesee.com@fi       message    The value in Your email is not a valid email address.
-email format3        name     ant.weego.fi       message    The value in Your email is not a valid email address.
-email format4        name     anttiweego@fi      message    The value in Your email is not a valid email address.
-email format5        name     anttiweego@        message    The value in Your email is not a valid email address.
-email format6        name     @weego.fi          message    The value in Your email is not a valid email address.
-email format7        name     .antti@weego.fi    message    The value in Your email is not a valid email address.
-email format8        name     antti\\@weego.fi   message    The value in Your email is not a valid email address.
+email format1       name      Abc.example.com    message    The value in Your email is not a valid email address.
+email format2       name      A@b@c@examp.com    message    The value in Your email is not a valid email address.
+email format3       name      a\"b(c)d,e:f;g<h>i[j\k]l@example.com      message    The value in Your email is not a valid email address.
+email format4       name      just\"not\"right@example.com        message    The value in Your email is not a valid email address.
+email format5       name      this is\"not\\allowed@example.com   message    The value in Your email is not a valid email address.
+email format6       name      this\\ still\\\"not\\\\allowed@example.com     message    The value in Your email is not a valid email address.
+email format7       name      john..doe@example.com       message    The value in Your email is not a valid email address.
+email format8       name      john.doe@example..com       message    The value in Your email is not a valid email address.
+email format9       name      ${SPACE}antti@weego.fi      message    The value in Your email is not a valid email address.
+email format10      name      antti@weego.fi${SPACE}      message    The value in Your email is not a valid email address.
+email format11      name      testattee.com      message    The value in Your email is not a valid email address.
+email format12      name     testa@tee.         message    The value in Your email is not a valid email address.
+email format13      name     tesee.com@fi       message    The value in Your email is not a valid email address.
+email format14      name     ant.weego.fi       message    The value in Your email is not a valid email address.
+email format15      name     anttiweego@fi      message    The value in Your email is not a valid email address.
+email format16      name     anttiweego@        message    The value in Your email is not a valid email address.
+email format17      name     @weego.fi          message    The value in Your email is not a valid email address.
+email format18      name     .antti@weego.fi    message    The value in Your email is not a valid email address.
+email format19      name     antti\\@weego.fi   message    The value in Your email is not a valid email address.
 
 
 *** Keywords ***
