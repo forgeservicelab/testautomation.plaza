@@ -13,9 +13,9 @@ ${USER}    ${VALID_PARTNER}
 ${PASSWORD}    ${VALID_PARTNER_PASSWORD}
 
 *** Test Cases ***
-Open bulletin board
-    Go to    ${DRUPAL_URL}/en/bulletin-board
-    Page Should Contain    Bulletin board
+#Open bulletin board
+#    Go to    ${DRUPAL_URL}/en/bulletin-board
+#    Page Should Contain    Bulletin board
 Go to plaza
     Go to    ${DRUPAL_URL}
     Click Link     Log in
