@@ -11,13 +11,10 @@ Resource    ../local_resource.txt
 *** Variables ***
 
 
-*** Test Cases ***  Name      Email           Message    Validate
-empty name          ${empty}  test@test.com   message    Your name field is required.
-empty email         name      ${empty}        message    Your email field is required.
-empty message       name      test@test.com   ${empty}   Message field is required.
-email format        name      testattee.com   message    The value in Your email is not a valid email address.
-email format1        name     testa@tee.      message    The value in Your email is not a valid email address.
-email format2        name     tesee.com@fi    message    The value in Your email is not a valid email address.
+*** Test Cases ***  Name      Email              Message    Validate
+empty name          ${empty}  test@test.com      message    Your name field is required.
+empty email         name      ${empty}           message    Your email field is required.
+empty message       name      test@test.com      ${empty}   Message field is required.
 
 *** Keywords ***
 Contact us fields
@@ -29,4 +26,5 @@ Contact us fields
     Input Text    id=edit-submitted-your-email    ${email}
     Input Text    id=edit-submitted-message    ${message}
     Page Should Contain    ${validate}
+#    Element Should be Visible    css=label.error    Error label not visible
     Page Should Not Contain    Thank you! Your message has been received and we will reply to you ASAP.

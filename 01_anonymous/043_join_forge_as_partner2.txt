@@ -48,8 +48,4 @@ Mandatory fields
     Page Should Contain    Your name field is required
     Page Should Contain    Your email field is required.
     Page Should Contain    Message field is required.
-Email validation no at
-    Input text    id=edit-submitted-your-email    antti.weego.fi
-    Click Element   name=op
-    Page Should Contain    The value in Your email is not a valid email address.
 
