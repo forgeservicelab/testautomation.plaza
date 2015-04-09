@@ -31,8 +31,8 @@ Plaza own content
 Access to add content to plaza
     Wait until Page Contains    Add content
     Mouse over    link=Add content
-Can add Bulletin board item
-    Page Should Contain    Bulletin board item
+#Can add Bulletin board item
+#    Page Should Contain    Bulletin board item
 Can add Organization
     Page Should Contain    Organization
 Can add Product family

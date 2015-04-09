@@ -27,8 +27,8 @@ Plaza own content
 No access to create plaza items
     Wait Until Page Contains    Add content
     Mouse Over    link=Add content
-Can add Bulletin board item
-    Page Should Contain    Bulletin board item
+#Can add Bulletin board item
+#    Page Should Contain    Bulletin board item
 Cannot add organization
     Page Should Not Contain    Organization
 Cannot add service offering
