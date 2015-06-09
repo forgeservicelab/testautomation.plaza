@@ -59,7 +59,7 @@ Can add Product family
     Page Should Contain    Product family
 Can add Product offering
     Page Should Contain    Product offering
-Can add Seervice offering
+Can add Service offering
     Page Should Contain    Service offering
 Can add Free of charge project
     Page Should Contain    Free of charge offering
