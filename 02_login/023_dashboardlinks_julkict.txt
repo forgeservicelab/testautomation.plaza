@@ -1,7 +1,7 @@
 *** Settings ***
-Documentation    Verifyes that when julkict user logs in plaza he will be redirected to dashboard page instead of forgeservilab main page
+Documentation    Verify links from dashboard page
 Suite Setup    Startit 
-Suite Teardown    Close All Browsers
+Suite Teardown    Closeit 
 Resource    ../common/assets/resource.txt
 Resource    ../common/assets/secrets.txt
 Resource    ../local_resource.txt
@@ -13,6 +13,7 @@ Library     Collections
 ${username}    ${VALID_JULKICT}
 ${password}    ${VALID_JULKICT_PASSWORD}
 ${HREF_LINK}   //a[string-length(@href) > 0]
+${ZERO}    0
 
 *** Test Cases ***
 Analyze Page Links
@@ -44,9 +45,8 @@ Analyze Links
   ${items_ok} =  Get Length  ${found_ok}
   Log  "Found 404 links ${items_404} are ${found_404}"
   Log  "Found OK links ${items_ok} are ${found_ok}"
-  ${temp}     evaluate    ${items_404}
-  ${temp2}    evaluate    0
-  Should Not Be Equal    ${temp}   ${temp2}    msg=Found 404 in links
+  ${ZERO}    evaluate    ${ZERO}
+  Should Be Equal     ${ZERO}   ${items_404}    msg=Found 404 in links
 
 
 
@@ -59,5 +59,8 @@ Startit
     Set Log Level    DEBUG
     Page Should Contain    Welcome to FORGE Service Lab
 
-*** Keywords ***
+Closeit
+    Go to    ${AUTH_URL}/logout
+    Page Should Contain    Bye
+    Close All Browsers
 
