@@ -16,9 +16,8 @@ ${HREF_LINK}   //a[string-length(@href) > 0]
 ${ZERO}    0
 
 *** Test Cases ***
-Analyze Page Links
+Analyze Welcome Page Links
     Analyze Links
-
 
 
 *** Keywords ***
