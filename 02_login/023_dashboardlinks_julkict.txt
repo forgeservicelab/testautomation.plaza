@@ -27,8 +27,6 @@ Analyze Links
   @{found_404} =  Create List
   @{found_ok} =  Create List
   ${links} =  Get Matching Xpath Count  ${HREF_LINK}
-  ${temp}    evaluate    ${links} - 10
-  ${link}    evaluate    10
   Log  "Going to check ${links} links"
   : FOR  ${link}  IN RANGE  ${links}
   \  ${destination} =  Get Element Attribute  xpath=(${HREF_LINK})[${link}+1]@href 
