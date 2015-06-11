@@ -1,0 +1,63 @@
+*** Settings ***
+Documentation    Verifyes that when julkict user logs in plaza he will be redirected to dashboard page instead of forgeservilab main page
+Suite Setup    Startit 
+Suite Teardown    Close All Browsers
+Resource    ../common/assets/resource.txt
+Resource    ../common/assets/secrets.txt
+Resource    ../local_resource.txt
+Library     String
+Library     Collections
+
+
+*** Variables ***
+${username}    ${VALID_JULKICT}
+${password}    ${VALID_JULKICT_PASSWORD}
+${HREF_LINK}   //a[string-length(@href) > 0]
+
+*** Test Cases ***
+Analyze Page Links
+    Analyze Links
+
+
+
+*** Keywords ***
+Analyze Links
+  @{to_visit} =  Create List
+  @{found_404} =  Create List
+  @{found_ok} =  Create List
+  ${links} =  Get Matching Xpath Count  ${HREF_LINK}
+  ${temp}    evaluate    ${links} - 10
+  ${link}    evaluate    10
+  Log  "Going to check ${links} links"
+  : FOR  ${link}  IN RANGE  ${links}
+  \  ${destination} =  Get Element Attribute  xpath=(${HREF_LINK})[${link}+1]@href 
+  \  ${status} =  Run Keyword And Ignore Error  List Should Not Contain Value  ${to_visit}  ${destination}
+  \  Run Keyword If  ${status}[0]=="PASS"  Append To List  ${to_visit}  ${destination}
+  ${places} =  Get Length  ${to_visit}
+  Log  "Number of entries in to_visit list is ${places}"
+  : FOR  ${link}  IN  @{to_visit}
+  \  Go To  ${link}
+  \  ${status} =  Run Keyword And Ignore Error  Page Should Not contain    HTTP 404 - Not Found
+  \  Run Keyword If  ${status}[0]=="FAIL"  Append To List  ${found_404}  ${link}
+  \  Run Keyword If  ${status}[0]=="PASS"  Append To List  ${found_ok}  ${link}
+  ${items_404} =  Get Length  ${found_404}
+  ${items_ok} =  Get Length  ${found_ok}
+  Log  "Found 404 links ${items_404} are ${found_404}"
+  Log  "Found OK links ${items_ok} are ${found_ok}"
+  ${temp}     evaluate    ${items_404}
+  ${temp2}    evaluate    0
+  Should Not Be Equal    ${temp}   ${temp2}    msg=Found 404 in links
+
+
+
+Startit
+    Go to frontpage
+    Click Link    Log in
+    Wait Until Page Contains    Username
+    Set Log Level    NONE
+    login Auth    ${username}      ${password}    You are currently logged in as ${username}
+    Set Log Level    DEBUG
+    Page Should Contain    Welcome to FORGE Service Lab
+
+*** Keywords ***
+
