@@ -1,4 +1,3 @@
-01_anonymous/02_all_contracts.txt
 01_anonymous/03_company_website_link.txt
 01_anonymous/041_join_forge_as_developer.txt
 01_anonymous/042_join_forge_as_partner.txt
@@ -14,6 +13,7 @@
 01_anonymous/16_empty_plaza.txt 
 01_anonymous/17_contact_us_email_format_FAIL.txt
 01_anonymous/18_contact_us_email_format_OK.txt
+01_anonymous/19_check_mainpage_links.txt
 02_login/011_login_with_CAS_digile_staff.txt
 02_login/012_login_with_CAS_partner.txt
 02_login/013_login_with_CAS_partner_cra.txt
