@@ -1,0 +1,58 @@
+*** Settings ***
+Documentation    Verify links from dashboard page
+Suite Setup    Startit 
+Suite Teardown    Closeit 
+Resource    ../common/assets/resource.txt
+Resource    ../common/assets/secrets.txt
+Resource    ../local_resource.txt
+Library     String
+Library     Collections
+
+
+*** Variables ***
+${HREF_LINK}   //a[string-length(@href) > 0]
+${ZERO}    0
+
+*** Test Cases ***
+Analyze Main Page Links
+    Analyze Links
+
+
+*** Keywords ***
+Analyze Links
+  @{to_visit} =  Create List
+  @{found_404} =  Create List
+  @{found_ok} =  Create List
+  ${links} =  Get Matching Xpath Count  ${HREF_LINK}
+  Log  "Going to check ${links} links"
+  : FOR  ${link}  IN RANGE  ${links}
+  \  ${destination} =  Get Element Attribute  xpath=(${HREF_LINK})[${link}+1]@href 
+  \  ${status} =  Run Keyword And Ignore Error  List Should Not Contain Value  ${to_visit}  ${destination}
+  \  Run Keyword If  ${status}[0]=="PASS"  Append To List  ${to_visit}  ${destination}
+  ${places} =  Get Length  ${to_visit}
+  Log  "Number of entries in to_visit list is ${places}"
+  : FOR  ${link}  IN  @{to_visit}
+  \  ${status} =  Run Keyword And Ignore Error  Should not Contain   ${link}    mailto
+  \  Log  "STATUS: ${status}"
+  \  Run Keyword IF  ${status}[0]=="PASS"   Go to    ${link}
+  \  Run Keyword IF  ${status}[0]=="FAIL"   Log    "Mailto address. Cannot be opened in browser"
+  \  ${status} =  Run Keyword And Ignore Error  Page Should Not contain    HTTP 404 - Not Found
+  \  Run Keyword If  ${status}[0]=="FAIL"  Append To List  ${found_404}  ${link}
+  \  Run Keyword If  ${status}[0]=="PASS"  Append To List  ${found_ok}  ${link}
+  ${items_404} =  Get Length  ${found_404}
+  ${items_ok} =  Get Length  ${found_ok}
+  Log  "Found 404 links ${items_404} are ${found_404}"
+  Log  "Found OK links ${items_ok} are ${found_ok}"
+  ${ZERO}    evaluate    ${ZERO}
+  Should Be Equal     ${ZERO}   ${items_404}    msg=Found 404 in links
+
+
+
+Startit
+    Selenium2Library.Set Selenium Timeout    30s
+    Go to frontpage
+    Page should Contain    FORGE Service Lab is a place for creating digital services.
+
+Closeit
+    Close All Browsers
+
